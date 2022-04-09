@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 router.get("/", (req,res)=>{
   res.send("welcome to auth")
 })
-//REGISTER
+  //REGISTER
 router.post("/register", async (req, res) => {
   console.log("trying to register")
   try {

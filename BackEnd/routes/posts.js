@@ -1,10 +1,33 @@
-<<<<<<< HEAD
 const router = require("express").Router();
 const Post = require("../models/posts");
 const User = require("../models/users");
+const {check, validationResult} = require('express-validator/check')
+const auth = require('../middlewares/auth')
 
-router.get("/", (req,res)=>{
-  res.send("welcome to post")
+router.post('/',[auth,[
+  check('text', 'text is required').not().isEmpty()
+  ]] ,async (req,res) => {
+  const errors = validationResult(req)
+  if(errors.isEmpty()) {
+      //todo add post to db
+      try {
+          const user = await User.findById(req.user.id).select('-password')
+
+          const newPost = new Post({
+              text: req.body.text,
+              name: user.name,
+              user : req.user.id
+          })
+          const post = await newPost.save() 
+      }
+      catch (error) {
+          res.status(500).send('Server error')
+      }
+
+  }
+  else {
+      return res.status(400).json({errors: errors.array()})
+  }
 })
 
 //create a post
@@ -78,40 +101,4 @@ router.get("/getpost/:id", async (req, res) => {
 
 
 module.exports = router;
-=======
-const express = require('express')
-const router = express.Router()
-const {check, validationResult} = require('express-validator/check')
-const auth = require('../middlewares/auth')
-const User = require('../models/users')
-const Post = require('../models/posts')
 
-router.post('/',[auth,[
-    check('text', 'text is required').not().isEmpty()
-]] ,async (req,res) => {
-    const errors = validationResult(req)
-    if(errors.isEmpty()) {
-        //todo add post to db
-        try {
-            const user = await User.findById(req.user.id).select('-password')
-
-            const newPost = new Post({
-                text: req.body.text,
-                name: user.name,
-                user : req.user.id
-            })
-            const post = await newPost.save() 
-        }
-        catch (error) {
-            res.status(500).send('Server error')
-        }
-
-    }
-    else {
-        return res.status(400).json({errors: errors.array()})
-    }
-})
-
-module.exports = router
-
->>>>>>> a2130a3c3a430ae504e361e4582fa5fc0d213e4e
