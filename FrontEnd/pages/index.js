@@ -16,7 +16,7 @@ export default function Home(){
       
       <Header2/>
          {/*main component*/}
-      <TeacherMain/>
+      <Foooter/>
     </div>
   )
 }
