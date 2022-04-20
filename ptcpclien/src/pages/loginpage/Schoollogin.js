@@ -1,12 +1,9 @@
 import React from 'react'
-import Layout from '../../components/Layout'
-import Link from 'next/link'
 import Navbar from '../../components/navbar'
 import Footerlog from '../../components/Footer'
 export default function Parentslogin() {
   return (
-    <Layout title="Parents Login">
-      <div className='bg-slate-100	 min-w-screen'>
+          <div className='bg-slate-100	 min-w-screen'>
         <div className="container mx-auto max-w-xl min-h-fit pt-8" >
         <div className="flex justify-center">
            <img src="http://localhost:3000/logo2.png" alt="logo" width={120} height={120}/>
@@ -18,7 +15,7 @@ export default function Parentslogin() {
         </div>
         <div className='p-7'> 
         <h1 className="flex justify-center">
-            parents Login
+            Schools Login
         </h1>
         </div>
         <div className='container max-w-xl min-h-fit text-white mb-24'>
@@ -50,6 +47,6 @@ export default function Parentslogin() {
 
          <Footerlog/>
          </div>
-    </Layout>
+
   )
 }
