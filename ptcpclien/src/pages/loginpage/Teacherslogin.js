@@ -1,24 +1,25 @@
 import React from 'react'
-import Navbar from '../../components/navbar'
+import Navbar from '../../components/Navbar'
 import Footerlog from '../../components/Footer'
 export default function Parentslogin() {
   return (
-
-      <div className='bg-slate-100	 min-w-screen'>
+    <div className='bg-slate-100 min-h-screen min-w-screen flex flex-col'>
         <div className="container mx-auto max-w-xl min-h-fit pt-8" >
-        <div className="flex justify-center">
-           <img src="http://localhost:3000/logo2.png" alt="logo" width={120} height={120}/>
-         </div>
-         <div>
-        <h1 className="text-3xl font-bold flex justify-center pt-5 text-cyan-500 ">   
-           Beare PTC PlatForm
-        </h1> 
+            <div className="flex justify-center">
+              <img src="assets/logo2.png" className='w-32 h-28 ' alt="logo2"/>
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold flex justify-center pt-5 text-cyan-500 ">   
+                  Beare PTC PlatForm
+                </h1> 
+            </div>
+            <div className='p-7'> 
+              <h1 className="flex justify-center text-xl  ">
+                  Teachers Login
+              </h1>
         </div>
-        <div className='p-7'> 
-        <h1 className="flex justify-center">
-            Teachers Login
-        </h1>
-        </div>
+
+
         <div className='container max-w-xl min-h-fit text-white mb-24'>
               <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                   <div class="mb-4">
@@ -42,11 +43,12 @@ export default function Parentslogin() {
                       Forgot Password?
                     </a>
                   </div>
-               </form>
+            </form>
+          </div>
         </div>
+        <div className='mt-6' >
+           <Footerlog/>
         </div>
-
-         <Footerlog/>
          </div>
   )
 }

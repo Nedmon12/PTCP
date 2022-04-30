@@ -14,6 +14,7 @@ export default function classroom() {
             <ClassroomNavbar/>
             {/*list  of students*/}
             <Students/>
+            
         </div>
         <div  className="pt-3">
         <Footerlog/>

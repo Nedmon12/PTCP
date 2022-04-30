@@ -36,15 +36,19 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    followers: {
-      type: Array,
-      default: [],
+    isSystemAdmin: {
+      type: Boolean,
+      default: false,
     },
-    followings: {
-      type: Array,
-      default: [],
+    isSchoolAdmin: {
+      type: Boolean,
+      default: false,
     },
-    isAdmin: {
+    isteacher: {
+      type: Boolean,
+      default: false,
+    },
+    isparent: {
       type: Boolean,
       default: false,
     },
