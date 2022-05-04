@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Land/>
-   
+    
     </div>
   );
 }
