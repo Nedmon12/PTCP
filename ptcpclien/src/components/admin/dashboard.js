@@ -9,7 +9,7 @@ class dashboard extends Component {
         this.props.getSchoolList()
     }
     render() {
-        const {schools} = this.props.schoolList
+        const {schools} = this.props.schools
         return (
             <div>
              {schools.map(school=> (
@@ -25,6 +25,6 @@ dashboard.propTypes = {
     schools: PropTypes.object.isRequired
 }
 const mapStatetoProps = state => ({
-    schoolList : state.schools
+    schools : state.schools
 })
 export default connect(mapStatetoProps, {getSchoolList})(dashboard)

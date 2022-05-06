@@ -1,10 +1,10 @@
 import { GET_ERRORS, GET_SCHOOLS, SCHOOLS_LOADING } from "../actions/types"
 const initialState = {
-    schools : null,
+    schools : [],
     loading : false
 }
 
-export default function (state = initialState, action) {
+export default function placeholder (state = initialState, action) {
     switch(action.type) {
         case GET_SCHOOLS : 
             return {
