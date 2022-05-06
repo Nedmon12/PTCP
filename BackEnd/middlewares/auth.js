@@ -1,20 +1,31 @@
-const jwt = require('jsonwebtoken')
-const config = require('config')
+const jwt = require("jsonwebtoken");
+const ErrorResponse = require("../utils/errorresponse");
+const User = require("../models/Users");
 
-module.exports = function (req,res,next) {
-    const token = req.header('x-auth-token')
+exports.protect = async (req, res, next) => {
+  let token;
 
-    if (!token) {
-        return res.status(401).json({msg: "No token"})
+  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+    console.log(token);
+  if (!token) {
+    return next(new ErrorResponse("Nott authorized to access this route", 401));
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const user = await User.findById(decoded.id);
+
+    if (!user) {
+      return next(new ErrorResponse("No user found with this id", 404));
     }
 
-    try {
-        //user authentication module needs to be completed first
-        const decoded = jwt.verify(token, config.get('jwtsecret'))
-        req.user = decoded.user
-        next()
-    }
-    catch (error) {
-        res.status(401).json({msg:"invalid token"})
-    }
-}
+    req.user = user;
+
+    next();
+  } catch (err) {
+    return next(new ErrorResponse("Notm authorized to access this router", 401));
+  }
+};

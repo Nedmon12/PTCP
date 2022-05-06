@@ -1,4 +1,37 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
+
+const {register , login, forgetpassword, resetPassword}= require('../controllers/userController');
+
+
+router.route("/register").post(register);
+
+router.route("/login").post(login);
+
+router.route("/forgetpassword").post(forgetpassword);
+
+router.route("/resetpassword/:resetToken").put(resetPassword);
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const router = require("express").Router();
 const User = require("../models/users");
 const bcrypt = require("bcrypt");
 router.get("/", (req,res)=>{
@@ -43,4 +76,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router;*/

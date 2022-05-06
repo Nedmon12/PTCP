@@ -2,12 +2,7 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
-    date : {
-        type: Date,
-        default: Date.now
-    },
-  
-    userId: {
+     userId: {
       type: String,
       required: true,
     },
@@ -19,6 +14,10 @@ const PostSchema = new mongoose.Schema(
       type: String,
     },
     likes: {
+      type: Array,
+      default: [],
+    },
+    comments: {
       type: Array,
       default: [],
     },

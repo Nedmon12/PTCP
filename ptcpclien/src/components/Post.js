@@ -1,41 +1,59 @@
 import React from 'react'
-import {
-    BookmarkIcon,
-    ChatIcon,
-    DotsHorizontalIcon,
-    EmojiHappyIcon,
-    HeartIcon,
-    PaperAirPlaneIcon,}
-    from '@heroicons/react/outline'
-import {HeartIcon as heartIconFilled} from '@heroicons/react/solid'
-import Image from 'next/image'
-function post({id, username, classpost, timeafterpost, userimg, img , caption}) {
-  return (
-      <div className="px-4 my-7 border rounded-sm">
-        
-        {/* header */}
-            <div className="flex items-center p-5">
-                <img src={userimg} className="rounded-full h-12 w-12 object-contain border p-1 mr-3"
-                 alt=""></img>
-                <p className="p-5 flex-1 font-bold">{username}</p>
-                <p className="flex-1">{classpost}</p>
-                <p className="flex-1">{timeafterpost} </p>
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import CommentIcon from '@mui/icons-material/Comment';
+function post({post}) {
+    console.log(post)
+  
+    return (
+    <div className=" my-7 border border-cyan-300 rounded-lg">
+        <div className="postWrapper">
+            <div className="postTop">
+                <div className="postTopLeft flex justify-between pt-3 px-3" >
+                    <div className='flex flex-row'>
+                        <img className="postProfileImg h-10 w-10 rounded-full border border-cyan-400 object-cover" src={post.userimg} alt=""/>
+                        <div className='flex flex-col'>
+                            <span className="postUsername text-bs font-bold ml-3">{post.username}</span>
+                            <span className="teacherClass text-sm text-gray-600 ml-3">{post.classpost}</span>
+                        </div>
+                    </div>
+                    <span className="postDate ">{post.timeafterpost}</span>
+                </div>    
             </div>
-
-        {/* image container  */}
-        <img src={img} className="object-cover w-full"/>
-        {/* caption */}
-        <div>
-            <p className="p-5">{caption}</p>
+        <hr className="PostHr mt-4" />    
+        <div className="postCenter mt-3">
+            <span className="postText  px-5">{post.caption}</span>
+            <img className="postImg w-full mt-3 max-h-96 object-cover" src={post.img} alt="" />  
+            <div className='mt-3 pl-3 flex flex-row text-gray-500 text-xs'>
+                <div className='likeno'>
+                    <ThumbUpIcon className='pl-2'/>    
+                    <span className="postLikeCounter pl-2">{post.nooflike}</span>
+                    <span className="postlikename pl-2 pr-12">Likes</span>    
+                </div>
+                <div classname='commentno'>
+                    <CommentIcon classname='pl-2'/>
+                    <span className='postLikeCounter pl-2'>{post.noofcomments}</span>
+                    <span className='postLikeCounter pl-2'>comments</span>   
+                </div>                
+            </div>
         </div>
-        {/* button */}
-
-        
-
-        {/* comment */}
-
-        {/* imputbox */}    
-
+        <hr className="PostHr mt-4" />
+        <div className="postBottom flex justify-between text-cyan-400">
+            <div className="postBottomLeft flex flex-row">
+                <div className='border border-cyan-200 rounded-lg m-4 p-3'>
+                    <ThumbUpIcon/>
+                    <span className="postLikeCounter">like</span>
+                </div>
+                <div className='border border-cyan-200 rounded-lg m-4 p-3' >
+                    <CommentIcon/>
+                    <span className="postCommentText">comment</span>
+                </div>  
+            </div>
+            <div className="postBottomRight border border-cyan-200 rounded-lg m-4 p-3">
+                <MoreVertIcon/>
+            </div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,48 +1,72 @@
 import React from 'react'
 import Post from './Post'
 
-const posts= 
+export const Posts= 
 [
     {
-        id:"123",
-        username:"nedval",
-        classpost:"grade 8",
+        id:"121",
+        username:"Teacher jara",
+        classpost:"grade 6",
         timeafterpost:"mar 20",
-        userimg:"https://media-exp1.licdn.com/dms/image/C4D22AQEqhiCm0UxrnA/feedshare-shrink_2048_1536/0/1631386321019?e=1650499200&v=beta&t=880xvMBE4jIaNc1pU_Rn3SzB-5swA0vMf-MAiJyYyQY",
-        img:"https://i0.wp.com/ilinkstudents.com/wp-content/uploads/2018/07/iLink_Students_Sample_Image_2.jpg?fit=1688%2C1688&ssl=1",
+        userimg:"assets/profile/1.jpg",
+        img:"assets/1.jpg",
         caption:"i think we progressed 1% out of 100",
+        nooflike:"15",
+        noofcomments:"6",
+    },
+    {
+        id:"122",
+        username:"Teacher Giri",
+        classpost:"grade 8",
+        timeafterpost:"mar 25",
+        userimg:"assets/profile/2.jpg",
+        img:"assets/2.jpg",
+        caption:"grade 8s are retarded",
+        nooflike:"176",
+        noofcomments:"65",
     },
     {
         id:"123",
-        username:"jara guta",
+        username:"Teacher dano",
+        classpost:"grade 2",
+        timeafterpost:"Mar 30",
+        userimg:"assets/profile/3.jpg",
+        img:"assets/3.jpg",
+        caption:"grade 2s are the best",
+        nooflike:"5",
+        noofcomments:"2",
+    },
+    {
+        id:"123",
+        username:"Teacher ned",
+        classpost:"grade 8",
+        timeafterpost:"Apr 20",
+        userimg:"assets/profile/4.jpg",
+        img:"assets/4.jpg",
+        caption:"grade 2 teachers are retarded",
+        nooflike:"115",
+        noofcomments:"46",
+    },
+    {
+        id:"123",
+        username:"Teacher girum hawasa",
+        classpost:"grade 1",
+        timeafterpost:"mar 20",
+        userimg:"assets/profile/5.jpg",
+        img:"assets/5.jpg",
+        caption:"I love grade 2",
+        nooflike:"154",
+        noofcomments:"16",
+    },
+    {
+        id:"123",
+        username:"Teacher junior",
         classpost:"grade 8",
         timeafterpost:"mar 20",
-        userimg:"https://media-exp1.licdn.com/dms/image/C4D22AQEqhiCm0UxrnA/feedshare-shrink_2048_1536/0/1631386321019?e=1650499200&v=beta&t=880xvMBE4jIaNc1pU_Rn3SzB-5swA0vMf-MAiJyYyQY",
-        img:"https://i0.wp.com/ilinkstudents.com/wp-content/uploads/2018/07/iLink_Students_Sample_Image_2.jpg?fit=1688%2C1688&ssl=1",
-        caption:"i think we progressed 1% out of 100",
+        userimg:"assets/profile/6.jpg",
+        img:"assets/6.jpg",
+        caption:"still saksing",
+        nooflike:"515",
+        noofcomments:"65",
     },
 ];
-
-
-function Posts() {
-  return (
-        <div >
-            {posts.map((post)=>(
-                <Post 
-                key={post.id} 
-                id={post.id} 
-                username={post.username}
-                classpost={post.classpost}
-                timeafterpost={post.timeafterpost} 
-                userimg={post.userimg} 
-                img={post.img} 
-                caption={post.caption} 
-                />
-            ))}
-            
-           
-        </div>
-    )
-}
-
-export default Posts

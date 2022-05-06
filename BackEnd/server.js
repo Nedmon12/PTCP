@@ -7,7 +7,8 @@ const morgan= require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
-
+const privateRoute= require("./routes/private");
+const errorHandler= require('./middlewares/error');
 
 dotenv.config();
 
@@ -23,8 +24,10 @@ app.use(morgan("common"));
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/private", privateRoute);
+app.use(errorHandler);
 
-app.listen(8002,()=>{
+const server = app.listen(8002,()=>{
     console.log("Background server is running")
 })
 app.get("/",(req,res)=>{
