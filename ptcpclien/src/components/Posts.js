@@ -65,7 +65,7 @@ export const Posts=
         timeafterpost:"mar 20",
         userimg:"assets/profile/6.jpg",
         img:"assets/6.jpg",
-        caption:"still saksing",
+        caption:"good progress",
         nooflike:"515",
         noofcomments:"65",
     },

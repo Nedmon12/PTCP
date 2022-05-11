@@ -1,4 +1,5 @@
 const User = require('../models/Users')
+const InvitedUser = require('../models/Inviteduser')
 const ErrorResponse = require("../utils/errorResponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
@@ -8,6 +9,10 @@ exports.register = async (req, res, next) => {
     const { firstname, lastname, username, email, password } = req.body;
   
     try{
+      const checkuser = await InvitedUser.findOne({ email }).select("+password");
+      if (!checkuser) {
+        return next(new ErrorResponse("not invited to the system", 401));
+      }      
       const user = await User.create({
         firstname,
         lastname,
@@ -42,6 +47,7 @@ exports.register = async (req, res, next) => {
             return next(new ErrorResponse("Invalid credentials", 401));
           }
           sendToken(user, 200, res)
+          
         }catch(error){
           res.status(500).json({
             success: false,
@@ -131,7 +137,29 @@ exports.resetPassword = async (req, res, next) => {
     next(err);
   }
 };
+
+
+exports.inviteuser= async (req,res, next)=>{
+  // Send Email to email provided
+  const { email, usertype } = req.body;
+
+  try {
+    const inviteduser = await InvitedUser.create({ 
+      email,
+      usertype,
+     });
+     res.status(201).json({
+        success: true,
+        inviteduser
+     });
+    }catch (error){
+          next(error);
+      }
+    };
+  
+
+
 const sendToken = (user, statusCode, res) => {
   const token = user.getSignedJwtToken();
-  res.status(statusCode).json({ sucess: true, token });
+  res.status(statusCode).json({ sucess: true, user, token });
 };

@@ -1,28 +1,28 @@
 const Footerlog = () => {
     return ( 
         <div className="footer">            
-            <footer class="p-4 bg-cyan-600 flex flex-row">
+            <footer className="p-4 bg-cyan-600 flex flex-row">
                 <div className="footerside basis-1/3">
 
                 </div>
                 <div className="footercenter basis-1/3 flex flex-row" >
                     <div className="threetop">
-                        <ul class="text-sm text-white flex flex-row">
+                        <ul className="text-sm text-white flex flex-row">
                             <li>
-                            <a href="#" class="mr-4 hover:underline ">Need Help</a>
+                            <a href="#" className="mr-4 hover:underline ">Need Help</a>
                             </li>
                             <li>
-                                <a href="#" class="mr-4 hover:underline">Privacy Policy</a>
+                                <a href="#" className="mr-4 hover:underline">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#" class="mr-4 hover:underline ">Term of use</a>
+                                <a href="#" className="mr-4 hover:underline ">Term of use</a>
                             </li>
                         </ul>
                     </div>
                     <div className="oneunder">
-                        <span class="text-sm text-white ">
+                        <span className="text-sm text-white ">
                             © 2022 
-                            <a href="http://localhost:3000" class="hover:underline">
+                            <a href="http://localhost:3000" className="hover:underline">
                                 Beare PTC™
                             </a>. 
                             All Rights Reserved.

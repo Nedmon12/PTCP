@@ -1,12 +1,13 @@
 import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-
 export default function Topbar() {
   //const { user } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="topbarContainer">
+      
+      <div>
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">Lamasocial</span>
@@ -41,6 +42,7 @@ export default function Topbar() {
           </div>
         </div>
      
+      </div>
       </div>
     </div>
   );
