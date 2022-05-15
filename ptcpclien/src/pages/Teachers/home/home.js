@@ -4,10 +4,12 @@ import Post from "../../../components/Post"
 import Event from "../../../components/events"
 import NewPost from "../../../components/newpost"
 import {Posts} from '../../../components/Posts'
+import Sidebar from '../../../components/Sidebar'
 export default function home() {
   return (
     <div className='totalcontainer'>
         <div  className='sticky top-0 '>
+        <Sidebar/>
         <Navbar/>
         </div>
         <div className='postandeventcontainer flex flex-row'>    

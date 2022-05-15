@@ -7,6 +7,7 @@ const morgan= require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const studentManagmentRoute= require('./routes/studentManagmentRoutes');
 const privateRoute= require("./routes/private");
 const errorHandler= require('./middlewares/error');
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
+app.use("/api/studentManagmentRoutes", studentManagmentRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);

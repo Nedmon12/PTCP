@@ -2,17 +2,21 @@ import { createContext, useEffect, useReducer } from "react";
 import AuthReducer from "./AutoReducer";
 
 const INITIAL_STATE = {
-     user: {_id: "6278d42addbd75cd1eb46277",    
-     firstname:"girum",
-     lastname:" gizachew",
-     username:"Teacher girum gizachew",
-     email: "ned@gmail.com",
-     password:"$2b$10$R04Io3CEe3p4JLC77knrbuzg8KEukJWKOxPezSQhBqp.qO1qFfQy.",
-     profilePicture:"",
-     isSystemAdmin:"false",
-     isSchoolAdmin:"false",
-     isteacher:"false",
-     isparent:"false"},
+     user: {
+       firstname:"girum",
+      _id: "6278d42addbd75cd1eb46277",    
+      lastname:" gizachew",
+      username:"Trgirumgizachew",
+      email: "ned@gmail.com",
+      resposibleclass: "4A",
+      password:"$2b$10$R04Io3CEe3p4JLC77knrbuzg8KEukJWKOxPezSQhBqp.qO1qFfQy.",
+      profilePicture:"",
+      isSystemAdmin:"false",
+      isSchoolAdmin:"false",
+      isteacher:"false",
+      isparent:"false"
+      
+    },
   isFetching: false,
   error: false,
 };
