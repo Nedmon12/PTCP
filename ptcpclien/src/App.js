@@ -2,7 +2,7 @@ import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import Land from './landingpage/land.js';
+import Land from './pages/landingpage/land.js';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
@@ -17,12 +17,13 @@ import TStatus from './pages/Teachers/classroom/Status';
 import TResult from './pages/Teachers/classroom/Result';
 import Login from './pages/landingpage/login'
 import TLogin from './pages/loginpage/Teacherslogin'
+import AdminPage from './components/adminMain'
 
 function App() {
   return (
-    <Provider>
+    <Provider store = {store}>
       <Routes>
-        <Route path='/' element={<Land/>}  />
+        <Route path='/' element={<Home/>}  />
         <Route path='/Thome' element={<Home/>}  />
         <Route path='/classroom' element={<Classroom/>}  />
         <Route path='/message' element={<Chat/>}  />
@@ -33,6 +34,7 @@ function App() {
         <Route path='/tbehaviour' element={<TBehavior/>}  />
         <Route path='/tresult' element={<TResult/>}  />
         <Route path='/tstatus' element={<TStatus/>}  />
+        <Route path='/adminDashboard' element={<AdminPage/>} />
     </Routes>
     </Provider>
     

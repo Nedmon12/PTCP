@@ -1,14 +1,16 @@
 import React , {Component} from "react"
-import Header from './Header'
 import Dashboard from './admin/dashboard'
-//import footer from '.'
+import Sidebar from './admin/Sidebar'
+//import '../css/adminHome.css'
 
-export default class adminMain extends Component {
+  
+
+export default class adminMain extends Component { 
+    
     render () {
         return (
             <div>
-            <Header />
-            <Dashboard />    
-            </div>
+            <Sidebar />
+            </div>    
         )
     } }

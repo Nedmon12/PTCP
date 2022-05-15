@@ -1,7 +1,7 @@
-const router = require('experss').Router()
+const router = require('express').Router()
 const Schools = require('../models/schools')
 
-router.get('/', (req,res) => {
+router.get('/', async (req,res) => {
     //render admin landing page
     //front end shit ahhhhhhh
     try {
@@ -15,12 +15,12 @@ router.get('/', (req,res) => {
   
 })
 
-router.get('/schools', (req,res) => {
+router.get('/schools', async (req,res) => {
     //list schools with pending requests
     //a reduced list of all the schools (as an option)
     try {
         //modify next line of code to only find unapproved schools
-        const listOfSchools = await Schools.find().limit(10)
+        const listOfSchools = await Schools.find()
         res.status(200).json(listOfSchools)
     }
     catch (error) {
@@ -28,7 +28,7 @@ router.get('/schools', (req,res) => {
     }
 })
 
-router.get('/schools/:schoolId', (req,res) => {
+router.get('/schools/:schoolId', async (req,res) => {
     //a single instance of school
     //todo allow modifications on the front end
     try {

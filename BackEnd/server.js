@@ -8,6 +8,7 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const privateRoute= require("./routes/private");
+const adminRoute = require('./routes/adminRoutes')
 const errorHandler= require('./middlewares/error');
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);
+app.use('/admin', adminRoute)
 app.use(errorHandler);
 
 const server = app.listen(8002,()=>{

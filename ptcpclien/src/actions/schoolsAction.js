@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const getSchoolList = () => dispatch => {
     dispatch(setSchoolLoading())
-    axios.get('/schools').then(res => dispatch ({
+    axios.get('/admin/schools').then(res => dispatch ({
         type: GET_SCHOOLS,
         payload: res.data
     })).catch(err => dispatch ({

@@ -1,5 +1,5 @@
 const User = require('../models/Users')
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utils/errorresponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
 
