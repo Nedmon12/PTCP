@@ -29,7 +29,9 @@ export default function AddStudentModal({setModalOn}) {
       try {
         console.log(Student)
         await axios.post("api/studentManagmentRoutes/addstudent", Student);
-      } catch (err) {
+        window.location.reload();
+    }
+       catch (err) {
         console.log(err);
       }
     }

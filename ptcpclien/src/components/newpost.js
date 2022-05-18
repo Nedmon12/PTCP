@@ -14,6 +14,7 @@ export default function Newpost() {
 
     const handleEvent = async (e) => {
       e.preventDefault();
+      if(desc!==" "){
       const newPost = {
         userId: user._id,
         desc: desc.current.value,
@@ -26,14 +27,15 @@ export default function Newpost() {
         newPost.img = fileName;
         console.log(newPost);
         try {
-          await axios.post("/upload", data);
+          await axios.post("api/upload", data);
         } catch (err) {}
       }
       try {
-        await axios.post("/posts", newPost);
+        await axios.post("api/posts/newpost", newPost);
         window.location.reload();
       } catch (err) {}
     };
+}
 
   return (
     <div className='newpostwrapper mt-4 border border-cyan-300 rounded-md'>
@@ -73,7 +75,7 @@ export default function Newpost() {
                         <span className="shareOptionText">Event</span>
                     </div>
 
-                    <button className="shareButton p-3 text-cyan-400" type="submit">
+                    <button className="shareButton p-3 text-white font-bold bg-cyan-500 w-20 h-10 py-2 border-slate-500 rounded-lg" type="submit">
                         Post
                     </button>
                 </div>

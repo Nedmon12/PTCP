@@ -8,7 +8,7 @@ const INITIAL_STATE = {
       lastname:" gizachew",
       username:"Trgirumgizachew",
       email: "ned@gmail.com",
-      resposibleclass: "4A",
+      resposibleclass: "grade: 4(A)",
       password:"$2b$10$R04Io3CEe3p4JLC77knrbuzg8KEukJWKOxPezSQhBqp.qO1qFfQy.",
       profilePicture:"",
       isSystemAdmin:"false",

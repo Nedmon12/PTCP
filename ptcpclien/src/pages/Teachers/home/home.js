@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Navbar from "../../../components/NavbarforTeacher"
 import Post from "../../../components/Post"
 import Event from "../../../components/events"
 import NewPost from "../../../components/newpost"
-import {Posts} from '../../../components/Posts'
 import Sidebar from '../../../components/Sidebar'
-export default function home() {
+import { AuthContext } from '../../../context/AuthContext'
+import useFetch from '../../../hook/useFetch'
+import axios from "axios";
+export default function Home() {
+    const {user}= useContext(AuthContext)
+    const [posts, setPosts] = useState([]);
+
+    
+    useEffect(() => {
+        const fetchPosts = async () => {
+          const res = await axios.get("/api/posts/getpost/" + user._id);
+          setPosts(
+            res.data.sort((p1, p2) => {
+              return new Date(p2.createdAt) - new Date(p1.createdAt);
+            })
+          );
+        };
+        fetchPosts();
+      }, [user._id]);
+    
+
+
   return (
     <div className='totalcontainer'>
         <div  className='sticky top-0 '>
@@ -17,8 +37,8 @@ export default function home() {
             <div className='containeroffeeds basis-1/2 flex flex-row'>
                 <div className='basis-2/3'>
                     <NewPost/> 
-                    {Posts.map((p)=>(
-                        <Post key={p.id} post={p}/>
+                    {posts.map((p)=>(
+                        <Post key={p._id} post={p}/>
                     )
                     
                     )}

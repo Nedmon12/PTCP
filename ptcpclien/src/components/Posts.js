@@ -37,7 +37,7 @@ export const Posts=
         noofcomments:"2",
     },
     {
-        id:"123",
+        id:"1223",
         username:"Teacher ned",
         classpost:"grade 8",
         timeafterpost:"Apr 20",
