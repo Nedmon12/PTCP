@@ -4,6 +4,11 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Land from './pages/landingpage/land'
 import { Routes,Route,Switch, Navigate} from "react-router-dom";
+import Land from './pages/landingpage/land.js';
+import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux'
+import store from './store'
+import { Routes,Route,} from "react-router-dom";
 import Home from './pages/Teachers/home/home';
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
@@ -14,14 +19,20 @@ import TStatus from './pages/Teachers/classroom/Status';
 import TResult from './pages/Teachers/classroom/Result';
 import Login from './pages/landingpage/login'
 import TLogin from './pages/loginpage/Teacherslogin'
+
 import { AuthContext } from './context/AuthContext';
 import { useContext } from "react";
 import Tregister from "./pages/loginpage/teacherregister"
+
+import AdminPage from './components/adminMain'
+
 function App() {
   const { user } =useContext(AuthContext)
   console.log(user);
   return (
-    <Routes>
+
+<Provider store = {store}>
+  <Routes>
       <Route path='/' element={ user ? <Classroom/> : <TLogin/> }> </Route>
 
       <Route path='/tlogin' element={ user ? <Navigate to="/" /> : <TLogin/> }> </Route>
@@ -40,7 +51,10 @@ function App() {
       <Route path='/tstatus' element={<TStatus/>}  />
       
       
-    </Routes>
+ </Routes>
+
+    </Provider>
+    
   );
 }
 

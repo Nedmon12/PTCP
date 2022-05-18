@@ -1,26 +1,16 @@
 import React , {Component} from "react"
-import Header from './Header'
-//import footer from '.'
+import Dashboard from './admin/dashboard'
+import Sidebar from './admin/Sidebar'
+//import '../css/adminHome.css'
 
-export default class adminMain extends Component {
+  
 
-    constructor () {
-        this.state = {
-            schools : "unassigned"
-        }
-    }
-    getSchoolList = () => {
-        axios.get('/admin/schools').then(response => {
-            this.setState({
-                schools: response
-            })
-        })
-    }
+export default class adminMain extends Component { 
+    
     render () {
         return (
             <div>
-            <Header />      
-            </div>
+            <Sidebar />
+            </div>    
         )
-    }
-}
+    } }

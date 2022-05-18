@@ -22,14 +22,14 @@ function StudentAttendance({student, attendance}) {
   }
  
  console.log(attendance)
- const saveHandler=()=>{
+ const saveHandler= async()=>{
   const sendattendance = {
     studentid: student._id,
     attendance: attendance,
     teacherid: user._id,
   };
   try {
-    await axios.post("api/auth/register", sendattendance);
+    await axios.post("api//studentManagmentRoutes/attendance", sendattendance);
     
   } catch (err) {
     console.log(err);

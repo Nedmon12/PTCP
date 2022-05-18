@@ -9,6 +9,7 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const studentManagmentRoute= require('./routes/studentManagmentRoutes');
 const privateRoute= require("./routes/private");
+const adminRoute = require('./routes/adminRoutes')
 const errorHandler= require('./middlewares/error');
 const multer = require("multer");
 const path = require("path");
@@ -53,6 +54,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);
+app.use('/admin', adminRoute)
 app.use(errorHandler);
 
 const server = app.listen(8002,()=>{

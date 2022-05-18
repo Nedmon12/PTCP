@@ -8,6 +8,7 @@ import { AuthContext } from '../context/AuthContext';
 import useFetch from "../hook/useFetch";
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
+import { attendance } from '../../../BackEnd/controllers/studentManagmentController';
 
 export default function StudentsAttendance() {
   
@@ -15,7 +16,7 @@ export default function StudentsAttendance() {
   const {user} = useContext(AuthContext);
   const [students, setStudents] = useState([]);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
+  const childFunc = React.useRef(null)
   useEffect(() => {
     const fetchStudent = async () => {
       const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user._id);
@@ -34,10 +35,9 @@ export default function StudentsAttendance() {
     if(isAttend===true){
       setIsAttended(false);
     }
-  };
-  const saveHandler=()=>{
 
-  }
+  };
+  
   return (
     <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between'>
         <div class="grid grid-cols-12 gap-4">
