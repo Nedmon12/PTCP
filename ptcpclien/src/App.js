@@ -4,11 +4,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Land from './pages/landingpage/land'
 import { Routes,Route,Switch, Navigate} from "react-router-dom";
-import Land from './pages/landingpage/land.js';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
-import { Routes,Route,} from "react-router-dom";
+
 import Home from './pages/Teachers/home/home';
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
@@ -25,6 +24,7 @@ import { useContext } from "react";
 import Tregister from "./pages/loginpage/teacherregister"
 
 import AdminPage from './components/adminMain'
+
 
 function App() {
   const { user } =useContext(AuthContext)
@@ -49,6 +49,7 @@ function App() {
       <Route path='/tbehaviour' element={<TBehavior/>}  />
       <Route path='/tresult' element={<TResult/>}  />
       <Route path='/tstatus' element={<TStatus/>}  />
+      <Route path='/adminDashboard' element={<AdminPage/>} />
       
       
  </Routes>

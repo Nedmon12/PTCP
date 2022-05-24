@@ -8,7 +8,7 @@ import { AuthContext } from '../context/AuthContext';
 import useFetch from "../hook/useFetch";
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import { attendance } from '../../../BackEnd/controllers/studentManagmentController';
+//import { attendance } from '../../../BackEnd/controllers/studentManagmentController';
 
 export default function StudentsAttendance() {
   
@@ -16,6 +16,7 @@ export default function StudentsAttendance() {
   const {user} = useContext(AuthContext);
   const [students, setStudents] = useState([]);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+ 
   const childFunc = React.useRef(null)
   useEffect(() => {
     const fetchStudent = async () => {
@@ -68,7 +69,7 @@ export default function StudentsAttendance() {
              </button>
                 
              </div>
-            <button onClick={saveHandler} className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
+            <button className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
         </div>
     </div>
   )
