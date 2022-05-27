@@ -7,6 +7,10 @@ import { Routes,Route,Switch, Navigate} from "react-router-dom";
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 530eb16a56f1b6b4948c0ac60ce523e1b5235606
 import Home from './pages/Teachers/home/home';
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
@@ -26,6 +30,7 @@ import { useContext } from "react";
 import Tregister from "./pages/loginpage/teacherregister"
 import ChildStatus from "./pages/parentsPage/childperformance/performance"
 import AdminPage from './components/adminMain'
+
 
 function App() {
   const { user } =useContext(AuthContext)
@@ -50,6 +55,7 @@ function App() {
 
       <Route path='/tresult' element={<TResult/>}  />
       <Route path='/tstatus' element={<TStatus/>}  />
+      <Route path='/adminDashboard' element={<AdminPage/>} />
       
       <Route path='/phome' element={<Phome/>} />  
       <Route path='/pmessage' element={<Pmessage/>} />
