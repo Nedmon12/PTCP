@@ -8,7 +8,6 @@ import { AuthContext } from '../context/AuthContext';
 import useFetch from "../hook/useFetch";
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-import { attendance } from '../../../BackEnd/controllers/studentManagmentController';
 
 export default function StudentsAttendance() {
   
@@ -39,7 +38,7 @@ export default function StudentsAttendance() {
   };
   
   return (
-    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between'>
+    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between bg-slate-50'>
         <div class="grid grid-cols-12 gap-4">
             {students.map((p)=>(
                 <StudentAttendance key={p._id} student={p} attendance={isAttend}/>
@@ -68,7 +67,7 @@ export default function StudentsAttendance() {
              </button>
                 
              </div>
-            <button onClick={saveHandler} className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
+            <button className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
         </div>
     </div>
   )

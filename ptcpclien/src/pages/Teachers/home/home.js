@@ -47,7 +47,7 @@ export default function Home() {
                 </div>
                 <Event  className='basis-1/3'/>
             </div>
-            <div className='leftbar basis-1/4'>hey</div>
+            <div className='leftbar basis-1/4'></div>
         </div>
     
     

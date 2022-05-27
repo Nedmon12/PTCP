@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const UserSchema = new mongoose.Schema(
+const UserTeachersSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
@@ -110,5 +110,5 @@ UserSchema.methods.getResetPasswordToken = function () {
 
   return resetToken;
 };
-const User= mongoose.models.User || mongoose.model("User", UserSchema);
-module.exports = User;
+const UserTeachers= mongoose.models.UserTeachers || mongoose.model("UserTeachers", UserTeachersSchema);
+module.exports = UserTeachers;

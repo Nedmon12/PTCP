@@ -1,12 +1,14 @@
 const Student= require('../models/Student')
-const User= require('../models/Users')
+const User= require('../models/UserTeachers')
 const Attendance= require('../models/Attendance')
+//const Behaviour= require('../models/behaviour')
 exports.addStudent= async(req,res,next) => {
-    const { firstname, lastname, teacherid, studentclass } = req.body;
+    const { firstname, lastname, pokemanUrl,teacherid, studentclass } = req.body;
 try{
     const student= await Student.create({
         firstname,
         lastname,
+        pokemanUrl,
         teacherid,
         studentclass
     });
@@ -45,4 +47,15 @@ exports.fetchStudents=async(req,res,next)=>{
             next(error);
         }
     };
-    
+    exports.behaviourupdate=async(req,res,next)=>{
+         try {
+            const student = await Student.findById({studentid: req.params.studentid});
+            console.log(student)
+            await student.updateOne({ $push: { behaviourpoint: req.body.behaviourpoint } });
+            res.status(200).json(student);
+          } catch (err) {
+          res.status(500).json(err);
+        }
+      
+        };
+      

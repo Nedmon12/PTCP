@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const AttendanceSchema = new Schema ({
-    studentid : {
+    studentid:{
         type: String,
-        required : [true, "student id"]
+        required : [true, "student id problem"]
       },
-      attendance : {
+      attendance:{
         type: Boolean,
         required : [true, "please give the attendance"]
       },
-      teacherid : {
+      teacherid:{
         type: String,
         required : [true, "teacher id"]
       },

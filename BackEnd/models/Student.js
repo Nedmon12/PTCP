@@ -10,6 +10,10 @@ let StudentSchema = new Schema ({
         type: String,
         required : [true, "please provide a name"]
       },
+      pokemanUrl : {
+        type: String,
+        required : [true, "please provide a avater"]
+      },
       teacherid : {
         type: String,
         required : [true, "teacher id"]
@@ -17,6 +21,10 @@ let StudentSchema = new Schema ({
       studentclass : {
         type: String,
         required : [true, "class"]
+      },
+      behaviourpoint : {
+        type: Number,
+        default:0
       },
     //reference to parent here (idk yet)
     sex : String,

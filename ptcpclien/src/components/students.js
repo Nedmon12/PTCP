@@ -19,9 +19,8 @@ export default function Students() {
     };
     fetchStudent();
   }, [user._id]);
-  console.log(students)  
   return (
-    <div className='StudentContainer p-4 min-h-full'>
+    <div className='StudentContainer p-4 min-h-full bg-slate-50'>
         <div class="grid grid-cols-12 gap-4">
             <AllStudents/>
             {students.map((p)=>(

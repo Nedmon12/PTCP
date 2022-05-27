@@ -2,7 +2,7 @@ import React from 'react'
 import Footerlog from '../../../components/Footer'
 import NavbarForTeachers from "../../../components/NavbarforTeacher"
 import ClassroomNavbar from '../../../components/ClassroomNavbar'
-import Students from '../../../components/students'
+import StudentsResult from '../../../components/studentsresult'
 import Sidebar from '../../../components/Sidebar'
 
 export default function classroom() {
@@ -16,7 +16,7 @@ export default function classroom() {
             {/*navbar  of operation*/}
             <ClassroomNavbar/>
             {/*list  of students*/}
-
+            <StudentsResult/>
           
         </div>
         <div  className="pt-3">

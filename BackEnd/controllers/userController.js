@@ -1,4 +1,4 @@
-const User = require('../models/Users')
+const User = require('../models/UserTeachers')
 const ErrorResponse = require("../utils/errorresponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
@@ -6,7 +6,6 @@ const crypto = require("crypto");
 
 exports.register = async (req, res, next) => {
     const { firstname, lastname, username, email, password } = req.body;
-  
     try{
       const checkuser = await InvitedUser.findOne({ email }).select("+password");
       if (!checkuser) {
