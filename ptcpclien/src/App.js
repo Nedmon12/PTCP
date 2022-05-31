@@ -66,7 +66,7 @@ function App() {
       <Route path='/plogin' element={ user ? <Phome/> : <pLogin/> }> </Route>
 
       <Route path='/tlogin' element={ user ? <Navigate to="/" /> : <TLogin/> }> </Route>
-]
+
  </Routes>
 
     

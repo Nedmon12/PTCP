@@ -40,7 +40,7 @@ const inviteHandler=()=>{
 
 useEffect(() => {
   const fetchSkills = async () => {
-    const res = await axios.get("/api/skill/fetchallskill/" + user.user._id);
+    const res = await axios.get("/api/class/fetchallskill/" + user.user._id);
     setSkills(res.data);
   };
   fetchSkills();
@@ -48,7 +48,7 @@ useEffect(() => {
 
 useEffect(() => {
   const fetchSkills = async () => {
-    const res = await axios.get("/api/skill/fetchnegativeskill/" + user.user._id);
+    const res = await axios.get("/api/class/fetchnegativeskill/" + user.user._id);
     setnegativeskills(res.data);
   };
   fetchSkills();

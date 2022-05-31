@@ -1,0 +1,70 @@
+import React ,{useState} from 'react'
+import CloseIcon from '@mui/icons-material/Close';
+import Subject from './subjects';
+
+export default function TestResultModel({student,setExamResultModal, subject}) {
+    const handleCancelClick = () => {
+        setExamResultModal(false)    
+    }
+    const [outof, setoutof] = useState(15);
+    const fiveHandler = () => {
+        if(outof!==5)
+        setoutof(5);
+      };
+      const tenHandler = () => {
+        if(outof!==10)
+        setoutof(10);
+      };  
+      const fifteenHandler = () => {
+        if(outof!==15)
+        setoutof(15);
+      };  
+      const twentyHandler = () => {
+        if(outof!==20)
+        setoutof(20);
+      };
+      const twentyfiveHandler = () => {
+        if(outof!==25)
+        setoutof(25);
+      }
+    console.log(student.firstname)
+    return (
+    <div className='bg-zinc-rgba fixed inset-0 z-50' >
+    <div className='flex h-screen justify-center items-center ' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[26vw] w-[32vw] opacity-100' >
+        <div className='basis-1/6 flex flex-row h-10 justify-between border-b-2 text-white border-slate-100 rounded-t-xl bg-cyan-500 ' >  
+            <span class="block tracking-wide boreder-2 border-slate-100 text-white text-lg font-medium pl-4 py-4 hover:text-bs ">{student.firstname} {student.lastname}'s {subject.SubjectName} Test result</span>
+            <button className='pr-2 py-4' onClick={handleCancelClick} >
+               <CloseIcon fill="currentcolor"/>
+            </button> 
+        </div>
+        <div className='basis-5/6' >
+            <div className='flex flex-row border-b-2 border-slate-100' >
+                          <button onClick={fiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outof == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                            5
+                          </button>
+                          <button onClick={tenHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outof == 10 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                            10
+                          </button>
+                          <button onClick={fifteenHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outof == 15 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                            15
+                          </button>
+                          <button onClick={twentyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outof == 20 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                            20
+                          </button>
+                          <button onClick={twentyfiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outof == 25 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                            25
+                          </button>
+            </div>
+            <div className='mt-10' >
+                <input required  id="number" type="number" placeholder="Result"className=" rounded-sm ml-4 PostInput pl-3 placeholder-cyan-500 w-[24vw] border  h-10"/>
+                <button className=" rounded-sm w-[6vw] SendButton p-2 text-white bg-cyan-500  h-10 " type="submit ">
+                    save
+                </button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+  )
+}

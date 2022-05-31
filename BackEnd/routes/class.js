@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-const {addSkill, fetchSkill, fetchNegativeSkill, addSubject, fetchSubject}=require("../controllers/ClassManagment")
+const {addSkill, fetchSkill, fetchNegativeSkill, addSubject, fetchSubject, addResult, fetchresult}=require("../controllers/ClassManagment")
 
 
 router.route("/addskill").post(addSkill);
 router.route("/fetchallskill/:TeacherId").get(fetchSkill);
 router.route("/fetchnegativeskill/:TeacherId").get(fetchNegativeSkill);
+
+router.route("/addresult").post(addResult);
+router.route("/fetchresult/:teacherid/:studentid/:subjectid").get(fetchresult);
+
 
 
 router.route("/addsubject").post(addSubject);

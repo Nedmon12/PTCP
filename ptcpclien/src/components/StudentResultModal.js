@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Skill from './Skill';
 import Subjects from './subjects';
-
+import ResultStatus from './ResultStatus'
 import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import AddSubject from './AddSubject'
@@ -136,12 +136,32 @@ return (
                   <div className=' h-[36vw] overflow-auto '>
                     <div className='px-16 py-6 grid grid-cols-4 gap-3' >
                   {ispostive==1 ?  subject.map((s)=>(
-                      <Subjects key={s._id} subject={s} ispostive={true} student={student}/>
+                      <Subjects key={s._id} subject={s} ispostive={1} student={student}/>
                       )        
                        ):
-                    negativeskills.map((s)=>(
-                      <Skill key={s._id} skill={s} ispostive={false}/>
-                      ))        
+                       ispostive==2 ?  subject.map((s)=>(
+                        <Subjects key={s._id} subject={s} ispostive={2} student={student}/>
+                        )        
+                         ):
+                         ispostive==3 ?  subject.map((s)=>(
+                          <Subjects key={s._id} subject={s} ispostive={3} student={student}/>
+                          )        
+                           ):
+                           ispostive==4 ?  subject.map((s)=>(
+                            <Subjects key={s._id} subject={s} ispostive={4} student={student}/>
+                            )        
+                             ):
+                             ispostive==5 ?  subject.map((s)=>(
+                              <ResultStatus key={s._id} subject={s} ispostive={5} student={student}/>
+                              )        
+                               ):
+                               ispostive==6 ?  subject.map((s)=>(
+                                <Subjects key={s._id} subject={s} ispostive={6} student={student}/>
+                                )        
+                                 ):
+                           subject.map((s)=>(
+                            <Subjects key={s._id} subject={s} ispostive={7} student={student}/>
+                            ))        
                   }
                       <AddSubject/>
                     </div>

@@ -6,30 +6,22 @@ const ResultSchema = new Schema ({
         type: String,
         required : [true, "student id problem"]
       },
-      Result: {
-            Result: Number,
-            type: Array,
-            required :[true, "Please provide Subject id"],
-            default: [],
-      },
-
-      total:{
-        type: Number,
-        required : [true, "please give the attendance"]
-      },
-      Average:{
-        type: Number,
-        required : [true, "please give the attendance"]
-      },
-      Rank:{
-        type: Number,
-        required : [true, "please give the attendance"]
-      },
       teacherid:{
         type: String,
         required : [true, "teacher id"]
       },
-    
+      subjectid:{
+        type:String,
+        required:[true, "please provide the subject"]
+      },
+      outof:{
+        type:Number,
+        required:[true, "please provide the result"]
+      },
+      mainresult: {
+            type: Number,
+            required :[true, "Please provide the Result"],
+      },
 })
 const Result= mongoose.models.result || mongoose.model("Result", ResultSchema);
 module.exports = Result;

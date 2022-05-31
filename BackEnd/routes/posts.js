@@ -74,6 +74,5 @@ router.get("/getpost/:id", async (req, res) => {
   }
 });
 
-
 module.exports = router;
 

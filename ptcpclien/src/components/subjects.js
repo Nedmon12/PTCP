@@ -2,8 +2,12 @@ import React,{useContext,useState} from 'react'
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import axios from 'axios'
 import ExamResultModal from './ExamResultModel';
+import TestResultModal from './TestResultModel';
+import AssignmentResultModal from './AssignmentResultModel';
+import OtherResultModal from './OtherResultModel';
+
 import { AuthContext } from '../context/AuthContext';
-export default function Subject({subject,student}) {
+export default function Subject({subject,student,ispostive}) {
   const user = useContext(AuthContext);
   const [ExamResulttModal, setExamResultModal]=useState([false]);
   const ClickHandler=()=>{
@@ -17,7 +21,14 @@ export default function Subject({subject,student}) {
         </div>
     <span className='text-xl' >{subject.SubjectName}</span>
     </button>
-    {ExamResulttModal==true && < ExamResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+    {ispostive==1 && ExamResulttModal==true && < ExamResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+
+    {ispostive==2 && ExamResulttModal==true && < TestResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+
+    {ispostive==3 && ExamResulttModal==true && < AssignmentResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+
+    {ispostive==4 && ExamResulttModal==true && < OtherResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+
 
     </>
   )

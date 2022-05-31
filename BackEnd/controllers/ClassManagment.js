@@ -1,5 +1,6 @@
 const Skill= require('../models/Skill')
 const Subject= require('../models/Subject')
+const Result= require('../models/result')
 
 exports.addSkill= async(req,res,next) => {
     const { TeacherId, SkillName, SkillImg, SkillPoint,SkillType, } = req.body;
@@ -61,3 +62,28 @@ exports.fetchSubject=async(req,res,next)=>{
       next(error);
     }
   };
+  exports.addResult= async(req,res,next) => {
+    const {studentid, teacherid, subjectid, outof, mainresult} = req.body;
+try{
+    const result= await Result.create({
+      teacherid, 
+      studentid,
+      subjectid,
+      outof,
+      mainresult
+    });
+    res.status(200).json({result});
+    }catch(error){
+        next(error);
+    }
+};
+exports.fetchresult=async(req,res,next)=>{
+ // const {studentid, teacherid, subjectid} = req.body;
+  try {
+    const result = await Result.find({teacherid: req.params.teacherid , studentid: req.params.studentid , subjectid: req.params.subjectid  });
+    console.log(result)
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
