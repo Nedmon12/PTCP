@@ -11,7 +11,7 @@ export default function Home() {
     const {user}= useContext(AuthContext)
     const [posts, setPosts] = useState([]);
 
-    
+   
     useEffect(() => {
         const fetchPosts = async () => {
           const res = await axios.get("/api/posts/getpost/" + user._id);

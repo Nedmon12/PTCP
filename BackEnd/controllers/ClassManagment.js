@@ -1,5 +1,5 @@
 const Skill= require('../models/Skill')
-
+const Subject= require('../models/Subject')
 
 exports.addSkill= async(req,res,next) => {
     const { TeacherId, SkillName, SkillImg, SkillPoint,SkillType, } = req.body;
@@ -11,7 +11,7 @@ try{
         SkillType,
         SkillPoint
     });
-    res.status(201).json({
+    res.status(200).json({
         success: true,
         skill
     });
@@ -33,6 +33,30 @@ exports.fetchSkill=async(req,res,next)=>{
       const skill = await Skill.find({TeacherId: req.params.TeacherId , SkillType: false });
       console.log(skill)
       res.status(200).json(skill);
+    } catch (error) {
+      next(error);
+    }
+  };
+  exports.addSubject= async(req,res,next) => {
+    const { TeacherId, SubjectName} = req.body;
+try{
+    const subject= await Subject.create({
+      TeacherId, 
+      SubjectName,
+    });
+    res.status(200).json({
+        success: true,
+        subject
+    });
+    }catch(error){
+        next(error);
+    }
+};
+exports.fetchSubject=async(req,res,next)=>{
+    try {
+      const subject = await Subject.find({TeacherId: req.params.TeacherId});
+      console.log(subject)
+      res.status(200).json(subject);
     } catch (error) {
       next(error);
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from "../../../components/parents/parentsnavbar"
 import Header from "../../../components/parents/parentsheader"
-import MessageContainer  from "../../../components/MessageContainer"
+import MessageContainer  from "../../../components/parents/MessageContainerParents"
 import Footer from "../../../components/parents/Footerparents"
 export default function  () {
   return (

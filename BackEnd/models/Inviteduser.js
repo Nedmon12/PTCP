@@ -15,7 +15,15 @@ const InvitedUserSchema = new Schema ({
     usertype:{
         type: String,
         required: [true,"please provide the user type"] 
-    }
+    },
+    teacherid:{
+      type: String,
+      required: [true,"please provide the teacherid"] 
+  },
+  studentid:{
+    type: String,
+    required: [true,"please provide the studentid"] 
+}
 })
 const InvitedUser= mongoose.models.InvitedUser || mongoose.model("InvutedUser", InvitedUserSchema);
 module.exports = InvitedUser;

@@ -8,9 +8,10 @@ import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import AddSkill from './AddSkill'
 import { AuthContext } from '../context/AuthContext';
-
+import InviteParentModal from './inviteParentModal'
 function Student({setModalOn, student}) {
   const [skills, setSkills] = useState([]);
+  const [inviteStudentParent, setInviteStudentParent]=useState([false]);
   const [negativeskills, setnegativeskills]= useState([]);
   const [ispostive, setpostive] = useState(true);
   const location = useLocation();
@@ -32,6 +33,10 @@ const negativeHandler = () => {
   if(ispostive==true)
   setpostive(false);
 };  
+const inviteHandler=()=>{
+  setInviteStudentParent(true);
+
+}
 
 useEffect(() => {
   const fetchSkills = async () => {
@@ -48,15 +53,15 @@ useEffect(() => {
   };
   fetchSkills();
 }, [user.user._id]);
-
+console.log(inviteStudentParent)
 
 
 return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
-        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[42vw] w-[65vw] opacity-100' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[42vw] w-[75vw] opacity-100' >
             <div className='flex flex-row'>
-                <div className='basis-1/3 flex flex-col border-r border-slate-200 justify-between' >
+                <div className='basis-1/4 flex flex-col border-r border-slate-200 justify-between' >
                       <div className=' h-[38vw] border-b border-slate-200 flex flex-col'>
                       <div className='w-10 h-10 ml-64 mt-40 firstone bg-green-500 text-white rounded-full border border-gray-300' >
                           <span className='font-bold p-3' >55</span>
@@ -70,13 +75,16 @@ return (
                           <div className='pl-10 pt-2 text-cyan-500' >
                               <AddCircleIcon fill="currentColor align-center"/>
                           </div>
+                            <button onClick={inviteHandler} >
                               <span className="shareOptionText text-cyan-500 text-lg pl-2 pt-2">Invite {student.firstname}'s Parent</span>
+                              </button>
+                              {inviteStudentParent==true && <InviteParentModal setInviteStudentParent={setInviteStudentParent} student={student}/>}
                       </div>
                     </div>    
                 
               </div>
               
-              <div className='basis-2/3 flex flex-col '>
+              <div className='basis-3/4 flex flex-col '>
                   <div className='h-[6vw]  border-b border-slate-200 flex flex-col  justify-between'>
                        <div className='flex flex-row h-12 justify-between' >
                             <span class="block tracking-wide text-gray-500 text-lg font-bold pl-4 py-4 ">Give Feedback to {student.firstname}</span>

@@ -8,10 +8,6 @@ import { AuthContext } from '../context/AuthContext';
 import useFetch from "../hook/useFetch";
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
-<<<<<<< HEAD
-=======
-//import { attendance } from '../../../BackEnd/controllers/studentManagmentController';
->>>>>>> 530eb16a56f1b6b4948c0ac60ce523e1b5235606
 
 export default function StudentsAttendance() {
   

@@ -1,7 +1,10 @@
 const User = require('../models/UserTeachers')
+const Puser = require('../models/UserParents')
+
 const ErrorResponse = require("../utils/errorresponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
+const InvitedUser= require('../models/Inviteduser')
 
 
 exports.register = async (req, res, next) => {
@@ -18,7 +21,11 @@ exports.register = async (req, res, next) => {
         email,
         password,
       });
-      sendToken(user, 201, res)
+      res.status(201).json({
+        success: true,
+        user
+    });
+      //sendToken(user, 201, res)
     }catch (error){
           next(error);
       }
@@ -44,8 +51,9 @@ exports.register = async (req, res, next) => {
           if (!isMatch) {
             return next(new ErrorResponse("Invalid credentials", 401));
           }
-          sendToken(user, 200, res)
-          
+          res.status(201).json({
+            user
+          })
         }catch(error){
           res.status(500).json({
             success: false,
@@ -53,7 +61,37 @@ exports.register = async (req, res, next) => {
           });
         }
     };
+    exports.plogin = async (req, res, next) => {
+      const { email, password } = req.body;
     
+      // Check if email and password is provided
+      if (!email || !password) {
+          return next(new ErrorResponse("Please provide an email and password", 400));
+      }
+    
+      try {
+        // Check that user exists by email
+        const puser = await Puser.findOne({ email }).select("+password");
+    
+        if (!puser) {
+          return next(new ErrorResponse("Invalid credentials", 401));
+        }
+        // Check that password match
+        const isMatch = await user.matchPassword(password);
+    
+        if (!isMatch) {
+          return next(new ErrorResponse("Invalid credentials", 401));
+        }
+        sendToken(puser, 200, res)
+        
+      }catch(error){
+        res.status(500).json({
+          success: false,
+          error: error.message
+        });
+      }
+  };
+  
 exports.forgetpassword= async (req,res, next)=>{
   // Send Email to email provided but first check if user exists
   const { email } = req.body;
@@ -135,16 +173,36 @@ exports.resetPassword = async (req, res, next) => {
     next(err);
   }
 };
-
+exports.pregister = async (req, res, next) => {
+  const { firstname, lastname, username, email, password } = req.body;
+  try{
+    const checkuser = await InvitedUser.findOne({ email });
+    if (!checkuser) {
+      return next(new ErrorResponse("not invited to the system", 401));
+    }      
+    const puser = await Puser.create({
+      firstname,
+      lastname,
+      username,
+      email,
+      password,
+    });
+    sendToken(puser, 201, res)
+  }catch (error){
+        next(error);
+    }
+  };
 
 exports.inviteuser= async (req,res, next)=>{
   // Send Email to email provided
-  const { email, usertype } = req.body;
+  const { email, usertype, teacherid, studentid } = req.body;
 
   try {
     const inviteduser = await InvitedUser.create({ 
       email,
       usertype,
+      teacherid,
+      studentid,
      });
      res.status(201).json({
         success: true,

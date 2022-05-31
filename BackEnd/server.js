@@ -7,7 +7,7 @@ const morgan= require("morgan");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const studentManagmentRoute= require('./routes/studentManagmentRoutes');
-const skillRoute= require('./routes/skill');
+const classRoute= require('./routes/class');
 
 const privateRoute= require("./routes/private");
 const adminRoute = require('./routes/adminRoutes')
@@ -51,7 +51,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 
 app.use("/api/studentManagmentRoutes", studentManagmentRoute);
-app.use("/api/skill", skillRoute);
+app.use("/api/class", classRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);

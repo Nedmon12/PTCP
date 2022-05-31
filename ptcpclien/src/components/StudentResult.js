@@ -18,10 +18,7 @@ function Student({student}) {
     
   }
   //console.log(studentspec)
-
-
   return (
-
     <div>
     <button onClick={clicked} className='studentContainer w-26 h-26 '>
             <img className='pokeman w-16 h-16 mx-4'  src={PFavater + imageurl} alt="k" />

@@ -3,19 +3,15 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const UserTeachersSchema = new mongoose.Schema(
+const UserParentsSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required : [true, "please provide a name"]
-    },
     firstname: {
       type: String,
-      required : [true, "please provide a name"]
+      required : [true, "please provide a fname"]
     },
     lastname : {
       type: String,
-      required : [true, "please provide a name"]
+      required : [true, "please provide a lname"]
     },
     username: {
       type: String,
@@ -78,7 +74,7 @@ const UserTeachersSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-UserSchema.pre("save", async function (next) {
+UserParentsSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
@@ -87,16 +83,16 @@ UserSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
-UserSchema.methods.matchPassword = async function (password) {
+UserParentsSchema.methods.matchPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-UserSchema.methods.getSignedJwtToken = function () {
+UserParentsSchema.methods.getSignedJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE,
   });
 };
-UserSchema.methods.getResetPasswordToken = function () {
+UserParentsSchema.methods.getResetPasswordToken = function () {
   const resetToken = crypto.randomBytes(20).toString("hex");
 
   // Hash token (private key) and save to database
@@ -110,5 +106,5 @@ UserSchema.methods.getResetPasswordToken = function () {
 
   return resetToken;
 };
-const UserTeachers= mongoose.models.UserTeachers || mongoose.model("UserTeachers", UserTeachersSchema);
-module.exports = UserTeachers;
+const UserParents= mongoose.models.UserParents || mongoose.model("UserParents", UserParentsSchema);
+module.exports = UserParents;

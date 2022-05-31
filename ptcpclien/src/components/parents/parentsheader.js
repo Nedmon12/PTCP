@@ -24,13 +24,15 @@ const Navbar = () => {
                 </button>
               </div>
                 <div class="flex md:order-2  ">
-                <button type="button" class="inline-flex items-center p-3 text-sm text-white sm">
+                <button type="button" class="inline-flex items-center  text-sm text-white sm">
                       
                     <NotificationsIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />      
                 </button>
-                <button type="button" class="inline-flex items-center p-3 text-sm text-white sm">
-                      
-                    <QuestionMarkIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />      
+                <button type="button" class="inline-flex items-center  text-sm text-white sm">
+                <div className="w-6 h-6  bg-white text-cyan-700 rounded-full border border-white" >
+                    <QuestionMarkIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />         
+                </div> 
+                         
                 </button>
                 <div className='flex flex-row text-white'>
                         <img className="postProfileImg h-7 w-7 mt-3 rounded-full border border-cyan-400 object-cover" 

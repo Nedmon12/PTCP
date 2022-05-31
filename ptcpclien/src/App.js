@@ -7,10 +7,7 @@ import { Routes,Route,Switch, Navigate} from "react-router-dom";
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
-<<<<<<< HEAD
-=======
 
->>>>>>> 530eb16a56f1b6b4948c0ac60ce523e1b5235606
 import Home from './pages/Teachers/home/home';
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
@@ -28,6 +25,9 @@ import Pmessage from './pages/parentsPage/chatpage/message'
 import { AuthContext } from './context/AuthContext';
 import { useContext } from "react";
 import Tregister from "./pages/loginpage/teacherregister"
+import Pregister from "./pages/loginpage/parentregister"
+import PLogin from './pages/loginpage/Parentslogin'
+
 import ChildStatus from "./pages/parentsPage/childperformance/performance"
 import AdminPage from './components/adminMain'
 
@@ -60,7 +60,13 @@ function App() {
       <Route path='/phome' element={<Phome/>} />  
       <Route path='/pmessage' element={<Pmessage/>} />
       <Route path='/childstatus' element={<ChildStatus/>} />  
+      <Route path='/pregister' element={<Pregister/>} />
+      <Route path='/plogin' element={<PLogin/>} />
 
+      <Route path='/plogin' element={ user ? <Phome/> : <pLogin/> }> </Route>
+
+      <Route path='/tlogin' element={ user ? <Navigate to="/" /> : <TLogin/> }> </Route>
+]
  </Routes>
 
     

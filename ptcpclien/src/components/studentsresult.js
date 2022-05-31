@@ -10,9 +10,6 @@ import useFetch from "../hook/useFetch";
 export default function Students() {
 
   const [modalOn, setModalOn] = useState(false);
- 
-
-
   const {user} = useContext(AuthContext);
   const [students, setStudents] = useState([]);
   useEffect(() => {

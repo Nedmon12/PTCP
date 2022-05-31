@@ -5,17 +5,13 @@ const crypto = require("crypto");
 
 const UserTeachersSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required : [true, "please provide a name"]
-    },
     firstname: {
       type: String,
-      required : [true, "please provide a name"]
+      required : [true, "please provide a fname"]
     },
     lastname : {
       type: String,
-      required : [true, "please provide a name"]
+      required : [true, "please provide a lname"]
     },
     username: {
       type: String,
