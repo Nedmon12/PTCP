@@ -7,8 +7,10 @@ import { Routes,Route,Switch, Navigate} from "react-router-dom";
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
-
+import Event from './pages/Teachers/home/event';
 import Home from './pages/Teachers/home/home';
+import Setting from './pages/Teachers/home/setting';
+
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
 import TVideoConf from './pages/Teachers/classroom/videoConfrence';
@@ -45,6 +47,9 @@ function App() {
 
       <Route path='/tregister' element={<Tregister/>} />
       <Route path='/thome' element={<Home/>} />
+      <Route path='/tsetting' element={<Setting/>} />
+      <Route path='/Eventhome' element={<Event/>} />
+
       <Route path='/classroom' element={<Classroom/>}  />
       <Route path='/message' element={<Chat/>}  />
       <Route path='/login' element={<Login/>}  />

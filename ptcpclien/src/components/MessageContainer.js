@@ -7,7 +7,7 @@ import MessageView from './MessageView'
 export default function MessageContainer() {
   return (
     
-        <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2' >
+        <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2 shadow-lg' >
             <div className='basis-1/5 border-r flex flex-col'>
             <div className='basis-1/12 border-b'>
                 <span className='text-xl justify-center pl-6' >Messages</span>
