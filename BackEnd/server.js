@@ -14,7 +14,8 @@ const adminRoute = require('./routes/adminRoutes')
 const errorHandler= require('./middlewares/error');
 const multer = require("multer");
 const path = require("path");
-
+const messageRoute = require('./routes/message')
+const conversationRoute = require('./routes/conversations')
 
 dotenv.config();
 
@@ -56,8 +57,9 @@ app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);
 app.use('/admin', adminRoute)
+app.use('/api/messages', messageRoute)
+app.use('./api/conversations', conversationRoute)
 app.use(errorHandler);
-
 const server = app.listen(8002,()=>{
     console.log("Background server is running")
 })
