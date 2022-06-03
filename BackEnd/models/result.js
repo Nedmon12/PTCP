@@ -22,6 +22,9 @@ const ResultSchema = new Schema ({
             type: Number,
             required :[true, "Please provide the Result"],
       },
+      reason: {
+        type:String,
+      }
 })
 const Result= mongoose.models.result || mongoose.model("Result", ResultSchema);
 module.exports = Result;

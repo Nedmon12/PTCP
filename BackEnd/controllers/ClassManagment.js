@@ -63,14 +63,15 @@ exports.fetchSubject=async(req,res,next)=>{
     }
   };
   exports.addResult= async(req,res,next) => {
-    const {studentid, teacherid, subjectid, outof, mainresult} = req.body;
+    const {studentid, teacherid, subjectid, outof, mainresult, reason} = req.body;
 try{
     const result= await Result.create({
       teacherid, 
       studentid,
       subjectid,
       outof,
-      mainresult
+      mainresult,
+      reason
     });
     res.status(200).json({result});
     }catch(error){
