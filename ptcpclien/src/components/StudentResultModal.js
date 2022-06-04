@@ -75,7 +75,7 @@ useEffect(() => {
 return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
-        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[90vw] opacity-100' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[90vw] opacity-100 overflow-auto' >
             <div className='flex flex-row'>
                 <div className='basis-1/4 flex flex-col border-r border-slate-200 justify-between' >
                 <div className=' h-[41vw] border-b border-slate-200 flex flex-col'>
@@ -122,7 +122,7 @@ return (
                             Other
                           </button>
                           <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Total
+                            Results
                           </button>
                           <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             Average
@@ -133,7 +133,7 @@ return (
                             
                         </div>
                   </div> 
-                  <div className=' h-[36vw] overflow-auto '>
+                  <div className=' h-[36vw] overflow-x-auto '>
                     <div className='px-16 py-6 grid grid-cols-4 gap-3' >
                   {ispostive==1 ?  subject.map((s)=>(
                       <Subjects key={s._id} subject={s} ispostive={1} student={student}/>
@@ -152,7 +152,7 @@ return (
                             )        
                              ):
                              ispostive==5 ?  subject.map((s)=>(
-                              <ResultStatus key={s._id} subject={s} ispostive={5} student={student}/>
+                              <Subjects key={s._id} subject={s} ispostive={5} student={student}/>
                               )        
                                ):
                                ispostive==6 ?  subject.map((s)=>(

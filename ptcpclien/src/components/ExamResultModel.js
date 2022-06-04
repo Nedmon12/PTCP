@@ -7,6 +7,7 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     const handleCancelClick = () => {
         setExamResultModal(false)    
     }
+  
     
     const [outoff, setoutoff] = useState(40);
     const {user} =useContext(AuthContext);
@@ -19,13 +20,13 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
           studentid: student._id,
           subjectid: subject._id,
           outof: outoff,
+          reason: "final",
           mainresult: mainresultt.current.value
         };
         console.log(result)
         try {
           await axios.post("api/class/addresult", result);
           window.location.reload();
-
         } catch (err) {
           console.log(err);
         }

@@ -19,8 +19,7 @@ export default function Textinput() {
             </div>
         </div>
         <div className='basis-8/12' >
-            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
-                    value={newMessage}/>
+            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" />
         </div>
         <div className='basis-2/12' >
             <button className=" w-full SendButton p-3 text-white bg-cyan-500 " type="submit ">

@@ -1,1 +1,6 @@
-{}
+
+{
+  "dependencies": {
+    "mdbreact": "^5.2.0"
+  }
+}

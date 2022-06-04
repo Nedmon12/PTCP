@@ -10,7 +10,8 @@ import {AuthContext} from '../context/AuthContext'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import ImageIcon from '@mui/icons-material/Image';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import { io } from "socket.io-client";
+import * as io from "socket.io-client";
+import axios from 'axios'
 
 export default function MessageContainer() {
   const [conversations, setConversations] = useState([]);
@@ -106,7 +107,7 @@ export default function MessageContainer() {
 
   return (
     
-        <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2' >
+        <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2 shadow-lg' >
             <div className='basis-1/5 border-r flex flex-col'>
             <div className='basis-1/12 border-b'>
                 <span className='text-xl justify-center pl-6' >Messages</span>
