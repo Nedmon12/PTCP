@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Student from '../../../../components/Studenteditview'
+import Student from '../../../../components/addskillmodal'
 import Addstudent from '../../../../components/Addstudent'
 import AllStudents from '../../../../components/AllStudents'
 import { useContext } from 'react';
@@ -19,8 +19,8 @@ export default function Editclass() {
     }, [user._id]);
     return (
     <div>
-        <span className='text-base font-sans font-medium text-gray-300 px-2 py-2 w-full h-10'>Edit you class students</span>
-        <div className='-mt-12' ><Addstudent/></div>
+        
+        <span className='h-[10vh] StudentName text-xl font-sans font-medium text-gray-300 mt-2 mb-2 py-2 '>Invite Parents via Email </span>
         {students.map((p)=>(
                 <Student key={p._id} student={p} counter={counter++}/>
                 )        
