@@ -13,7 +13,6 @@ export default function AddStudentModal({setModalOn}) {
     }
     const randomPoKemanId=Math.floor(Math.random()*17)+1;
    
-    
    const addStudent=async (e) => {
     e.preventDefault();
     //const pokeman= (await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomPoKemanId}`)).data;
@@ -28,8 +27,8 @@ export default function AddStudentModal({setModalOn}) {
         firstname: firstname.current.value,
         lastname: lastname.current.value,
         pokemanUrl:randomPoKemanId,
-        teacherid: user._id,
-        studentclass:user.resposibleclass
+        teacherid: user.user._id,
+        studentclass: user.user.resposibleclass
          };
       try {
         console.log(Student)

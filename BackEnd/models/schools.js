@@ -2,15 +2,19 @@ const mongoose = require('mongoose')
 const { string } = require('prop-types')
 
 const SchoolSchema = new mongoose.Schema({
-    schoolId : {
-        type: String,
-        required: true
-    },
     schoolName : {
         type: String,
         required: true
     },
-    schoolAdmin: {
+    schooladresscity: {
+        type: String,
+        required: true // reference to schoolAdmin id to be refactored
+    },
+    subcity: {
+        type: String,
+        required: true // reference to schoolAdmin id to be refactored
+    },
+    zip: {
         type: String,
         required: true // reference to schoolAdmin id to be refactored
     },
@@ -19,14 +23,29 @@ const SchoolSchema = new mongoose.Schema({
         required: true,
         default: false
     },
-    address: {
+    contact: {
         type: String,
         required: true
     },
-    contact: {
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
         type: String,
         required: true
     }
 })
 
-module.exports = mongoose.model("School", SchoolSchema)
+const School= mongoose.models.School || mongoose.model("School", SchoolSchema);
+module.exports = School;
+  
+  

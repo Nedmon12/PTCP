@@ -2,10 +2,10 @@ const Footerlog = () => {
     return ( 
         <div className="footer">            
             <footer className="p-4 bg-cyan-600 flex flex-row">
-                <div className="footerside basis-1/3">
+                <div className="footerside basis-4/12">
 
                 </div>
-                <div className="footercenter basis-1/3 flex flex-row" >
+                <div className="footercenter basis-6/12 flex flex-row" >
                     <div className="threetop">
                         <ul className="text-sm text-white flex flex-row">
                             <li>
@@ -29,7 +29,7 @@ const Footerlog = () => {
                         </span>
                     </div>
                 </div>
-                <div className="footerrigt basis-1/3">
+                <div className="footerrigt basis-2/12">
 
                 </div>
             </footer>

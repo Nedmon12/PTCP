@@ -19,7 +19,7 @@ export default function StudentsAttendance() {
   const childFunc = React.useRef(null)
   useEffect(() => {
     const fetchStudent = async () => {
-      const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user._id);
+      const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user.user._id);
       setStudents(res.data);
     };
     fetchStudent();

@@ -6,10 +6,13 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import FlightClassIcon from '@mui/icons-material/FlightClass';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
-import React, { useState, Fragment, useEffect } from 'react'
+import React, { useState, Fragment, useEffect,useContext } from 'react'
 import Createdropdown from './createdropdown'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { AuthContext } from '../context/AuthContext';
+import { Logoutcall }from '../apicalls';
+import {Link ,useNavigate} from 'react-router-dom'
 import SettingModal from './settingmodal'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -17,11 +20,13 @@ function classNames(...classes) {
   
 
 const Navbar = () => {
+    const navigate =useNavigate();
     const [handler, sethandler] = useState(0)
     const editclassRoom = () => {
         if(handler!==1)
         sethandler(1);
       };
+    const {dispatch} = useContext(AuthContext);
 
     const location = useLocation();
 
@@ -288,6 +293,12 @@ const Navbar = () => {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
+                <button onClick={()=>{
+                  localStorage.clear()
+                  navigate('/tlogin')
+                  window.location.reload();
+
+                }}>
                 <a
                   href="#"
                   className={classNames(
@@ -297,6 +308,7 @@ const Navbar = () => {
                 >
                   Logout
                 </a>
+                </button>
               )}
             </Menu.Item>
           </div>

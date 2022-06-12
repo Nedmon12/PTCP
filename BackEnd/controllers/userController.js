@@ -8,9 +8,9 @@ const InvitedUser= require('../models/Inviteduser')
 
 
 exports.register = async (req, res, next) => {
-    const { firstname, lastname, username, email, password } = req.body;
+    const { firstname, lastname, username, email, password  } = req.body;
     try{
-      const checkuser = await InvitedUser.findOne({ email }).select("+password");
+      const checkuser = await InvitedUser.findOne({ email });
       if (!checkuser) {
         return next(new ErrorResponse("not invited to the system", 401));
       }      
@@ -19,7 +19,8 @@ exports.register = async (req, res, next) => {
         lastname,
         username,
         email,
-        password,
+        password, 
+        
       });
       res.status(201).json({
         success: true,
@@ -71,9 +72,9 @@ exports.register = async (req, res, next) => {
     
       try {
         // Check that user exists by email
-        const puser = await Puser.findOne({ email }).select("+password");
+        const user = await Puser.findOne({ email }).select("+password");
     
-        if (!puser) {
+        if (!user) {
           return next(new ErrorResponse("Invalid credentials", 401));
         }
         // Check that password match
@@ -82,9 +83,10 @@ exports.register = async (req, res, next) => {
         if (!isMatch) {
           return next(new ErrorResponse("Invalid credentials", 401));
         }
-        sendToken(puser, 200, res)
-        
-      }catch(error){
+        res.status(201).json({
+          user
+        })
+    }catch(error){
         res.status(500).json({
           success: false,
           error: error.message
@@ -176,16 +178,21 @@ exports.resetPassword = async (req, res, next) => {
 exports.pregister = async (req, res, next) => {
   const { firstname, lastname, username, email, password } = req.body;
   try{
-    const checkuser = await InvitedUser.findOne({ email });
+    const checkuser = await InvitedUser.findOne({ email }).select("teacherid studentid");
     if (!checkuser) {
       return next(new ErrorResponse("not invited to the system", 401));
-    }      
+    }
+    const studentid= await InvitedUser.findOne({ email }).select("studentid");
+    const teacherid= await InvitedUser.findOne({ email }).select("teacherid");
+    console.log(teacherid.teacherid )
     const puser = await Puser.create({
       firstname,
       lastname,
       username,
       email,
       password,
+      teacherid: teacherid.teacherid,
+      studentid: studentid.studentid
     });
     sendToken(puser, 201, res)
   }catch (error){
@@ -217,5 +224,7 @@ exports.inviteuser= async (req,res, next)=>{
 
 const sendToken = (user, statusCode, res) => {
   const token = user.getSignedJwtToken();
-  res.status(statusCode).json({ sucess: true, user, token });
+  const id = token.split(".")[0];
+  console.log(id)
+  res.status(statusCode).json({ user, token });
 };

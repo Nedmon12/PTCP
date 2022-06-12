@@ -1,5 +1,7 @@
 import axios from "axios";
-import { useNavigate } from "react-router";
+import {Link ,useNavigate} from 'react-router-dom'
+
+
 export const loginCall = async (userCredential, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
@@ -9,6 +11,12 @@ export const loginCall = async (userCredential, dispatch) => {
   } catch (err) {
     dispatch({ type: "LOGIN_FAILURE", payload: err });
   }
+};
+export const Logoutcall = async (dispatch) => {
+  const navigate = useNavigate()
+  localStorage.clear()
+  dispatch({ type: "LOGIN_START" });
+  navigate.push('/tlognin')
 };
 
 export const ploginCall = async (userCredential, dispatch) => {

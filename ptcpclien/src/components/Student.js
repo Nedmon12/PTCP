@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 
 function Student({student}) {
-  const user = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const png=".png";
   const image=student.pokemanUrl;
   const imageurl= `${student.pokemanUrl}${png}`;

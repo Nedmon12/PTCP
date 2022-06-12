@@ -15,7 +15,7 @@ function Student({setModalOn, student}) {
   const [negativeskills, setnegativeskills]= useState([]);
   const [ispostive, setpostive] = useState(true);
   const location = useLocation();
-  const user = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   console.log(user.user._id)
   const png=".png";
   const image=student.pokemanUrl;
@@ -37,10 +37,10 @@ const inviteHandler=()=>{
   setInviteStudentParent(true);
 
 }
-
+console.log(user.user.id)
 useEffect(() => {
   const fetchSkills = async () => {
-    const res = await axios.get("/api/class/fetchallskill/" + user.user._id);
+    const res = await axios.get("/api/class/fetchallskill/"+user.user._id);
     setSkills(res.data);
   };
   fetchSkills();
@@ -48,7 +48,7 @@ useEffect(() => {
 
 useEffect(() => {
   const fetchSkills = async () => {
-    const res = await axios.get("/api/class/fetchnegativeskill/" + user.user._id);
+    const res = await axios.get("/api/class/fetchnegativeskill/"+user.user._id);
     setnegativeskills(res.data);
   };
   fetchSkills();

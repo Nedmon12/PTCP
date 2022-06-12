@@ -69,7 +69,7 @@ const handleClick = async (e) => {
                                       <label class="block uppercase tracking-wide text-gray-700 text-sm font-semibold mb-2" for="grid-first-name">
                                         First Name
                                       </label>
-                                  <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+                                  <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder={student.firstname}>
                                     </input>
                                   <p class="text-red-500 text-xs italic"></p>
                                 </div>
@@ -77,7 +77,7 @@ const handleClick = async (e) => {
                                   <label class="block uppercase tracking-wide text-gray-700 text-sm font-semibold mb-2" for="grid-last-name">
                                     Last Name
                                   </label>
-                                  <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                                  <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder={student.lastname}>
                                   </input>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@ const handleClick = async (e) => {
                                 <label class="block tracking-wide text-gray-700 text-sm font-semibold mb-2" for="grid-last-name">
                                       In Class
                                     </label>
-                                    <input type="text" id="disabled-input-2" class="appearance-none block w-full text-gray-400 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="Class(4D)" disabled readonly></input>
+                                    <input type="text" id="disabled-input-2" class="appearance-none block w-full text-gray-400 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value={user.user.resposibleclass} disabled readonly></input>
 
                             </div>
                             <div className='px-4' >
@@ -109,12 +109,12 @@ const handleClick = async (e) => {
                             <span>Remove Student From ClassRoom</span>
                         </button>
                         <div className='-mt-4' >
-                      <button className=' rounded-xl w-[6vw] SendButton px-2 text-cyan-500  h-10 ' onClick={handleCancelClick} >
-                                Cancel
+                          <button className=' rounded-xl w-[6vw] SendButton px-2 text-cyan-500  h-10 ' onClick={handleCancelClick} >
+                                    Cancel
+                                </button>
+                          <button className=" rounded-xl w-[6vw] SendButton  px-2  text-white bg-cyan-500  h-10 " type="submit ">
+                                Save
                             </button>
-                       <button className=" rounded-xl w-[6vw] SendButton  px-2  text-white bg-cyan-500  h-10 " type="submit ">
-                            Save
-                        </button>
                         </div>
                 </div>
         </div>

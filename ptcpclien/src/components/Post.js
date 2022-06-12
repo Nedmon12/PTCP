@@ -14,12 +14,12 @@ function Post({post}) {
 
     
     useEffect(() => {
-        setIsLiked(post.likes.includes(user._id));
+        setIsLiked(post.likes.includes(user.user._id));
             }, [user._id, post.likes]);
 
     const likeHandler = () => {
         try {
-          axios.put("api/posts/" + post._id + "/like", { userId: user._id });
+          axios.put("api/posts/" + post._id + "/like", { userId: user.user._id });
         } catch (err) {}
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
@@ -36,13 +36,13 @@ function Post({post}) {
                     <div className='flex flex-row'>
                         <img className="postProfileImg h-10 w-10 rounded-full border border-cyan-400 object-cover" 
                         src={
-                            user.profilePicture
+                            user.user.profilePicture
                               ? PF + user.profilePicture
                               : PF + "profile/noAvatar.png"
                           } alt=""/>
                         <div className='flex flex-col'>
-                            <span className="postUsername text-bs font-bold ml-3">{user.username}</span>
-                            <span className="teacherClass text-sm text-gray-600 ml-3">{user.resposibleclass}</span>
+                            <span className="postUsername text-bs font-bold ml-3">{user.user.username}</span>
+                            <span className="teacherClass text-sm text-gray-600 ml-3">{user.user.resposibleclass}</span>
                         </div>
                     </div>
                     <span className="postDate ">{format(post.createdAt)}</span>

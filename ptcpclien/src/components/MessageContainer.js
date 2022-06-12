@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import GroupIcon from '@mui/icons-material/Group';
+import axios from 'axios';
+import { AuthContext } from '../context/AuthContext';
 import Textinput from './Textinput'
 import AllParents from './AllParents'
 import ParentsMessages from './ParentsMessages'
 import UnInvitedParents from './UnInvitedParents'
 import MessageView from './MessageView'
 export default function MessageContainer() {
-  return (
+    const {user} = useContext(AuthContext);
+    const [student, setStudent] = useState([]);
+    useEffect(() => {
+      const fetchStudent = async () => {
+        const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user.user._id);
+        setStudent(res.data);
+      };
+      fetchStudent();
+    }, [user.user._id]);
+    const isParentInvited=()=>{
+        
+    }
+
+    return (
     
         <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2 shadow-lg' >
             <div className='basis-1/5 border-r flex flex-col'>
@@ -17,13 +33,11 @@ export default function MessageContainer() {
                     <AllParents/>
                 </div>
                 <div>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
-                    <ParentsMessages/>
+
+                {student.map((s)=>(
+                        <ParentsMessages key={s._id} student={s}/>
+                    )
+                    )}
                 </div>
                 <div>
                     <UnInvitedParents/>

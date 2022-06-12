@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mdbreact": "^5.2.0"
+    "mdbreact": "^5.2.0",
+    "socket.io": "^4.5.1"
   }
 }

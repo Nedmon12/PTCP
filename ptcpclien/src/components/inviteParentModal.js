@@ -9,13 +9,11 @@ export default function InviteParentModal({setInviteStudentParent, student}) {
     setInviteStudentParent(false)
 }
 const {user} = useContext(AuthContext);
-  console.log(user)
-  console.log(student);
 
 const handleClick = async (e) => {
   e.preventDefault();
     const inviteparent = {
-      teacherid: user._id,
+      teacherid: user.user._id,
       studentid: student._id,
       usertype: "parent",
       email: email.current.value,
