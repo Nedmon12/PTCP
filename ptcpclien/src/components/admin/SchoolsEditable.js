@@ -4,18 +4,12 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getSchoolList} from '../../actions/schoolsAction'
 import {MDBDataTableV5} from 'mdbreact'
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 class SchoolsEditable extends Component {
     componentDidMount() {
         this.props.getSchoolList()
     }
-    
     render () {
         const {schools} = this.props.schools
-        const deleteProductHandler = (id) => {
-            
-        }    
             const dataGrid = {
                 columns: [
                     {
@@ -45,10 +39,6 @@ class SchoolsEditable extends Component {
                         field: 'contact',
                         sort: 'asc'
                     },
-                    {
-                        label: 'Action',
-                        field: 'actions'
-                    }
                 ], 
                 rows: []
             }
@@ -59,22 +49,21 @@ class SchoolsEditable extends Component {
                     schoolAdmin: school.schoolAdmin,
                     address: school.address,
                     contact: school.contact,
-                    actions: <><div>
-                        <Link to={`/admin/school/${school._id}`}>
-                            <EditOutlinedIcon></EditOutlinedIcon>
+                    actions: <div>
+                        <Link to={`/admin/school/${school.id}`} className="btn btn-primary py-1 px-2">
+                            <i className="fa fa-pencil"></i>
                         </Link>
-                        <button>
-                            <DeleteOutlineOutlinedIcon></DeleteOutlineOutlinedIcon>
+                        <button className='btn btn-danger py-1 px-2 ml-2'>
+                            <i className='fa fa-trash'></i>
                         </button>
-                    </div> </>
+                    </div>
                 }
                     
                 )
             })
         
-        
+    
         return (
-        
             <div className="space-y-1.5">
                 <h1 className='my-5'>Schools</h1>
                 <MDBDataTableV5 data={dataGrid}
@@ -82,7 +71,6 @@ class SchoolsEditable extends Component {
                 entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4}
                 hover/>
             </div>
-            
         )
     }
     

@@ -15,9 +15,7 @@ export default class adminMain extends Component {
             <div>
             <Sidebar />
             </div> 
-            <div>
             <SchoolEditable/>
-            </div>
             </div>    
         )
     } }
