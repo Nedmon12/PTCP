@@ -5,7 +5,7 @@ const BehaviourSchema = new Schema ({
         type: String,
         required : [true, "student id problem"]
       },
-      Behaviourpoint:{
+      behaviourpoint:{
         type: Number,
         default: 0,
         required : [true, "please give the point"]

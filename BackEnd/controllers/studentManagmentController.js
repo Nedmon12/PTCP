@@ -82,15 +82,22 @@ exports.fetchStudents=async(req,res,next)=>{
       const { studentid, behaviourpoint, teacherid } = req.body;
          console.log("trying to update")
       try {
-            const behaviour = await Behaviour.findById({studentid: req.params.studentid});
-            const updatedbehaviour = behaviour.behaviourpoint + behaviourpoint;
+        console.log("trying to update 2")
+            const filter = {studentid: req.params.studentid};
+            const behaviour = await Behaviour.findOne({studentid: req.params.studentid});
             console.log(behaviour.behaviourpoint)
-            console.log(updatedbehaviour)
-        
-            if(behaviour.studentid===req.body.studentid){
-              await behaviour.updateOne({ $push: { behaviourpoint: updatedbehaviour  } });
-              res.status(200).json(behaviour);
-            }    
+            const updatedbehaviour = parseInt(behaviour.behaviourpoint) + parseInt(behaviourpoint);
+            const update = {behaviourpoint:updatedbehaviour};
+            console.log(update)
+
+
+            const  doc = await Behaviour.findOneAndUpdate(filter, update, {
+              returnOriginal: false
+            });
+
+             console.log(doc);
+              res.status(200).json(doc);
+                
           } catch (err) {
           res.status(500).json(err);
         }

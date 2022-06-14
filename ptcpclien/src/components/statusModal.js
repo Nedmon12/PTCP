@@ -59,7 +59,7 @@ const attendanceHandler=()=>{
   return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
-        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[68vw] opacity-100' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[90vw] opacity-100' >
                 <div className='p-3 basis 1/12 h-16 border-b border-slate-200 flex flex-row justify-between ' >
                       <span className='mt-2 text-xl text-gray-800' >Report</span>
                       <button className='pr-2 py-4' onClick={handleCancelClick} >
