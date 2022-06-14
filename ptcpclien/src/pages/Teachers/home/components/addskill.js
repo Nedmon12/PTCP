@@ -6,20 +6,20 @@ import AddSkill from '../../../../components/AddSkill'
 import { AuthContext } from '../../../../context/AuthContext';
 
 export default function Addskill({}) {
-    const user = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     const [negativeskills, setnegativeskills]= useState([]);
     const [skills, setSkills] = useState([]);
     const [ispostive, setpostive] = useState(true);
     const [students, setStudents] = useState([]);
 
-
+    console.log(user.user._id)
     useEffect(() => {
         const fetchStudent = async () => {
-          const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user._id);
+          const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user.user._id);
           setStudents(res.data);
         };
         fetchStudent();
-    }, [user._id]);
+    }, [user.user._id]);
 
     const postiveHandler = () => {
         if(ispostive==false)
@@ -45,6 +45,7 @@ export default function Addskill({}) {
         };
         fetchSkills();
       }, [user.user._id]);
+      console.log(skills)
     return (
     <div>
             <div className='skillnavbar flex flex-row border-b border-slate-100 shadow-md' >
@@ -67,7 +68,7 @@ export default function Addskill({}) {
                       <Skill key={s._id} skill={s} ispostive={false}/>
                       ))     
                   }
-                      <AddSkill/>
+                      <AddSkill ispostive={ispostive} />
                     </div>     
                 </div>        
           </div>

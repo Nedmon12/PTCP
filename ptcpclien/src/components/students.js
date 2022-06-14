@@ -14,13 +14,13 @@ export default function Students() {
   const [students, setStudents] = useState([]);
   useEffect(() => {
     const fetchStudent = async () => {
-      const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user._id);
+      const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user.user._id);
       setStudents(res.data);
     };
     fetchStudent();
-  }, [user._id]);
+  }, [user.user._id]);
   return (
-    <div className='StudentContainer p-4 min-h-full bg-slate-50'>
+    <div className='StudentContainer p-4 min-h-full bg-white'>
         <div class="grid grid-cols-12 gap-4">
             <AllStudents/>
             {students.map((p)=>(

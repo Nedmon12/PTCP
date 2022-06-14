@@ -36,6 +36,16 @@ const UserParentsSchema = new mongoose.Schema(
       min: 6,
       select: false
     },
+    studentid: {
+      type: String,
+      required: [true, "please provide an student"],
+      
+    },
+    teacherid: {
+      type: String,
+      required:  [true, "please provide an teacher"],
+      
+      },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 
@@ -43,31 +53,15 @@ const UserParentsSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    isSystemAdmin: {
-      type: Boolean,
-      default: false,
-    },
-    isSchoolAdmin: {
-      type: Boolean,
-      default: false,
-    },
-    isteacher: {
-      type: Boolean,
-      default: false,
-    },
     isparent: {
       type: Boolean,
-      default: false,
-    },
-    desc: {
-      type: String,
-      max: 50,
+      default: true,
     },
     city: {
       type: String,
       max: 50,
     },
-    from: {
+    School: {
       type: String,
       max: 50,
     },

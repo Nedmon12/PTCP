@@ -1,25 +1,25 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
 import Footerlog from '../../components/Footer'
 import CircularProgress from '@mui/material/CircularProgress';
 import { useContext, useRef } from "react";
 import { ploginCall }from "../../apicalls";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
-
+import Navbar from "../landingpage/component/AuthNavbar";
 export default function Parentslogin() {
   const email = useRef();
   const password = useRef();
   const {user, isFetching, error, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  
   const handleClick = (e) => {
     e.preventDefault();
-    ploginCall({email:email.current.value,password:password.current.value},
+    ploginCall({email:email.current.value, password:password.current.value},
       dispatch);
   };
   return (
-    <div className='bg-slate-100 min-h-screen min-w-screen flex flex-col'>
+    <div className='bg-white min-h-screen min-w-screen flex flex-col'>
+        <Navbar/>
         <div className="container mx-auto max-w-xl min-h-fit pt-8" >
             <div className="flex justify-center">
               <img src="assets/logo2.png" className='w-32 h-28 ' alt="logo2"/>
@@ -36,7 +36,7 @@ export default function Parentslogin() {
         </div>
 
 
-        <div className='container max-w-xl min-h-fit text-white mb-24'>
+        <div className='container max-w-xl min-h-fit text-white mb-24 shadow-md shadow-cyan-400'>
               <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleClick}>
                   <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -63,7 +63,7 @@ export default function Parentslogin() {
             </form>
           </div>
         </div>
-        <div className='mt-6' >
+        <div className='mt-20' >
            <Footerlog/>
         </div>
          </div>

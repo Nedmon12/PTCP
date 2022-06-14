@@ -5,10 +5,19 @@ const dotenv = require("dotenv");
 const helmet= require("helmet");
 const morgan= require("morgan");
 const authRoute = require("./routes/auth");
+
+const sauthRoute = require("./routes/sauth");
+const spostRoute = require("./routes/post");
+const userRoute = require('./routes/user');
+const docsRoute = require('./routes/docs');
+
 const postRoute = require("./routes/posts");
+
 const studentManagmentRoute= require('./routes/studentManagmentRoutes');
 const classRoute= require('./routes/class');
+const schoolRoute= require('./routes/subscribe');
 
+const conversationRoute = require("./routes/conversations");
 const privateRoute= require("./routes/private");
 const adminRoute = require('./routes/adminRoutes')
 const errorHandler= require('./middlewares/error');
@@ -62,6 +71,8 @@ app.use(function(req, res, next) {
 
 app.use("/api/studentManagmentRoutes", studentManagmentRoute);
 app.use("/api/class", classRoute);
+app.use("/api/school", schoolRoute);
+
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);
@@ -71,6 +82,17 @@ app.use('/api/conversations', conversationRoute)
 app.use('/parents', parentRoute)
 app.use(cors())
 app.use(errorHandler);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
+app.use('/api/sauth', sauthRoute);
+app.use('/api/user', userRoute);
+app.use('/api/v1', docsRoute);
+app.use('/api/post', spostRoute);
+const bodyParser = require('body-parser');
+
+
+
+
 const server = app.listen(8002,()=>{
     console.log("Background server is running")
 })

@@ -15,7 +15,7 @@ export default function Newpost() {
       e.preventDefault();
       if(desc!==" "){
       const newPost = {
-        userId: user._id,
+        userId: user.user._id,
         desc: desc.current.value,
       };
       if (file) {

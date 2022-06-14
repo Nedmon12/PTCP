@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Student from '../../../../components/addskillmodal'
+import Student from '../../../../components/Studentparentinviteview'
 import Addstudent from '../../../../components/Addstudent'
 import AllStudents from '../../../../components/AllStudents'
 import { useContext } from 'react';
@@ -12,7 +12,7 @@ export default function Editclass() {
     var counter=0;
     useEffect(() => {
       const fetchStudent = async () => {
-        const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user._id);
+        const res = await axios.get("/api/studentManagmentRoutes/fetchstudent/"+ user.user._id);
         setStudents(res.data);
       };
       fetchStudent();

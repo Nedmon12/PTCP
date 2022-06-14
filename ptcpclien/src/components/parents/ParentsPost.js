@@ -10,16 +10,26 @@ function Post({post}) {
     const [like, setLike] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
     const {user}= useContext(AuthContext)
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
     
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [teacher, setTeacher] = useState([]);
     useEffect(() => {
-        setIsLiked(post.likes.includes(user._id));
-            }, [user._id, post.likes]);
+      const fetchmykidteacher = async () => {
+        const res = await axios.get("/api/studentManagmentRoutes/fetchmykidteacher/"+ user.user.teacherid);
+        setTeacher(res.data);
+      };
+      fetchmykidteacher();
+    }, [user.user._id]);
+  
+
+
+    useEffect(() => {
+        setIsLiked(post.likes.includes(user.user._id));
+            }, [user.user._id, post.likes]);
 
     const likeHandler = () => {
         try {
-          axios.put("api/posts/" + post._id + "/like", { userId: user._id });
+          axios.put("api/posts/" + post._id + "/like", { userId: user.user._id });
         } catch (err) {}
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
@@ -36,13 +46,13 @@ function Post({post}) {
                     <div className='flex flex-row'>
                         <img className="postProfileImg h-10 w-10 rounded-full border border-cyan-400 object-cover" 
                         src={
-                            user.profilePicture
-                              ? PF + user.profilePicture
+                            teacher.profilePicture
+                              ? PF + teacher.profilePicture
                               : PF + "profile/noAvatar.png"
                           } alt=""/>
                         <div className='flex flex-col'>
-                            <span className="postUsername text-bs font-bold ml-3">{user.username}</span>
-                            <span className="teacherClass text-sm text-gray-600 ml-3">{user.resposibleclass}</span>
+                            <span className="postUsername text-bs font-bold ml-3">{teacher.username}</span>
+                            <span className="teacherClass text-sm text-gray-600 ml-3">{teacher.resposibleclass}</span>
                         </div>
                     </div>
                     <span className="postDate ">{format(post.createdAt)}</span>

@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import AddSkillModal from './addskillmodal'
-export default function Skill() {
+import AddSkillModalnegative from './addskillmodalnegative'
+
+export default function Skill({ispostive}) {
   const [addskillmodal, setaddskillmodal]= useState(false);
   const modalHandler = () => {
     setaddskillmodal(true);
@@ -15,7 +17,8 @@ export default function Skill() {
     </div>
     <span className='py-2' >Add Skill</span>
     </button>
-      {addskillmodal==true && <AddSkillModal setaddskillmodal={setaddskillmodal}  />}
+      {addskillmodal==true && ispostive==true && <AddSkillModal setaddskillmodal={setaddskillmodal}  />}
+      {addskillmodal==true && ispostive==false && <AddSkillModalnegative setaddskillmodal={setaddskillmodal}  />}
     </div>
   )
 }

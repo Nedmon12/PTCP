@@ -17,7 +17,7 @@ function Student({student, counter}) {
   return (
     <>
     <button onClick={edithandler} >
-    <div className={`studentContainer w-[125vh] h-16  mx-10 flex flex-row ${counter%2==0 ? 'bg-slate-100 border border-slate-50':'bg-white'} `}>
+    <div className={`studentContainer w-[140vh] h-16 flex flex-row ${counter%2==0 ? 'bg-slate-100 border border-slate-50':'bg-white'} `}>
         <img className='pokeman w-10 h-10 mx-4 '  src={PFavater + imageurl} alt="k" />
         <div className='w-26 h-16 rounded-lg'>
               <span className='StudentName font-sans font-medium text-gray-600 p-2 py-2 '>{student.firstname}</span>

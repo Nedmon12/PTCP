@@ -7,7 +7,7 @@ export default function Skill({skill, ispostive,studentid}) {
   const [currentpoint, setCurrentPoint] = useState(skill.SkillPoint);
   const handleClick = async (e) => {
     e.preventDefault();
-    setCurrentPoint(skill.SkillPoint)
+    setCurrentPoint(studentid)
     console.log(currentpoint)
     const point = {
         teacherid: user.user._id,
@@ -15,7 +15,8 @@ export default function Skill({skill, ispostive,studentid}) {
         behaviourpoint: currentpoint,
       };
       try {
-        await axios.post("/api/studentManagmentRoutes/addbehavior", point);
+        await axios.put("/api/studentManagmentRoutes/addbehavior/"+studentid, point);
+        window.location.reload();
        
       } catch (err) {
         console.log(err);
@@ -25,7 +26,6 @@ export default function Skill({skill, ispostive,studentid}) {
 
 
   
-  console.log(ispostive)
   return (
     <button onClick={handleClick} className='border border-slate-100 w-32 h-32  rounded-lg bg-slate-100 justify-items-center' >
         <div className={`w-8 h-8  ml-20 -mt-5 ${ispostive ==true ?  "bg-green-500 text-white rounded-full border-2 border-white":"bg-red-500 text-white rounded-full border-2 border-white"} `} >

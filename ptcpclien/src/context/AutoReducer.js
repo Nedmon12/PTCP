@@ -18,6 +18,8 @@ const AuthReducer = (state, action) => {
           isFetching: false,
           error: true,
         };
+        case "CLEAR":
+        return null;
       default:
         return state;
     }
