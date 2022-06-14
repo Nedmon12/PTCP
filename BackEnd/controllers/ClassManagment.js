@@ -3,12 +3,11 @@ const Subject= require('../models/Subject')
 const Result= require('../models/result')
 
 exports.addSkill= async(req,res,next) => {
-    const { TeacherId, SkillName, SkillImg, SkillPoint,SkillType, } = req.body;
+    const { TeacherId, SkillName, SkillPoint,SkillType, } = req.body;
 try{
     const skill= await Skill.create({
         TeacherId, 
         SkillName, 
-        SkillImg, 
         SkillType,
         SkillPoint
     });
@@ -22,7 +21,7 @@ try{
 };
 exports.fetchSkill=async(req,res,next)=>{
     try {
-      const skill = await Skill.find({TeacherId: req.params.TeacherId});
+      const skill = await Skill.find({TeacherId: req.params.TeacherId , SkillType: true});
       console.log(skill)
       res.status(200).json(skill);
     } catch (error) {

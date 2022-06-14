@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
 const AttendanceSchema = new Schema ({
     studentid:{
         type: String,
@@ -14,7 +13,6 @@ const AttendanceSchema = new Schema ({
         type: String,
         required : [true, "teacher id"]
       },
-    
-})
+},{timestamps: true})
 const Attendance= mongoose.models.Attendance || mongoose.model("Attendance", AttendanceSchema);
 module.exports = Attendance;

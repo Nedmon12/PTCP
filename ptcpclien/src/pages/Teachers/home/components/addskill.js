@@ -68,7 +68,7 @@ export default function Addskill({}) {
                       <Skill key={s._id} skill={s} ispostive={false}/>
                       ))     
                   }
-                      <AddSkill/>
+                      <AddSkill ispostive={ispostive} />
                     </div>     
                 </div>        
           </div>

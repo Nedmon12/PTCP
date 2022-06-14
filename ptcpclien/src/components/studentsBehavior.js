@@ -23,7 +23,7 @@ export default function Students() {
     fetchStudent();
   }, [user._id]);
   return (
-    <div className='StudentContainer p-4 min-h-full bg-slate-50'>
+    <div className='StudentContainer p-4 min-h-full bg-white'>
              <div  class="grid grid-cols-12 gap-4">
             {students.map((p)=>(
                 <StudentBehaviour key={p._id} student={p}/>

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Conversation = require("../models/conversation");
+const Conversation = require("../models/Conversations");
 
 //new conv
 

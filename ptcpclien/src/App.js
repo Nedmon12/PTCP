@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react";
+import "./App.css";
 import logo from './logo.svg';
-import './App.css';
 import Navbar from './components/Navbar';
 import Land from './pages/landingpage/land'
 import { Routes,Route,Switch, Navigate} from "react-router-dom";
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux'
-import store from './store'
 import Event from './pages/Teachers/home/event';
 import Home from './pages/Teachers/home/home';
 import Setting from './pages/Teachers/home/setting';
@@ -23,9 +22,11 @@ import Login from './pages/landingpage/login'
 import TLogin from './pages/loginpage/Teacherslogin'
 import Phome from './pages/parentsPage/home/home'
 import Pmessage from './pages/parentsPage/chatpage/message'
+import Message from './pages/Teachers/chatpage/chatpage'
 
+import axios from 'axios';
 
-import { AuthContext } from './context/AuthContext';
+import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Tregister from "./pages/loginpage/teacherregister"
 import Pregister from "./pages/loginpage/parentregister"
@@ -37,34 +38,34 @@ import AdminPage from './components/adminMain'
 
 
 function App() {
-  const { user } =useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   console.log(user);
   return (
+      <Routes>
+        <Route path="/tlogin" element={user ? <Navigate to="/classroom" /> : <TLogin />}>
+          {" "}
+        </Route>{" "}
+        <Route
+          path="/tregister"
+          element={user ? <Navigate to="/classroom" /> : <Tregister />}
+        >
+          {" "}
+        </Route>
+        <Route path="/thome" element={<Home />} />{" "}
+        <Route path="/classroom" element={<Classroom />} />{" "}
+        <Route path="/message" element={<Message />} />{" "}
+        <Route path="/login" element={<Login />} />{" "}
+        <Route path="/tvideo" element={<TVideoConf />} />{" "}
+        <Route path="/tattendance" element={<TAttendance />} />{" "}
+        <Route path="/tbehaviour" element={<TBehavior />} />
+        <Route path="/tresult" element={<TResult />} />{" "}
+        <Route path="/tstatus" element={<TStatus />} />{" "}
+        <Route path="/tsetting" element={<Setting/>} />{" "}
+        
+        <Route path="/adminDashboard" element={<AdminPage />} />
 
-  <Routes>
-    <Route path='/' element={ <Landing/>}> </Route>
+       <Route path='/' element={user ? <Navigate to="/classroom" /> :<Landing/>}> </Route>
     <Route path='/Subscribe' element={ <Subscribe/>}> </Route>
-
-      <Route path='/classroom' element={ user ? <Classroom/> : <TLogin/> }> </Route>
-
-      <Route path='/tlogin' element={ user ? <Navigate to="/classroom" /> : <TLogin/> }> </Route>
-      <Route path='/tregister' element={ user ? <Navigate to="/" /> : <Tregister/> }> </Route>
-
-      <Route path='/tregister' element={<Tregister/>} />
-      <Route path='/thome' element={<Home/>} />
-      <Route path='/tsetting' element={<Setting/>} />
-      <Route path='/Eventhome' element={<Event/>} />
-
-      <Route path='/classroom' element={<Classroom/>}  />
-      <Route path='/message' element={<Chat/>}  />
-      <Route path='/login' element={<Login/>}  />
-      <Route path='/tvideo' element={<TVideoConf/>}  />
-      <Route path='/tattendance' element={<TAttendance/>}  />
-      <Route path='/tbehaviour' element={<TBehavior/>}  />
-
-      <Route path='/tresult' element={<TResult/>}  />
-      <Route path='/tstatus' element={<TStatus/>}  />
-      <Route path='/adminDashboard' element={<AdminPage/>} />
 
 
 
@@ -76,11 +77,16 @@ function App() {
       <Route path='/pregister' element={user ? <Phome/> :<Pregister/>} />
       <Route path='/plogin' element={ user ? <Phome/> : <PLogin/> }> </Route>
 
- </Routes>
 
-    
-    
-  );
-}
+        <Route path="/plogin" element={<PLogin />} />
+        <Route path="/plogin" element={user ? <Phome /> : <pLogin />}>
+          {" "}
+        </Route>
+        <Route path="/tlogin" element={user ? <Navigate to="/" /> : <TLogin />}>
+          {" "}
+        </Route>
+      </Routes>
+  )
+};
 
 export default App;

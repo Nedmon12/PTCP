@@ -1,44 +1,37 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-
-function StudentAttendance({student, attendance}) {
+function StudentAttendance({student, setIsAttended, save}) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [isAttendper, setIsAttended] = useState(attendance);
-  const user = useContext(AuthContext);
+  const [Attend, setAttended] = useState(setIsAttended);
+  const {user} = useContext(AuthContext);
   const png=".png";
   const image=student.pokemanUrl;
   const imageurl= `${student.pokemanUrl}${png}`;
   const PFavater = process.env.REACT_APP_PUBLIC_FOLDER2;
   const AttendanceHandler = () => {
-    if(attendance===true){
-      attendance=false
-      console.log(attendance)
-      console.log("trying false")
-    }
-    else if(attendance===false){
-      attendance=true
-      console.log(attendance)
-      console.log("trying true")
-    }
+    setAttended(!Attend)
   }
- 
- console.log(attendance)
- const saveHandler= async()=>{
-  const sendattendance = {
-    studentid: student._id,
-    attendance: attendance,
-    teacherid: user._id,
-  };
+  useEffect(() => {
+    if(save==true){
+  const sendattendance = async () => {
+    console.log(student._id)
+    console.log(user.user._id)
+    const setattendance = {
+      studentid: student._id,
+      attendance: Attend,
+      teacherid: user.user._id,
+    };
   try {
-    await axios.post("api//studentManagmentRoutes/attendance", sendattendance);
-    
+    await axios.post("api/studentManagmentRoutes/attendance", setattendance); 
   } catch (err) {
     console.log(err);
   }
-
+}; sendattendance();
 }
+}, [save]);
+
   return (
     <div className='studentContainer w-26 h-26 '>
       
@@ -49,14 +42,14 @@ function StudentAttendance({student, attendance}) {
         <button onClick={AttendanceHandler} >
             <img className="z-10 -mt-24 ml-20 postProfileImg h-9 w-9 rounded-full  object-cover" 
                           src={
-                            attendance
+                            Attend==true
                               ? PF + "present.png"
                               : PF + "absent.png"
                           }
               alt=""/>
           </button> 
-        
     </div>
   )
+
 }
 export default StudentAttendance

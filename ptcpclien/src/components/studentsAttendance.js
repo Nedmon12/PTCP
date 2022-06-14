@@ -12,6 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function StudentsAttendance() {
   
   const [isAttend, setIsAttended] = useState(true);
+  const [save, setSave]= useState(true);
   const {user} = useContext(AuthContext);
   const [students, setStudents] = useState([]);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -24,51 +25,28 @@ export default function StudentsAttendance() {
     };
     fetchStudent();
   }, [user._id]);
-  const presentHandler = () => {
-    console.log("isAttend")
-    if(isAttend===false){
-    setIsAttended(true);
-    
-  }console.log(isAttend);
-  };
-  const absentHandler = () => {
-    if(isAttend===true){
-      setIsAttended(false);
-    }
-
-  };
+  const saveHandler=()=>{
+    setSave(!save)
+    window.location.reload();
+  }
+  
   
   return (
-    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between bg-slate-50'>
-        <div class="grid grid-cols-12 gap-4">
+    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between bg-white'>
+        <div class="grid grid-cols-12 gap-4 p-4">
             {students.map((p)=>(
-                <StudentAttendance key={p._id} student={p} attendance={isAttend}/>
+                <StudentAttendance key={p._id} student={p} setIsAttended={isAttend} save={save} />
                 )        
                )}
                         
   
             
         </div>
-        <div className='attendancebutton w-full flex flex-row justify-between  h-16 border rounded-lg border-cyan-500 '>
+        <div className='mt-12 attendancebutton w-full flex flex-row justify-between h-20 border rounded-lg border-slate-200 shadow-lg'>
             <div className='ml-20 flex flex-row'>
-            <button onClick={presentHandler}className='text-green-500 text-base py-2 px-3 h-10 mt-3 hover:bg-green-50 rounded-lg flex flex-row '>
-                      <img className="postProfileImg h-8 w-8 rounded-full border-2 border-green-500 object-cover" 
-                          src={PF+"present.png"}
-                          alt=""/>
-                          
-                         mark All present
-              </button>
-                       
-            <button onClick={absentHandler} className='text-red-500 text-base py-2 px-3 h-10 mt-3 mx-3 hover:bg-red-50 rounded-lg flex flex-row'>
-                  <img className="postProfileImg h-8 w-8 rounded-full border-2 border-red-500 object-cover" 
-                       src={PF+"absent.png"}
-                       alt=""/>  
-                       
-                      mark All absent
-             </button>
-                
+                <span className='text-cyan-500' >Select the students to change them to absent </span>
              </div>
-            <button className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
+            <button onClick={saveHandler} className='py-2 px-3 h-10 mt-3 mr-5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600' >Save Attendance</button>
         </div>
     </div>
   )

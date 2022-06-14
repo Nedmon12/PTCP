@@ -7,8 +7,8 @@ import ChatIcon from '@mui/icons-material/Chat';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import FlightClassIcon from '@mui/icons-material/FlightClass';
 import { useLocation } from 'react-router-dom'
-
-import { useContext } from 'react';
+import StatusModal from './statusModal'
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import Students from './students';
@@ -16,8 +16,13 @@ import Students from './students';
 export default function ClassroomNavbar() {
     const location = useLocation();
     console.log(location.pathname);
-  return (
-    <nav className='class="classroomnavbarcontainer  bg-white border-b border-gray-100 max-h-14 md:h-18 lg:24 mx-auto shadow-lg'>
+    const [modal, setModal]= useState(false);
+    const statusmodalon=()=>{
+        setModal(true)
+    }
+    console.log(modal)
+    return (
+    <nav className='class="classroomnavbarcontainer  bg-white  max-h-14 md:h-18 lg:24 mx-auto shadow-lg'>
             <div className='container flex flex-wrap justify-between items-center mx-auto shadow-lg'>
                 <div className='flex items-center  -ml-4 md:-ml-6 lg:-ml-8  border-r-2 border-cyan-600'>
                     
@@ -55,12 +60,15 @@ export default function ClassroomNavbar() {
                         <span className="text-sm pl-2 hidden sm:block text-gray-600">PT Video Confrence  </span>
                     </button>
                     </NavLink>
-                    <NavLink to="/tstatus" >
-                    <button type="button" class={`shadow-lg inline-flex items-center p-4 text-sm  text-cyan-500 ${location.pathname == "/tstatus" ? "text-cyan-600 bg-cyan-100 underline underline-offset-8"  : "text-cyan-500  hover:bg-cyan-100 "}`}>   
+                   <NavLink to="/tstatus" >
+                    <button onClick={statusmodalon} type="button" class={`shadow-lg inline-flex items-center p-4 text-sm  text-cyan-500 ${location.pathname == "/tstatus" ? "text-cyan-600 bg-cyan-100 underline underline-offset-8"  : "text-cyan-500  hover:bg-cyan-100 "}`}>   
                         <SettingsIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />
                         <span className="text-sm pl-2 hidden sm:block text-gray-600" > Status</span>
+                
                     </button> 
                     </NavLink>
+                    {modal==true && <StatusModal setModal={setModal}/>}
+
                 
                     
                 </div>

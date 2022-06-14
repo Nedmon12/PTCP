@@ -37,7 +37,7 @@ const inviteHandler=()=>{
   setInviteStudentParent(true);
 
 }
-console.log(user.user.id)
+console.log(user.user._id)
 useEffect(() => {
   const fetchSkills = async () => {
     const res = await axios.get("/api/class/fetchallskill/"+user.user._id);
@@ -53,7 +53,7 @@ useEffect(() => {
   };
   fetchSkills();
 }, [user.user._id]);
-console.log(inviteStudentParent)
+console.log(negativeskills)
 
 
 return (
@@ -113,7 +113,6 @@ return (
                       <Skill key={s._id} skill={s} ispostive={false}/>
                       ))        
                   }
-                      <AddSkill/>
                     </div>
                   </div>
               </div>

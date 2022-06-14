@@ -15,11 +15,6 @@ const SkillSchema = new mongoose.Schema(
         type: Boolean,
         required : [true, "please provide a skillType"]
         },
-    SkillImg: {
-      type: String,
-      required : [true, "please give image name"],
-
-    },
     SkillPoint: {
       type: String,
       required : [true, "please provide a skillpoint"]

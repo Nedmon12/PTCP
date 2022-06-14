@@ -1,7 +1,8 @@
 const Student= require('../models/Student')
 const User= require('../models/UserTeachers')
 const Attendance= require('../models/Attendance');
-const Puser = require('../models/UserParents')
+const Puser = require('../models/UserParents');
+const Behaviour = require('../models/Behaviour');
 //const Behaviour= require('../models/behaviour')
 exports.addStudent= async(req,res,next) => {
     const { firstname, lastname, pokemanUrl,teacherid, studentclass } = req.body;
@@ -78,11 +79,18 @@ exports.fetchStudents=async(req,res,next)=>{
         }
     };
     exports.behaviourupdate=async(req,res,next)=>{
-         try {
-            const student = await Student.findById({studentid: req.params.studentid});
-            console.log(student)
-            await student.updateOne({ $push: { behaviourpoint: req.body.behaviourpoint } });
-            res.status(200).json(student);
+      const { studentid, behaviourpoint, teacherid } = req.body;
+         console.log("trying to update")
+      try {
+            const behaviour = await Behaviour.findById({studentid: req.params.studentid});
+            const updatedbehaviour = behaviour.behaviourpoint + behaviourpoint;
+            console.log(behaviour.behaviourpoint)
+            console.log(updatedbehaviour)
+        
+            if(behaviour.studentid===req.body.studentid){
+              await behaviour.updateOne({ $push: { behaviourpoint: updatedbehaviour  } });
+              res.status(200).json(behaviour);
+            }    
           } catch (err) {
           res.status(500).json(err);
         }
