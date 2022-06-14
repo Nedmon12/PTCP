@@ -54,7 +54,8 @@ export default function MessageContainer() {
     const getConversations = async () => {
       try {
         // api/conversations implemented???
-        const res = await axios.get("api/conversations" + user._id);
+        const res = await axios.get("api/conversations/"+ user._id);
+        console.log(res.data)
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -67,7 +68,10 @@ export default function MessageContainer() {
     const getMessages = async () => {
       //api/messges implemented???
       try {
-        const res = await axios.get("api/messages" + currentChat?._id);
+        console.log("do we get to api/messages")
+        const res = await axios.get("api/messages/"+currentChat?._id);
+        console.log(currentChat)
+        console.log(res)
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -108,7 +112,7 @@ export default function MessageContainer() {
   }, [messages]);
 
   return (
-    
+      <>
         <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2 shadow-lg' >
             <div className='basis-1/5 border-r flex flex-col'>
             <div className='basis-1/12 border-b'>
@@ -120,17 +124,17 @@ export default function MessageContainer() {
                 </div>
                 <div className='RecentparenrtMessages w-full h-20 text-cyan-400 hover:bg-cyan-100 cursor-pointer flex flex-row'>
                     <div className='profileplace basis-1/4 ' >
-                    <img className="postProfileImg ml-3 h-10 w-10  border border-cyan-400 rounded-full object-cover" src="assets/profile/1.jpg"alt=""/>   
+                    {/* <img className="postProfileImg ml-3 h-10 w-10  border border-cyan-400 rounded-full object-cover" src="assets/profile/1.jpg"alt=""/>    */}
                     </div>
-                    <div className='Desc basis-3/4 ' >
-                    <div><span className="shareOptionText text-black text-sm">
+                    {/* <div className='Desc basis-3/4 ' > */}
+                    <div><span className="">
                         {conversations.map((c) => (
                         <div onClick={() => setCurrentChat(c)}>
                         <Conversation conversation={c} currentUser={user} />
                         </div>
                         ))}
                         </span>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
                 <div>
@@ -179,6 +183,7 @@ export default function MessageContainer() {
         
 
     </div>
-
+    </>
   )
+                
 }

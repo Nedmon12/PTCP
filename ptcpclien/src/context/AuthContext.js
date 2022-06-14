@@ -3,13 +3,13 @@ import AuthReducer from "./AutoReducer";
 
 const INITIAL_STATE = {
   user: {
-    firstname:"girum",
-   _id: "6278d42addbd75cd1eb46277",    
-   lastname:" gizachew",
-   username:"Trgirumgizachew",
-   email: "ned@gmail.com",
-   resposibleclass: "grade: 4(A)",
-   password:"$2b$10$R04Io3CEe3p4JLC77knrbuzg8KEukJWKOxPezSQhBqp.qO1qFfQy.",
+    firstname:"beka",
+   _id: "629b7f1c06f046023ecb41bf",    
+   lastname:"tegene",
+   username:"chalachube@gmail.com",
+   email: "chalachube@gmail.com",
+   resposibleclass: "4A",
+   password:"$2b$10$eetuBT3Gzc3l1IPff1e66eH7xkoLCoIbLIFJb.I4jaC.eq2HUPJHm",
    profilePicture:"",
    isSystemAdmin:"false",
    isSchoolAdmin:"false",
