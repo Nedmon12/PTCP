@@ -5,7 +5,7 @@ import ExamResultModal from './ExamResultModel';
 import TestResultModal from './TestResultModel';
 import AssignmentResultModal from './AssignmentResultModel';
 import OtherResultModal from './OtherResultModel';
-import ResultStatus from './ResultStatus';
+//import ResultStatus from './ResultStatus';
 import { AuthContext } from '../context/AuthContext';
 export default function Subject({subject,student,ispostive}) {
   const user = useContext(AuthContext);
@@ -29,7 +29,7 @@ export default function Subject({subject,student,ispostive}) {
 
     {ispostive==4 && ExamResulttModal==true && < OtherResultModal subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
 
-    {ispostive==5 && ExamResulttModal==true && <ResultStatus subject={subject} setExamResultModal={setExamResultModal} student={student}/>}
+    
 
     </>
   )

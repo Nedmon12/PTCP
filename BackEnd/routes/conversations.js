@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
 
 router.get("/:userId", async (req, res) => {
   console.log("do we get here?")
+  console.log(req.params.userId)
   try {
     const conversation = await Conversation.find({
       members: { $in: [req.params.userId] },

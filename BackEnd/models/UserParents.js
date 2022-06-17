@@ -38,12 +38,12 @@ const UserParentsSchema = new mongoose.Schema(
     },
     studentid: {
       type: String,
-      required: [true, "please provide an student"],
+      required: [true, "please provide a student"],
       
     },
     teacherid: {
       type: String,
-      required:  [true, "please provide an teacher"],
+      required:  [true, "please provide a teacher"],
       
       },
     resetPasswordToken: String,

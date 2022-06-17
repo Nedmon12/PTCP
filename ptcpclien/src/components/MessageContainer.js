@@ -21,7 +21,9 @@ export default function MessageContainer() {
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
+  
   const { user } = useContext(AuthContext);
+  console.log("okay noww "+user.user._id)
   const scrollRef = useRef();
 
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function MessageContainer() {
     const getConversations = async () => {
       try {
         // api/conversations implemented???
-        const res = await axios.get("api/conversations/"+ user._id);
+        const res = await axios.get("api/conversations/" +user.user._id);
         console.log(res.data)
         setConversations(res.data);
       } catch (err) {
@@ -62,14 +64,14 @@ export default function MessageContainer() {
       }
     };
     getConversations();
-  }, [user._id]);
+  }, [user.user._id]);
 
   useEffect(() => {
     const getMessages = async () => {
       //api/messges implemented???
       try {
         console.log("do we get to api/messages")
-        const res = await axios.get("api/messages/"+currentChat?._id);
+        const res = await axios.get("api/messages/"+currentChat._id);
         console.log(currentChat)
         console.log(res)
         setMessages(res.data);
@@ -89,11 +91,11 @@ export default function MessageContainer() {
     };
 
     const receiverId = currentChat.members.find(
-      (member) => member !== user._id
+      (member) => member !== user.user._id
     );
 
     socket.current.emit("sendMessage", {
-      senderId: user._id,
+      senderId: user.user._id,
       receiverId,
       text: newMessage,
     });
@@ -130,7 +132,7 @@ export default function MessageContainer() {
                     <div><span className="">
                         {conversations.map((c) => (
                         <div onClick={() => setCurrentChat(c)}>
-                        <Conversation conversation={c} currentUser={user} />
+                        <Conversation conversation={c} currentUser={user.user} />
                         </div>
                         ))}
                         </span>
@@ -150,7 +152,7 @@ export default function MessageContainer() {
                 <div className='p-2 pt-3' >
                 {messages.map((m) => (
                     <div ref={scrollRef}>
-                      <MessageView message={m} own={m.sender === user._id} />
+                      <MessageView message={m} own={m.sender === user.user._id} />
                     </div>
                   ))}
                 </div>

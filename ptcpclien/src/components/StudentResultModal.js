@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Skill from './Skill';
 import Subjects from './subjects';
-import ResultStatus from './ResultStatus'
+//import ResultStatus from './ResultStatus'
 import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import AddSubject from './AddSubject'
