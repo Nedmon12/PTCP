@@ -1,4 +1,3 @@
-import Dashboard from './admin/dashboard'
 import React from 'react'
 import {Routes, Route, BrowserRouter, Navigate} from 'react-router-dom'
 import { Link } from "react-router-dom";

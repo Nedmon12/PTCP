@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import Dashboard from './admin/dashboard'
+import Dashboard from './admin/dashboards'
 import Sidebar from './admin/Sidebar'
 
 import SchoolEditable from "./admin/SchoolEditable"

@@ -22,7 +22,7 @@ router.post('/', async (req,res)=>{
   console.log(newParent)
   try {
     const savedParent = await newParent.save()
-    res.status(200).json(savedPost)
+    res.status(200).json(savedParent)
   }
   catch (err) {
     res.status(500).json(err)
