@@ -12,9 +12,9 @@ function Student({student}) {
   const PFavater = process.env.REACT_APP_PUBLIC_FOLDER2;
 
   return (
-    <div className='studentContainer w-26 h-26 shadow-lg '>
+    <div className='studentContainer w-26 h-26'>
       
-        <img className='pokeman w-16 h-16 mx-4'  src={PFavater + imageurl} alt="k" />
+        <img className='shadow-sm pokeman w-16 h-16 mx-4'  src={PFavater + imageurl} alt="k" />
         <div className='w-26 h-16 border border-gray-100 rounded-lg bg-white'  >
         <span className='StudentName font-mono text-gray-600 px-4 '>{student.firstname}</span>
         </div>

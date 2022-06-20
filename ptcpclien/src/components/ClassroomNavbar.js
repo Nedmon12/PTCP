@@ -22,8 +22,8 @@ export default function ClassroomNavbar() {
     }
     console.log(modal)
     return (
-    <nav className='class="classroomnavbarcontainer  bg-white  max-h-14 md:h-18 lg:24 mx-auto shadow-lg'>
-            <div className='container flex flex-wrap justify-between items-center mx-auto shadow-lg'>
+    <nav className='class="classroomnavbarcontainer -mt-1 borer-t border-slate-50 bg-white  max-h-14 md:h-18 lg:24 mx-auto shadow-lg'>
+            <div className='container flex flex-wrap justify-between items-center mx-auto '>
                 <div className='flex items-center  -ml-4 md:-ml-6 lg:-ml-8  border-r-2 border-cyan-600'>
                     
                 </div>

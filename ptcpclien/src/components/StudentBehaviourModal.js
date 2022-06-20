@@ -9,14 +9,15 @@ import { NavLink } from 'react-router-dom';
 import AddSkill from './AddSkill'
 import { AuthContext } from '../context/AuthContext';
 import InviteParentModal from './inviteParentModal'
-function Student({setModalOn, student}) {
+function Student({setModalOn, student, displayconduct}) {
   const [skills, setSkills] = useState([]);
   const [inviteStudentParent, setInviteStudentParent]=useState([false]);
   const [negativeskills, setnegativeskills]= useState([]);
   const [ispostive, setpostive] = useState(true);
   const location = useLocation();
   const {user} = useContext(AuthContext);
-  console.log(user.user._id)
+  console.log(displayconduct)
+
   const png=".png";
   const image=student.pokemanUrl;
   const imageurl= `${student.pokemanUrl}${png}`;
@@ -24,7 +25,7 @@ function Student({setModalOn, student}) {
   const handleCancelClick = () => {
     setModalOn(false)
 }
-console.log(student)
+console.log(displayconduct)
 const postiveHandler = () => {
   if(ispostive==false)
   setpostive(true);
@@ -63,8 +64,8 @@ return (
             <div className='flex flex-row'>
                 <div className='basis-1/4 flex flex-col border-r border-slate-200 justify-between' >
                       <div className=' h-[38vw] border-b border-slate-200 flex flex-col'>
-                      <div className='w-10 h-10 ml-64 mt-40 firstone bg-green-500 text-white rounded-full border border-gray-300' >
-                          <span className='font-bold p-3' >55</span>
+                      <div className='w-10 h-10 ml-64 mt-40 firstone bg-cyan-500 text-white rounded-full border border-gray-300' >
+                          <span className='font-bold p-3' >{displayconduct}</span>
                       </div>
                       <img className='pokeman w-44 h-44 mx-24 '  src={PFavater + imageurl} alt="k" />
                       <span class="block tracking-wide text-gray-700 text-xl font-bold px-40 py-4 mb-44 ">{student.firstname}</span>

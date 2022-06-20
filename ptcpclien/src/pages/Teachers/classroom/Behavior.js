@@ -3,12 +3,10 @@ import Footerlog from '../../../components/Footer'
 import NavbarForTeachers from "../../../components/NavbarforTeacher"
 import ClassroomNavbar from '../../../components/ClassroomNavbar'
 import StudentsBehavior from '../../../components/studentsBehavior'
-import Sidebar from '../../../components/Sidebar'
 
 export default function classroom() {
   return (
     <div className='h-screen'>
-      <Sidebar/>
         <div className='pb-1'>
             <NavbarForTeachers/>
         </div>
@@ -21,7 +19,7 @@ export default function classroom() {
             
         </div>
         <div  className="pt-3">
-        <Footerlog/>
+        
         </div>
     </div>
     

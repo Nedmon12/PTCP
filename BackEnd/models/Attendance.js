@@ -5,9 +5,13 @@ const AttendanceSchema = new Schema ({
         type: String,
         required : [true, "student id problem"]
       },
-      attendance:{
+      attendancevalue:{
         type: Boolean,
         required : [true, "please give the attendance"]
+      },
+      attendancedate:{
+        type: String,
+        required : [true, "please give the attendance date"]
       },
       teacherid:{
         type: String,

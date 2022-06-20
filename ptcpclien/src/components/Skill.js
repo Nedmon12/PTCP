@@ -3,19 +3,19 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import axios from 'axios'
 import { AuthContext } from '../context/AuthContext';
 export default function Skill({skill, ispostive,studentid}) {
-  const user = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const [currentpoint, setCurrentPoint] = useState(skill.SkillPoint);
   const handleClick = async (e) => {
     e.preventDefault();
-    setCurrentPoint(studentid)
-    console.log(currentpoint)
+   
+    console.log(studentid)
     const point = {
         teacherid: user.user._id,
         studentid: studentid,
         behaviourpoint: currentpoint,
       };
       try {
-        await axios.put("/api/studentManagmentRoutes/addbehavior/"+studentid, point);
+        await axios.put("/api/studentManagmentRoutes/addbehaviour/"+studentid, point);
         window.location.reload();
        
       } catch (err) {

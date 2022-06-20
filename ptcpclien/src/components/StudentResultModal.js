@@ -10,13 +10,16 @@ import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import AddSubject from './AddSubject'
 import { AuthContext } from '../context/AuthContext';
+import { MDBTable, MDBTableBody, MDBTableHead, MDBDataTableV5} from 'mdbreact'
 
 function Student({setModalOn, student}) {
+  let fromhund=0;
+  const [results, setResult]=useState([]);
   const [subject, setSubject] = useState([]);
   const [negativeskills, setnegativeskills]= useState([]);
   const [ispostive, setpostive] = useState(1);
   const location = useLocation();
-  const user = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   console.log(user.user._id)
   const png=".png";
   const image=student.pokemanUrl;
@@ -45,7 +48,8 @@ const otherHandler = () => {
 const totalHandler = () => {
   if(ispostive!==5)
   setpostive(5);
-};const AverageHandler = () => {
+};
+const AverageHandler = () => {
   if(ispostive!==6)
   setpostive(6);
 };  
@@ -53,7 +57,21 @@ const rankHandler = () => {
   if(ispostive!==1)
   setpostive(7);
 };  
-
+let total=0;
+let outoftotal=0;
+useEffect(() => {
+  const fetchSubject = async () => {
+    const res = await axios.get("/api/studentManagmentRoutes/fetchresultt/" + user.user._id + "/" + student._id);
+    setResult(res.data);
+  };
+  fetchSubject();
+}, [user.user._id]); 
+console.log(results)
+results.forEach(result => {
+  total=total+result.mainresult;
+  outoftotal=outoftotal+result.outof;
+})
+console.log(total)
 useEffect(() => {
   const fetchSubject = async () => {
     const res = await axios.get("/api/class/fetchallsubject/" + user.user._id);
@@ -62,20 +80,19 @@ useEffect(() => {
   fetchSubject();
 }, [user.user._id]);
 
-useEffect(() => {
-  const fetchSkills = async () => {
-    const res = await axios.get("/api/class/fetchnegativeskill/" + user.user._id);
-    setnegativeskills(res.data);
-  };
-  fetchSkills();
-}, [user.user._id]);
+console.log(subject.length)
+if(outoftotal!==0){
+total = total*((subject.length*100)/outoftotal)
+}
+let Average = total/subject.length
 
+  
 
 
 return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
-        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[90vw] opacity-100 overflow-auto' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[96vw] opacity-100 overflow-auto' >
             <div className='flex flex-row'>
                 <div className='basis-1/4 flex flex-col border-r border-slate-200 justify-between' >
                 <div className=' h-[41vw] border-b border-slate-200 flex flex-col'>
@@ -85,7 +102,7 @@ return (
                       <img className='pokeman w-44 h-44 mx-24 '  src={PFavater + imageurl} alt="k" />
                       <span class="block tracking-wide text-gray-700 text-xl font-bold px-40 py-4 mb-32 ">{student.firstname}</span>
                       <span class="w-full h-12 text-gray-700 text-bs  px-4 py-2  border border-slate-100 bg-slate-100">Currently ranked 2 in class</span>
-                      <span class="w-full h-12 text-gray-700 text-bs  px-4 py-2 border border-slate-100 bg-slate-100">With Average of 94.5</span>
+                      <span class="w-full h-12 text-gray-700 text-bs  px-4 py-2 border border-slate-100 bg-slate-100">With Average of {Average}</span>
 
                       </div>
                       <div className='h-[4vw] '>
@@ -125,11 +142,9 @@ return (
                             Results
                           </button>
                           <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Average
+                           Total, Average And Rank
                           </button>
-                          <button onClick={rankHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${ispostive == 7 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Rank
-                          </button>
+                          
                             
                         </div>
                   </div> 
@@ -154,16 +169,23 @@ return (
                              ispostive==5 ?  subject.map((s)=>(
                               <Subjects key={s._id} subject={s} ispostive={5} student={student}/>
                               )        
-                               ):
-                               ispostive==6 ?  subject.map((s)=>(
-                                <Subjects key={s._id} subject={s} ispostive={6} student={student}/>
-                                )        
-                                 ):
-                           subject.map((s)=>(
-                            <Subjects key={s._id} subject={s} ispostive={7} student={student}/>
-                            ))        
-                  }
-                      <AddSubject/>
+                               ): 
+                               <div>
+                                  <div className='py-4' >
+                                    
+                                    <span>Total: {total}/{100*subject.length}</span>
+                                  </div>
+                                  <div className='py-4' >
+                                    
+                                    <span>Average: {Average}</span>
+                                  </div>
+                                  <div className='py-4' >
+                                    
+                                    <span>Rank: {total}/{100*subject.length}</span>
+                                  </div>   
+                                  </div>   
+                                 
+                                                    }
                     </div>
                   </div>
               </div>

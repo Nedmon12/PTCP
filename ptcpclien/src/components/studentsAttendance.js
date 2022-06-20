@@ -10,9 +10,17 @@ import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function StudentsAttendance() {
-  
+  const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const d = new Date();
+  let today = d.getDate()
+  let month = d.getMonth()+1
+  let year = d.getYear()-100;
+  let day = weekday[d.getDay()];
+  let todaydate = today+"."+month+"."+"20"+year; 
+  console.log(todaydate);
+
   const [isAttend, setIsAttended] = useState(true);
-  const [save, setSave]= useState(true);
+  const [save, setSave]= useState(false);
   const {user} = useContext(AuthContext);
   const [students, setStudents] = useState([]);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -26,16 +34,16 @@ export default function StudentsAttendance() {
     fetchStudent();
   }, [user._id]);
   const saveHandler=()=>{
-    setSave(!save)
-    window.location.reload();
+    setSave(true)
+
   }
   
   
   return (
-    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between bg-white'>
+    <div className='StudentContainer p-4  h-[35vw] flex flex-col justify-between bg-slate-50'>
         <div class="grid grid-cols-12 gap-4 p-4">
             {students.map((p)=>(
-                <StudentAttendance key={p._id} student={p} setIsAttended={isAttend} save={save} />
+                <StudentAttendance key={p._id} student={p} setIsAttended={isAttend} save={save} todaydate={todaydate} />
                 )        
                )}
                         

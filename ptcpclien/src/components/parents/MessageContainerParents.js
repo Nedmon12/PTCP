@@ -11,7 +11,7 @@ export default function MessageContainer({}) {
     const [messages, setMessages] = useState([]);
     const [conversations, setConversations] = useState([]);
 
-    const [teacher, setTeacher] = useState();
+    const [teacher, setTeacher] = useState([]);
 
       
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function MessageContainer({}) {
       };
       fetchmykidteacher();
     }, [user.user._id]);
-    console.log(teacher.teacher._id)
+    console.log(teacher._id)
 
       useEffect(() => {
         const getConversations = async () => {
@@ -48,10 +48,7 @@ export default function MessageContainer({}) {
         };
         getMessages();
       }, [currentChat]);
-
   console.log(messages)
-
-    
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
       return (
         <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2' >
@@ -80,10 +77,7 @@ export default function MessageContainer({}) {
             <div className='messagesinput basis-1/12 '>
                 <Textinput/>
             </div>
-        </div>
-        
-
+        </div>        
     </div>
-
   )
 }

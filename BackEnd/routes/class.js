@@ -8,8 +8,6 @@ router.route("/addskill").post(addSkill);
 router.route("/fetchallskill/:TeacherId").get(fetchSkill);
 router.route("/fetchnegativeskill/:TeacherId").get(fetchNegativeSkill);
 
-router.route("/addresult").post(addResult);
-router.route("/fetchresult/:teacherid/:studentid/:subjectid").get(fetchresult);
 
 
 

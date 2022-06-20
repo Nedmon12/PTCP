@@ -20,10 +20,10 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
       console.log(mainresultt.current.value)
 
         const result = {
-          teacherid: user._id,
+          teacherid: user.user._id,
           studentid: student._id,
           subjectid: subject._id,
-          
+          subjectname: subject.SubjectName,
           outof: outoff.current.value,
 
           mainresult: mainresultt.current.value,
@@ -31,7 +31,7 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
         };
         
         try {
-          await axios.post("api/class/addresult", result);
+          await axios.post("api/studentManagmentRoutes/addresult", result);
           window.location.reload();
         } catch (err) {
           console.log(err);

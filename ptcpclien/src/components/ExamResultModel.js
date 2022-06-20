@@ -15,22 +15,27 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     console.log(user._id);
     const handleClick = async (e) => {
       e.preventDefault();
+      if (mainresultt.current.value > outoff) {
+        mainresultt.current.setCustomValidity("Result cant be greater that"+outoff);
+      }
+      else{
         const result = {
-          teacherid: user._id,
+          teacherid: user.user._id,
           studentid: student._id,
           subjectid: subject._id,
+          subjectname: subject.SubjectName,
           outof: outoff,
-          reason: "final",
+          reason: "Final Exam",
           mainresult: mainresultt.current.value
         };
         console.log(result)
         try {
-          await axios.post("api/class/addresult", result);
+          await axios.post("/api/studentManagmentRoutes/addresult", result);
           window.location.reload();
         } catch (err) {
           console.log(err);
         }
-      
+      }
     };
     const thirtyHandler = () => {
         if(outoff!==30)
@@ -56,33 +61,33 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
         <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[26vw] w-[32vw] opacity-100' >
-        <div className='basis-1/6 flex flex-row h-10 justify-between border-b-2 text-white border-slate-100 rounded-t-xl bg-cyan-500 ' >  
-            <span class="block tracking-wide boreder-2 border-slate-100 text-white text-lg font-medium pl-4 py-4 hover:text-bs ">{student.firstname} {student.lastname}'s {subject.SubjectName} Final Exam result</span>
+        <div className='basis-1/6 flex flex-row h-10 justify-between border-b-2 text-black border-slate-100 rounded-t-xl bg-white' >  
+            <span class="block tracking-wide boreder-2 border-slate-100 text-gray-700 text-lg font-medium pl-4 py-4 hover:text-bs ">{student.firstname} {student.lastname}'s {subject.SubjectName} Final Exam result</span>
             <button className='pr-2 py-4' onClick={handleCancelClick} >
                <CloseIcon fill="currentcolor"/>
             </button> 
         </div>
         <div className='basis-5/6' >
-            <div className='flex flex-row border-b-2 border-slate-100' >
-                          <button onClick={thirtyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outoff == 30 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+            <div className='flex flex-row border-b-2 bg-gray-500 border-slate-100' >
+                          <button onClick={thirtyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 30 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             30
                           </button>
-                          <button onClick={thirtyfiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outoff == 35 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                          <button onClick={thirtyfiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 35 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             35
                           </button>
-                          <button onClick={fortyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outoff == 40 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                          <button onClick={fortyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 40 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             40
                           </button>
-                          <button onClick={fortyfiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outoff == 45 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                          <button onClick={fortyfiveHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 45 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             45
                           </button>
-                          <button onClick={fiftyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-gray-700 text-base rounded-lg ${outoff == 50 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                          <button onClick={fiftyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 50 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             50
                           </button>
             </div>
             <div className='mt-10' >
-                <input ref={mainresultt}  required  id="number" type="number" placeholder="Result"className=" rounded-sm ml-4 PostInput pl-3 placeholder-cyan-500 w-[24vw] border  h-10"/>
-                <button onClick={handleClick} className=" rounded-sm w-[6vw] SendButton p-2 text-white bg-cyan-500  h-10 " type="submit ">
+                <input ref={mainresultt} maxLength="1" required  id="number" type="number" placeholder="Result"className=" rounded-sm ml-4 PostInput pl-3 placeholder-cyan-500 w-[24vw] border  h-10"/>
+                <button onClick={handleClick} className=" rounded-sm w-[6vw] SendButton p-2 text-white bg-slate-500  h-10 " type="submit ">
                     save
                 </button>
             </div>

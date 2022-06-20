@@ -14,6 +14,10 @@ const ResultSchema = new Schema ({
         type:String,
         required:[true, "please provide the subject"]
       },
+      subjectname:{
+        type:String,
+        required:[true, "please provide the subject"]
+      },
       outof:{
         type:Number,
         required:[true, "please provide the result"]
@@ -25,6 +29,6 @@ const ResultSchema = new Schema ({
       reason: {
         type:String,
       }
-})
-const Result= mongoose.models.result || mongoose.model("Result", ResultSchema);
+},{timestamps: true})
+const Result= mongoose.models.Result || mongoose.model("Result", ResultSchema);
 module.exports = Result;

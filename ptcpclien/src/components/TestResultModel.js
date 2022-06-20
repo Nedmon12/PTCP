@@ -8,23 +8,24 @@ export default function TestResultModel({student,setExamResultModal, subject}) {
     const handleCancelClick = () => {
         setExamResultModal(false)    
     }
-    
+    console.log(subject.SubjectName)
     const [outoff, setoutoff] = useState(15);
     const {user} =useContext(AuthContext);
     const mainresultt= useRef()
-    console.log(user._id);
     const handleClick = async (e) => {
       e.preventDefault();
         const result = {
-          teacherid: user._id,
+          teacherid: user.user._id,
           studentid: student._id,
           subjectid: subject._id,
+          subjectname: subject.SubjectName,
+          reason: "Class Exam",
           outof: outoff,
           mainresult: mainresultt.current.value
         };
         console.log(result)
         try {
-          await axios.post("api/class/addresult", result);
+          await axios.post("api/studentManagmentRoutes/addresult", result);
           window.location.reload();
         } catch (err) {
           console.log(err);

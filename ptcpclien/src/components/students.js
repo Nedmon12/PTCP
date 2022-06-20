@@ -20,7 +20,7 @@ export default function Students() {
     fetchStudent();
   }, [user.user._id]);
   return (
-    <div className='StudentContainer p-4 min-h-full bg-white'>
+    <div className='StudentContainer p-4 min-h-full bg-slate-50'>
         <div class="grid grid-cols-12 gap-4">
             <AllStudents/>
             {students.map((p)=>(

@@ -2,9 +2,9 @@ import React,{useState, useEffect} from 'react'
 import { useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-function StudentAttendance({student, setIsAttended, save}) {
+function StudentAttendance({student, setIsAttended,todaydate, save}) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [Attend, setAttended] = useState(setIsAttended);
+  const [Attend, setAttended] = useState(true);
   const {user} = useContext(AuthContext);
   const png=".png";
   const image=student.pokemanUrl;
@@ -15,13 +15,15 @@ function StudentAttendance({student, setIsAttended, save}) {
   }
   useEffect(() => {
     if(save==true){
+      save=false;
   const sendattendance = async () => {
-    console.log(student._id)
+    console.log(Attend)
     console.log(user.user._id)
     const setattendance = {
       studentid: student._id,
-      attendance: Attend,
+      attendancevalue: Attend,
       teacherid: user.user._id,
+      attendancedate: todaydate
     };
   try {
     await axios.post("api/studentManagmentRoutes/attendance", setattendance); 
@@ -33,6 +35,7 @@ function StudentAttendance({student, setIsAttended, save}) {
 }, [save]);
 
   return (
+    <>
     <div className='studentContainer w-26 h-26 '>
       
         <img className='pokeman w-16 h-16 mx-4'  src={PFavater + imageurl} alt="k" />
@@ -48,7 +51,7 @@ function StudentAttendance({student, setIsAttended, save}) {
                           }
               alt=""/>
           </button> 
-    </div>
+    </div></>
   )
 
 }

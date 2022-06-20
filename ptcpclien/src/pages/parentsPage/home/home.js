@@ -5,7 +5,6 @@ import Post from "../../../components/parents/ParentsPost"
 import Event from "../../../components/parents/eventsParents"
 import Connected from "../../../components/parents/Connectedto"
 import NewPost from "../../../components/newpost"
-import Sidebar from '../../../components/Sidebar'
 import { AuthContext } from '../../../context/AuthContext'
 import useFetch from '../../../hook/useFetch'
 import axios from "axios";

@@ -3,7 +3,6 @@ import Navbar from "../../../components/NavbarforTeacher"
 import Post from "../../../components/Post"
 import Event from "../../../components/events"
 import NewPost from "../../../components/newpost"
-import Sidebar from '../../../components/Sidebar'
 import { AuthContext } from '../../../context/AuthContext'
 import useFetch from '../../../hook/useFetch'
 import axios from "axios";
@@ -11,6 +10,8 @@ import EditClass from './components/editclass'
 import InviteParentModal from '../../../components/inviteParentModal'
 import InviteAllParent from '../home/components/inviteallparents'
 import AddSkill from '../home/components/addskill'
+import AddSubject from '../home/components/addsubject'
+
 export default function Home() {
     const {user}= useContext(AuthContext)
     const [ispostive, setpostive] = useState(1);
@@ -48,7 +49,6 @@ export default function Home() {
   return (
     <div className='totalcontainer'>
         <div  className='sticky top-0 '>
-        <Sidebar/>
         <Navbar/>
         </div>
         <div className='postandeventcontainer flex flex-row bg-slate-50'>    
@@ -70,7 +70,7 @@ export default function Home() {
                             Add Skill
                           </button>
                         <button onClick={otherHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 4 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Other
+                            Add Subject
                           </button>
                           <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             Results
@@ -90,6 +90,9 @@ export default function Home() {
                       <InviteAllParent ispostive={2}/>
                       :ispostive==3 ?
                       <AddSkill ispostive={3}/>
+                      :ispostive==4 ?
+                      <AddSubject ispostive={4}/>
+                   
                    :
                     <EditClass ispostive={7}/>
                   }

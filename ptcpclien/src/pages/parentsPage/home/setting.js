@@ -18,7 +18,7 @@ export default function Home() {
         setStudent(res.data);
       };
       fetchmykid();
-    }, [user._id]);
+    }, [user.user._id]);
     
   const png=".png";
   const image=Student.pokemanUrl;

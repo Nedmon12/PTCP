@@ -35,31 +35,31 @@ const Navbar = () => {
 
 
     return (
-        <nav className='class="teachersidenavbarcontainer  bg-cyan-500 border-blue-100 h-14 md:h-18 lg:24 mx-auto shadow-lg z-100'>
+        <nav className='class="teachersidenavbarcontainer  bg-white border-blue-100 h-14 md:h-18 lg:24 mx-auto shadow-lg z-100'>
             <div className='container flex flex-wrap justify-between items-center mx-auto'>
                 
               <div>
-                <button type="button" class="inline-flex items-center p-3 text-sm text-cyan-600 sm">
+                <button type="button" class="inline-flex items-center p-3 text-sm text-black sm">
                       
                     <NotificationsIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />      
                 </button>
                 </div>
                 <div class="flex md:order-2  ">
                 <NavLink to="/classroom">   
-                <button type="button" class={`min-h-full inline-flex items-center p-4 text-white text-sm font-medium shadow-sm rounded-md ${location.pathname == "/classroom" || location.pathname == "/tattendance" || location.pathname == "/tbehaviour" || location.pathname == "/tvideo" || location.pathname == "/tstatus" || location.pathname == "/tresult" ? "text-cyan-600 bg-cyan-200 underline underline-offset-8"  : "text-white hover:bg-cyan-600 "}`}>   
+                <button type="button" class={`min-h-full inline-flex items-center p-4 text-cyan-500 text-bs  rounded-md ${location.pathname == "/classroom" || location.pathname == "/tattendance" || location.pathname == "/tbehaviour" || location.pathname == "/tvideo" || location.pathname == "/tstatus" || location.pathname == "/tresult" ? "text-cyan-500 text-lg underline underline-offset-8"  : "text-cyan-500 text-bs hover:bg-slate-100 "}`}>   
                       <FlightClassIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />                        
                       <span className="text-sm pl-2 hidden sm:block " >ClassRoom  </span>
                     </button>
                 </NavLink>
                 <NavLink to="/thome">   
-                <button type="button" class={`min-h-full inline-flex items-center p-4 text-white text-sm font-medium shadow-sm rounded-md ${location.pathname == "/thome"  ? "text-cyan-600 bg-cyan-200 underline underline-offset-8"  : "text-white hover:bg-cyan-600 "}`}>   
+                <button type="button" class={`min-h-full inline-flex items-center p-4 text-cyan-500 text-bs  rounded-md ${location.pathname == "/thome"  ? "text-cyan-500 text-lg underline underline-offset-8"  : "text-cyan-500 text-bs hover:bg-slate-100"}`}>   
                       <FlightClassIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />                        
                       <span className="text-sm pl-2 hidden sm:block " >ClassStory  </span>
                     </button>
                 </NavLink>
                         <Menu as="div" className="relative inline-block text-left">
                     <div>
-                            <Menu.Button className="inline-flex justify-center w-full   rounded-md  shadow-sm px-4 py-4 bg-cyan-500 text-white text-sm font-medium hover:bg-cyan-600 ">
+                    <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-4 bg-white text-cyan-500 text-sm hover:bg-slate-100 ">
                                         <AddIcon/>       
                                         Create
                                         <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
@@ -128,7 +128,7 @@ const Navbar = () => {
             
                 <div>
                 <NavLink to="/message">
-                <button type="button" class={`min-h-full inline-flex items-center p-4   rounded-md text-white text-sm font-medium shadow-sm ${location.pathname == "/message"  ? "text-cyan-600 bg-cyan-200 underline underline-offset-8"  : "text-white hover:bg-cyan-600 "}`}>   
+                <button type="button" class={`min-h-full inline-flex items-center p-4 text-cyan-500 text-bs  rounded-md ${location.pathname == "/message" ? "text-cyan-500 text-lg underline underline-offset-8"  : "text-cyan-500 text-bs hover:bg-slate-100"}`}>   
                         <ChatIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />        
                         <span className="text-sm pl-2 hidden sm:block">Message  </span>
                     </button>
@@ -136,7 +136,7 @@ const Navbar = () => {
                 </div>
                 <Menu as="div" className="relative inline-block text-left">
                     <div>
-                            <Menu.Button className="inline-flex justify-center w-full   rounded-md  shadow-sm px-4 py-4 bg-cyan-500 text-white text-sm font-medium hover:bg-cyan-600 ">
+                            <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-4 bg-white text-cyan-500 text-sm hover:bg-slate-100 ">
                                 <PersonAddIcon/>       
                                         Invite
                             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
@@ -187,7 +187,7 @@ const Navbar = () => {
             </Menu> 
                 <Menu as="div" className="relative inline-block text-left">
               <div>
-                    <Menu.Button className="inline-flex justify-center w-full  rounded-md  shadow-sm px-4 py-4 bg-cyan-500 text-white text-sm font-medium hover:bg-cyan-600 ">
+              <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-4 bg-white text-cyan-500 text-sm hover:bg-slate-100 ">
                          <SettingsIcon/>       
                                 Settings
                      <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />

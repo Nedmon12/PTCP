@@ -61,29 +61,4 @@ exports.fetchSubject=async(req,res,next)=>{
       next(error);
     }
   };
-  exports.addResult= async(req,res,next) => {
-    const {studentid, teacherid, subjectid, outof, mainresult, reason} = req.body;
-try{
-    const result= await Result.create({
-      teacherid, 
-      studentid,
-      subjectid,
-      outof,
-      mainresult,
-      reason
-    });
-    res.status(200).json({result});
-    }catch(error){
-        next(error);
-    }
-};
-exports.fetchresult=async(req,res,next)=>{
- // const {studentid, teacherid, subjectid} = req.body;
-  try {
-    const result = await Result.find({teacherid: req.params.teacherid , studentid: req.params.studentid , subjectid: req.params.subjectid  });
-    console.log(result)
-    res.status(200).json(result);
-  } catch (error) {
-    next(error);
-  }
-};
+ 

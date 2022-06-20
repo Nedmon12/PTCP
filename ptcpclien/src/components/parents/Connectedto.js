@@ -20,6 +20,7 @@ export default function Connected() {
         };
         fetchmykidteacher();
       }, [user.user._id]);
+      console.log(user.user.teacherid)
     
 
   return (

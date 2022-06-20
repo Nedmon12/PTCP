@@ -14,15 +14,17 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     const handleClick = async (e) => {
       e.preventDefault();
         const result = {
-          teacherid: user._id,
+          teacherid: user.user._id,
           studentid: student._id,
           subjectid: subject._id,
+          subjectname: subject.SubjectName,
+          reason: "Assignment",
           outof: outoff.current.value,
           mainresult: mainresultt.current.value
         };
         console.log(result)
         try {
-          await axios.post("api/class/addresult", result);
+          await axios.post("api/studentManagmentRoutes/addresult", result);
           window.location.reload();
         } catch (err) {
           console.log(err);

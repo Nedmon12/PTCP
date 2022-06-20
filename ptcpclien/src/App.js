@@ -14,6 +14,8 @@ import Psetting from './pages/parentsPage/home/setting';
 import Chat from './pages/Teachers/chatpage/chatpage';
 import Classroom from './pages/Teachers/classroom/classroom';
 import TVideoConf from './pages/Teachers/classroom/videoConfrence';
+import PVideoConf from './pages/parentsPage/videoconference/videoConfrence';
+
 import TAttendance from './pages/Teachers/classroom/Attendance';
 import TBehavior from './pages/Teachers/classroom/Behavior';
 import TStatus from './pages/Teachers/classroom/Status';
@@ -61,10 +63,10 @@ function App() {
         <Route path="/tresult" element={<TResult />} />{" "}
         <Route path="/tstatus" element={<TStatus />} />{" "}
         <Route path="/tsetting" element={<Setting/>} />{" "}
-        
+        <Route path="/eventhome" element={<Event/>} />{" "}
         <Route path="/adminDashboard" element={<AdminPage />} />
 
-       <Route path='/' element={user ? <Navigate to="/classroom" /> :<Landing/>}> </Route>
+       <Route path='/' element={<Landing/>}> </Route>
     <Route path='/Subscribe' element={ <Subscribe/>}> </Route>
 
 
@@ -76,6 +78,8 @@ function App() {
       <Route path='/childstatus' element={user ? <ChildStatus/>:<PLogin/>} />  
       <Route path='/pregister' element={user ? <Phome/> :<Pregister/>} />
       <Route path='/plogin' element={ user ? <Phome/> : <PLogin/> }> </Route>
+      <Route path="/pvideo" element={<PVideoConf />} />{" "}
+
 
 
         <Route path="/plogin" element={<PLogin />} />

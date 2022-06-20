@@ -36,6 +36,12 @@ const Navbar = () => {
                         <span className="text-sm pl-2 hidden sm:block">Message  </span>
                     </button>
                 </NavLink>
+                <NavLink to="/pvideo">
+                    <button type="button" class={`inline-flex items-center p-4 text-bs text-gray-800 ${location.pathname == "/pvideo"  ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-800 hover:bg-slate-100  "}`}>   
+                        <ChatIcon class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"  />        
+                        <span className="text-sm pl-2 hidden sm:block">video Conference</span>
+                    </button>
+                </NavLink>
                 </div>
                 
             </div>

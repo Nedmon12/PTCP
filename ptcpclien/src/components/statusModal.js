@@ -4,6 +4,12 @@ import {AuthContext }from '../context/AuthContext'
 import axios from 'axios';
 import StudentStatus from './StudentStatus'
 import Student from './Studentparentinviteview'
+import Bar from './graphs/behaviourpie'
+import Resulttable from './graphs/resulttable'
+import Graph from './graphs/graph'
+import Donat from './graphs/donat'
+import BehaviourNotification from './BehaviourNotification'
+import Individualstudentstatus from './individualstudentstatus';
 export default function StatusModal({setModal}) {
   const email= useRef()
   var counter=0;
@@ -15,6 +21,7 @@ export default function StatusModal({setModal}) {
   const [whichtwo, setWhichtwo]=useState(2)
 const {user} = useContext(AuthContext);
   console.log(user)
+  const [behaviours, setbehaviour] = useState([]);
   const [students, setStudents] = useState([]);
   useEffect(() => {
     const fetchStudent = async () => {
@@ -22,6 +29,13 @@ const {user} = useContext(AuthContext);
       setStudents(res.data);
     };
     fetchStudent();
+  }, [user.user._id]);
+  useEffect(() => {
+    const fetchallbehaviour = async () => {
+      const res = await axios.get("/api/studentManagmentRoutes/behaviourallfetch/"+ user.user._id);
+      setbehaviour(res.data);
+    };
+    fetchallbehaviour();
   }, [user.user._id]);
 
   const ParentsHandler=()=>{
@@ -33,10 +47,12 @@ const {user} = useContext(AuthContext);
     if(which!==2){
       setWhich(2);
     }
+} 
+const studentalone=()=>{
+  if(which!==3){
+    setWhich(3);
+  }
 }
-
-
-
 
 const resultHandler=()=>{
   if(whichtwo!==1){
@@ -56,18 +72,19 @@ const attendanceHandler=()=>{
 
 
 
+
   return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >
-        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[90vw] opacity-100' >
+        <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[50vw] w-[100vw] opacity-100' >
                 <div className='p-3 basis 1/12 h-16 border-b border-slate-200 flex flex-row justify-between ' >
                       <span className='mt-2 text-xl text-gray-800' >Report</span>
                       <button className='pr-2 py-4' onClick={handleCancelClick} >
                                 <CloseIcon fill="currentcolor"/>
                         </button>
                 </div>
-                <div className='basis 11/12  flex flex-row overflow-auto' >
-                      <div className='basis-1/5 border-r h-[100vh] border-slate-200 w-[15vh] ' >
+                <div className='basis 11/12  flex flex-row overflow-y-auto' >
+                      <div className='basis-1/5 border-r h-full border-slate-200 w-[15vh] ' >
                               <div className='bg-slate-100 h-6 w-full'>
                             <span  className='flex justify-center' >Connections</span>
                               </div>
@@ -80,13 +97,15 @@ const attendanceHandler=()=>{
                               <button onClick={wholeHandler} className={`text-gray-700 w-full border-b border-slate-100 h-12 ${which == 2 ?"bg-cyan-200":"bg-white"}`} >
                                   whole Students
                               </button>
+                              <button onClick={studentalone} className={`text-gray-700 w-full border-b border-slate-100 h-12 ${which == 2 ?"bg-cyan-200":"bg-white"}`} >
                               {students.map((p)=>(
                               <StudentStatus key={p._id} student={p}/>
                                     )        
                                    )}
+                               </button>    
                             </div>
                       <div className='basis-4/5' >
-                                {which==1 ?<div className='invite flex flex-col' >
+                                {which==1 ?<div className='invite flex flex-col ' >
                                               <div className='h-20 border-b border-slate-100 p-6 ' >
                                                   <span className='text-black' >Invite Parents to Class {user.user.resposibleclass}</span>
                                                   <button className='text-cyan-600 ml-4' >What can Parents Do in bearePtcp ?</button>
@@ -106,8 +125,8 @@ const attendanceHandler=()=>{
                                               
                                               </div>
                                            </div>
-                                           :which==2?
-                                           <div>
+                                  :
+                                           <div className='flex flex-col'>
                                               <div className='h-20 border-b border-slate-100 p-6 flex flex-row justify-between' >
                                                   <span className='text-black text-lg ' >Whole class {user.user.resposibleclass} Students</span>
                                                   <div className='' >
@@ -116,13 +135,29 @@ const attendanceHandler=()=>{
                                                       <button  onClick={attendanceHandler} className={`rounded-r-lg  h-12 w-32 border border-cyan-500 ${whichtwo == 3 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Attendance</button>
                                                   </div>
                                               </div>
-
-
-
-                                              
+                                              {whichtwo==1 ?
+                                                  <div>
+                                                     <div className='p-4 min-h-full'>
+                                                        <Resulttable/> 
+                                                        <Donat/>
+                                                     </div>    
+                                                  </div> 
+                                              : whichtwo==2 ?
+                                              <div>
+                                                 <Bar/> 
+                                                 <Graph/> 
+                                                 <Donat/>
+                                    
+                                              </div> 
+                                              :
+                                              <div>
+                                                <Bar/> 
+                                                 <Graph/>
+                                              </div>
+                                              }                                                                                        
                                            </div>
-                                           : <div>hey2</div>
-                                }
+                                
+                          }
                       </div>
                 </div>
 
