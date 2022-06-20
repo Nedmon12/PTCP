@@ -44,7 +44,7 @@ exports.fetchStudents=async(req,res,next)=>{
       };
       exports.fetchmykidteacher=async(req,res,next)=>{
         try {
-          const teacher = await Puser.findById({_id: req.params._id}).select("firstname lastname username email profilepicture resposibleclass");
+          const teacher = await User.findById({_id: req.params._id}).select("firstname lastname username email profilepicture resposibleclass");
           console.log(teacher)
           res.status(200).json(teacher);
         } catch (error) {

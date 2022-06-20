@@ -6,7 +6,7 @@ import {
   NotificationOutlined,
   UserOutlined
 } from '@ant-design/icons';
-import HeaderStyled from './HeaderStyled';
+// import HeaderStyled from './HeaderStyled';
 import Avatar from 'antd/lib/avatar/avatar';
 
 const { Header } = Layout;
@@ -24,7 +24,7 @@ function PageHeader({ collapsed, toggle, history }) {
     </Menu>
   );
   return (
-    <HeaderStyled>
+   
       <Header className="site-layout-background">
         {React.createElement(
           collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
@@ -52,7 +52,7 @@ function PageHeader({ collapsed, toggle, history }) {
           </div>
         </div>
       </Header>
-    </HeaderStyled>
+   
   );
 }
 

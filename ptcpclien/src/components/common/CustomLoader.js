@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomLoaderStyled from './CustomLoaderStyled';
+//import CustomLoaderStyled from './CustomLoaderStyled';
 
 const CustomLoader = ({ text }) => (
   <div
@@ -12,9 +12,9 @@ const CustomLoader = ({ text }) => (
       flexDirection: 'column'
     }}
   >
-    <CustomLoaderStyled>
+    
       <div className="spinner"></div>
-    </CustomLoaderStyled>
+    
 
     <div> {text ? text : 'Doing some background work..'}.</div>
   </div>

@@ -18,7 +18,7 @@ export default function ParentsMessages({teacher}) {
         </div>
         <div className='Desc basis-3/4 ' >
             <div><span className="shareOptionText text-black text-sm">{teacher.firstname} {teacher.lastname}</span></div>
-            <div><span className="shareOptionText text-gray-500 text-xs">I recieved</span></div>
+        
         </div>
 
     </div>

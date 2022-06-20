@@ -9,16 +9,16 @@ const { Sider } = Layout;
 
 function Sidebar({ collapsed, index, loggedInUserId }) {
   return (
+    <div className='flex'>
       <Sider
         trigger={null}
         collapsible
         collapsed={collapsed}
-        // style={{
-        //   overflow: 'auto',
-        //   height: '100vh',
-        //   position: 'fixed',
-        //   left: 0
-        // }}
+        style={collapsed ? {padding: '1rem',
+          fontsize:'0.9rem'}: {
+          padding: '1rem 0rem 2rem 0px',
+          fontsize: '1.875',
+        }}
       >
         <div className="logo">
           <Title level={2}>MERN DASH</Title>
@@ -26,25 +26,27 @@ function Sidebar({ collapsed, index, loggedInUserId }) {
         <Menu
           theme="dark"
           mode="inline"
-          className="sidebar-items"
+          className="sidebar-items h-96"
           defaultSelectedKeys={[index]}
         >
-          <Menu.Item key="1" icon={<HomeOutlined />}>
+          <Menu.Item key="1" icon={<HomeOutlined />} className="ant-menu-item">
             <Link className="text-white" to="/dashboard">
               Dashboard
             </Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<UserOutlined />}>
+          <Menu.Item key="2" icon={<UserOutlined />} className="ant-menu-item">
             <Link className="text-white" to="/adminDashboard/schools">
               Users
             </Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<SettingOutlined />}>
+          <Menu.Item key="3" icon={<SettingOutlined />}className="ant-menu-item">
             <Link to={`/dashboard/user/${loggedInUserId}`}></Link>
             Account Settings
           </Menu.Item>
         </Menu>
       </Sider>
+    </div>
+      
   );
 }
 

@@ -86,7 +86,7 @@ function App() {
         <Route path="/tlogin" element={user ? <Navigate to="/" /> : <TLogin />}>
           {" "}
         </Route>
-        <Route path='adminDashboard/schools' element={SchoolsPage}></Route>
+        <Route path='adminDashboard/schools' element={<SchoolsPage/>}></Route>
       </Routes>
   )
 };

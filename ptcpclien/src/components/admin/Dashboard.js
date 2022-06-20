@@ -102,7 +102,7 @@ function Dashboard() {
       <Title>Dashboard</Title>
       {userObj ? <UserStats users={userObj} loading={loading} /> : null}
       <div className="row">
-        <div className="col-md-8">
+        <div className="grid-cols-8 w-[570px]">
           <Card title="User overtime">
             <Spin spinning={loading}>
               <Line data={lineData} width={100} height={50} />
@@ -110,7 +110,7 @@ function Dashboard() {
           </Card>
         </div>
 
-        <div className="col-md-4 ">
+        <div className="grid-cols-4 w-96">
           <Card title="Active Vs Inactive ">
             {doughnutStateData ? (
               <>

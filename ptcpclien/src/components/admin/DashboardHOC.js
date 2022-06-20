@@ -22,7 +22,7 @@ function DashboardHOC(Component, index) {
       message: userMessage,
       me: loggedInUser
     } = state;
-    console.log(state)
+    
     useEffect(() => {
       if (error) {
         message.error(errResponse);
@@ -51,7 +51,7 @@ function DashboardHOC(Component, index) {
             collapsed={collapsed}
             toggle={handleSetCollapsed}
           />
-          <div className="container">
+          <div className="w-80 md:w-auto">
             <Component {...props} />
           </div>
           <CustomFooter />

@@ -11,7 +11,7 @@ import Conversation from './messaging/conversation'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import ImageIcon from '@mui/icons-material/Image';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import * as io from "socket.io-client";
+import io from "socket.io-client";
 
 export default function MessageContainer() {
   const [conversations, setConversations] = useState([]);
@@ -44,19 +44,19 @@ export default function MessageContainer() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("addUser", user._id);
+    socket.current.emit("addUser", user.user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(
-        user.followings.filter((f) => users.some((u) => u.userId === f))
+       // user.followings.filter((f) => users.some((u) => u.userId === f))
       );
     });
-  }, [user]);
+  }, [user.user]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
         // api/conversations implemented???
-        const res = await axios.get("api/conversations/" +user.user._id);
+        const res = await axios.get("api/conversations/"+user.user._id);
         console.log(res.data)
         setConversations(res.data);
       } catch (err) {
@@ -85,7 +85,7 @@ export default function MessageContainer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = {
-      sender: user._id,
+      sender: user.user._id,
       text: newMessage,
       conversationId: currentChat._id,
     };
@@ -171,7 +171,8 @@ export default function MessageContainer() {
             </div>
         </div>
         <div className='basis-8/12' >
-            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border"/>
+            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
+                    value={newMessage}/>
         </div>
         <div className='basis-2/12' >
             <button className=" w-full SendButton p-3 text-white bg-cyan-500 " onClick={handleSubmit}>
