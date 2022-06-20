@@ -7,7 +7,10 @@ import CustomLoader from '../common/CustomLoader';
 
 const index = '2';
 function UserListPage() {
-  const { schools, loading } = useContext(SchoolContext).state;
+  const {state} = useContext(SchoolContext);
+  const { users, loading } = state;
+  console.log("sate : ")
+  // console.log("schools : "+schools)
   //change css to tailwind
   return (
     <div>
@@ -18,7 +21,7 @@ function UserListPage() {
         Add new school
       </Link>
       {!loading ? (
-        <SchoolTable data={schools} />
+        <SchoolTable data={users} />
       ) : (
         <CustomLoader text={'Getting users from DB! Hold on gee...'} />
       )}

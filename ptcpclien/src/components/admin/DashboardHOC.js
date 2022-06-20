@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Sidebar from './Sidebar';
 import PageHeader from './PageHeader';
 import { Layout, message } from 'antd';
-import  { SchoolContext }  from '../../context/schoolState/schoolContext';
+import { SchoolContext } from '../../context/schoolState/schoolContext';
 import CustomFooter from './Footer';
 
 function DashboardHOC(Component, index) {
@@ -13,16 +13,12 @@ function DashboardHOC(Component, index) {
     };
     const { state, UserReset } = useContext(SchoolContext);
     // const { AuthReset } = useContext(AuthReset);
-    console.log("state : "+state)
-    console.log("does my app make it here?")
-    console.log("and this doesn't??"+state)
     const {
       error,
       errResponse,
       message: userMessage,
       me: loggedInUser
     } = state;
-    
     useEffect(() => {
       if (error) {
         message.error(errResponse);
@@ -40,18 +36,18 @@ function DashboardHOC(Component, index) {
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sidebar
+        {/* <Sidebar
           index={index}
           collapsed={collapsed}
           loggedInUserId={loggedInUser ? loggedInUser._id : null}
-        />
+        /> */}
         <Layout className="site-layout">
           <PageHeader
             history={props.history}
             collapsed={collapsed}
             toggle={handleSetCollapsed}
           />
-          <div className="w-80 md:w-auto">
+          <div className="container">
             <Component {...props} />
           </div>
           <CustomFooter />

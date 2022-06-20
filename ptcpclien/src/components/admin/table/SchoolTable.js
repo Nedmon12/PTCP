@@ -19,27 +19,27 @@ const columns = [
     sortDirections: ['descend']
   },
 
-  {
-    title: 'Role',
-    dataIndex: 'role',
-    filters: [
-      {
-        text: 'Member',
-        value: 'member'
-      },
-      {
-        text: 'Admin',
-        value: 'admin'
-      },
-      {
-        text: 'Staff',
-        value: 'staff'
-      }
-    ],
-    // specify the condition of filtering result
-    // here is that finding the name started with `value`
-    onFilter: (value, record) => record.role.indexOf(value) === 0
-  },
+  // {
+  //   title: 'Role',
+  //   dataIndex: 'role',
+  //   filters: [
+  //     {
+  //       text: 'Member',
+  //       value: 'member'
+  //     },
+  //     {
+  //       text: 'Admin',
+  //       value: 'admin'
+  //     },
+  //     {
+  //       text: 'Staff',
+  //       value: 'staff'
+  //     }
+  //   ],
+  //   // specify the condition of filtering result
+  //   // here is that finding the name started with `value`
+  //   onFilter: (value, record) => record.role.indexOf(value) === 0
+  // },
 
   {
     title: 'email',
@@ -49,7 +49,7 @@ const columns = [
     responsive: ['md']
   },
   {
-    title: 'Subbed',
+    title: 'Suscription status',
     dataIndex: 'subscriptionStatus',
     filters: [
       {

@@ -5,6 +5,7 @@ import UserStats from './UserStats/UserStats';
 import { Typography } from 'antd';
 import { Doughnut, Line } from 'react-chartjs-2';
 import DashboardHOC from './DashboardHOC';
+import Sidebar from './Sidebar'
 const { Title } = Typography;
 const index = '1';
 function Dashboard() {
@@ -100,17 +101,24 @@ function Dashboard() {
   return (
     <div className="container">
       <Title>Dashboard</Title>
-      {userObj ? <UserStats users={userObj} loading={loading} /> : null}
-      <div className="row">
-        <div className="grid-cols-8 w-[570px]">
-          <Card title="User overtime">
+      <div className="flex flex-row">
+        <div className="flex-basis">
+          <Sidebar/>
+        </div>
+        <div>
+        <div className="w-full md:w-auto">
+        {userObj ? <UserStats users={userObj} loading={loading} /> : null}
+        </div>
+        <div className="flex flex-row">
+        <div className="flex-basis">
+          <Card title="User overtime" className="w-[580px]">
             <Spin spinning={loading}>
               <Line data={lineData} width={100} height={50} />
             </Spin>
           </Card>
         </div>
 
-        <div className="grid-cols-4 w-96">
+        <div className="flex-basis w-full">
           <Card title="Active Vs Inactive ">
             {doughnutStateData ? (
               <>
@@ -121,8 +129,12 @@ function Dashboard() {
             ) : null}
           </Card>
         </div>
+        </div>
+        </div>
+        </div>
+       
       </div>
-    </div>
+
   );
 }
 
