@@ -1,5 +1,5 @@
 import React from 'react'
-import {format} from 'timeago'
+import {format} from 'timeago.js'
 export default function MessageView({message, own}) {
   return (
     <div className={own ? "message own mt-3 ml-96 ":"message mt-3" }>
