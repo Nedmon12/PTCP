@@ -24,7 +24,7 @@ const Navbar = () => {
     console.log(location.pathname);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
-        <nav className='teachersidenavbarcontainer bg-cyan-700 border-blue-100 h-14 mx-auto flex flex-row justify-around '>
+        <nav className='teachersidenavbarcontainer bg-cyan-500 border-blue-100 h-14 mx-auto flex flex-row justify-around '>
            <div  className='text-white px-4 py-4' >
                 <span className='text-white' >Home</span>   
             </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
             </button>
             <Menu as="div" className="relative inline-block text-left">
                     <div>
-                            <Menu.Button className="inline-flex justify-center w-full   rounded-md  shadow-sm px-3 py-3 bg-cyan-700 text-white text-sm font-medium hover:bg-cyan-600 ">
+                            <Menu.Button className="inline-flex justify-center w-full   rounded-md  shadow-sm px-3 py-3 bg-cyan-500 text-white text-sm font-medium hover:bg-cyan-600 ">
                             <img className="postProfileImg h-7 w-7 rounded-full border border-cyan-400 object-cover" 
                         src={
                             user.user.profilePicture

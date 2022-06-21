@@ -1,37 +1,67 @@
-import { AgoraVideoPlayer } from "agora-rtc-react";
-import { Grid } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useClient } from "./setting";
+import { Grid, Button } from "@material-ui/core";
+import MicIcon from "@material-ui/icons/Mic";
+import MicOffIcon from "@material-ui/icons/MicOff";
+import VideocamIcon from "@material-ui/icons/Videocam";
+import VideocamOffIcon from "@material-ui/icons/VideocamOff";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-export default function Video(props) {
-  const { users, tracks } = props;
-  const [gridSpacing, setGridSpacing] = useState(12);
+export default function Controls(props) {
+  const client = useClient();
+  const { tracks, setStart, setInCall } = props;
+  const [trackState, setTrackState] = useState({ video: true, audio: true });
 
-  useEffect(() => {
-    setGridSpacing(Math.max(Math.floor(12 / (users.length + 1)), 4));
-  }, [users, tracks]);
+  const mute = async (type) => {
+    if (type === "audio") {
+      await tracks[0].setEnabled(!trackState.audio);
+      setTrackState((ps) => {
+        return { ...ps, audio: !ps.audio };
+      });
+    } else if (type === "video") {
+      await tracks[1].setEnabled(!trackState.video);
+      setTrackState((ps) => {
+        return { ...ps, video: !ps.video };
+      });
+    }
+  };
+
+  const leaveChannel = async () => {
+    await client.leave();
+    client.removeAllListeners();
+    tracks[0].close();
+    tracks[1].close();
+    setStart(false);
+    setInCall(false);
+  };
 
   return (
-    <Grid container style={{ height: "100%" }}>
-      <Grid item xs={gridSpacing}>
-        <AgoraVideoPlayer
-          videoTrack={tracks[1]}
-          style={{ height: "100%", width: "100%" }}
-        />
+    <Grid container spacing={2} alignItems="center">
+      <Grid item>
+        <button className={`text-white h-10 w-20 rounded-lg ${trackState.audio ?'bg-cyan-500':'bg-red-500'}`}
+          onClick={() => mute("audio")}
+        >
+          {trackState.audio ? <MicIcon /> : <MicOffIcon />}
+        </button>
       </Grid>
-      {users.length > 0 &&
-        users.map((user) => {
-          if (user.videoTrack) {
-            return (
-              <Grid item xs={gridSpacing}>
-                <AgoraVideoPlayer
-                  videoTrack={user.videoTrack}
-                  key={user.uid}
-                  style={{ height: "100%", width: "100%" }}
-                />
-              </Grid>
-            );
-          } else return null;
-        })}
+      <Grid item>
+      <button className={`text-white h-10 w-20 rounded-lg ${trackState.video ?'bg-cyan-500':'bg-red-500'}`}
+           
+          onClick={() => mute("video")}
+        >
+          {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
+        </button>
+      </Grid>
+      <Grid item>
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => leaveChannel()}
+        >
+          Leave
+          <ExitToAppIcon />
+        </Button>
+      </Grid>
     </Grid>
   );
 }
