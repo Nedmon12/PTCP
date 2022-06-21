@@ -4,6 +4,7 @@ import SchoolTable from './table/SchoolTable';
 import { SchoolContext } from '../../context/schoolState/schoolContext';
 import { Link } from 'react-router-dom';
 import CustomLoader from '../common/CustomLoader';
+import Sidebar from './Sidebar'
 
 const index = '2';
 function UserListPage() {
@@ -13,7 +14,10 @@ function UserListPage() {
   // console.log("schools : "+schools)
   //change css to tailwind
   return (
-    <div>
+    <div className="flex flex-row">
+      <div flex flex-basis>
+        <Sidebar />
+      </div>
       <Link
         to="/dashboard/add-new-user"
         className="btn btn-primary float-right cursor-pointer mb-2 "
