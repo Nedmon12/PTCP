@@ -78,7 +78,7 @@ function App() {
       <Route path='/childstatus' element={user ? <ChildStatus/>:<PLogin/>} />  
       <Route path='/pregister' element={user ? <Phome/> :<Pregister/>} />
       <Route path='/plogin' element={ user ? <Phome/> : <PLogin/> }> </Route>
-      <Route path="/pvideo" element={<PVideoConf />} />{" "}
+      <Route path="/pvideo" element={user ? <PVideoConf/>: <PLogin/>} />{" "}
 
 
 
