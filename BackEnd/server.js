@@ -6,7 +6,6 @@ const helmet= require("helmet");
 const morgan= require("morgan");
 const authRoute = require("./routes/auth");
 
-const sauthRoute = require("./routes/sauth");
 const spostRoute = require("./routes/post");
 const userRoute = require('./routes/user');
 const docsRoute = require('./routes/docs');
@@ -24,7 +23,6 @@ const errorHandler= require('./middlewares/error');
 const multer = require("multer");
 const path = require("path");
 const messageRoute = require('./routes/message')
-const conversationRoute = require('./routes/conversations')
 const parentRoute = require('./routes/parents')
 const cors = require('cors')
 
@@ -84,7 +82,6 @@ app.use(cors())
 app.use(errorHandler);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
-app.use('/api/sauth', sauthRoute);
 app.use('/api/user', userRoute);
 app.use('/api/v1', docsRoute);
 app.use('/api/post', spostRoute);

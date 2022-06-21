@@ -52,8 +52,7 @@ export default function Home() {
             </div>
             <div className='leftbar basis-2/12'></div>
         </div>
-    
-    
+        
     </div>
   )
 }

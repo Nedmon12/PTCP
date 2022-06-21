@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  config,
-  useClient,
-  useMicrophoneAndCameraTracks,
-  channelName,
-} from "./setting.js";
+import {config,  useClient, useMicrophoneAndCameraTracks, channelName,} from "./setting.js";
 import { Grid } from "@material-ui/core";
 import Video from "./video";
 import Controls from "./controller";
