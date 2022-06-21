@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import DashboardHOC from './DashboardHOC';
-import SchoolTable from './table/SchoolTable';
+import SchoolTable from './SchoolTable/schoolTable';
 import { SchoolContext } from '../../context/schoolState/schoolContext';
 import { Link } from 'react-router-dom';
 import CustomLoader from '../common/CustomLoader';
