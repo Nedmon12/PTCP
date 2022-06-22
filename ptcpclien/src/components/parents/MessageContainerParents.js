@@ -1,6 +1,9 @@
 import React, { useRef, useState, useEffect, useContext } from 'react'
 import GroupIcon from '@mui/icons-material/Group';
 import axios from 'axios';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import ImageIcon from '@mui/icons-material/Image';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import { AuthContext } from '../../context/AuthContext';
 import Textinput from './Textinput'
 import TeacherMessages from './teacherMessages'
@@ -152,15 +155,31 @@ export default function MessageContainer({}) {
                 </div>
             </div>
             <div className='messagesinput basis-1/12 '>
+            <div className='textinput flex flex-row' >
+        <div className='basis-2/12 border flex flex-row' >
+            <div className="shareOption p-3 text-cyan-400">
+                <AttachFileIcon fill="currentColor" className="Attactfile" />
+            </div>
+            <div className="shareOption p-3 text-cyan-400">
+                <ImageIcon fill="currentColor" className="AttactImage" />
+            </div>
+            <div className="shareOption p-3 text-cyan-400">
+                <EmojiEmotionsIcon fill="currentColor" className="AttactEmojies" />
+            </div>
+        </div>
+        <div className='basis-8/12' >
             <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
                     value={newMessage}/>
-            </div>
-            <div className='basis-2/12' >
+        </div>
+        <div className='basis-2/12' >
             <button className=" w-full SendButton p-3 text-white bg-cyan-500 " onClick={handleSubmit}>
                             Send
             </button>
+        </div>
+        
+    </div>
             </div>
-        </div>        
+           </div>        
     </div>
     </>
   )
