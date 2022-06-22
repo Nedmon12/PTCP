@@ -51,7 +51,7 @@ export default function StudentDetail({setStudentdetailmodal, student}) {
     return (
       <div className='bg-zinc-rgba fixed inset-0 z-50' >
       <div className='flex h-screen justify-center items-center ' >
-          <div className='bg-white  border-gray-500 rounded-2xl flex flex-col h-[40vw] w-[80vw] opacity-100' >
+          <div className='bg-white  border-gray-500 rounded-2xl flex flex-col sm:h-[60vw] sm:w-[70vw]  md:h-[52vw] md:w-[80vw] opacity-100' >
                   <div className='basis-1/12 flex flex-row h-12 justify-between border-b-2 border-slate-100' >
                               <span class="block tracking-wide text-gray-700 text-lg font-medium pl-4 py-4 ">{student.firstname} {student.lastname} Status</span>
                               <button className='pr-2 py-4' onClick={handleCancelClick} >
@@ -59,7 +59,7 @@ export default function StudentDetail({setStudentdetailmodal, student}) {
                               </button>
                     </div>
                     <div className='basis-11/12' >
-                        <div className='h-12 p-6 flex flex-row justify-between' >
+                        <div className='h-12 p-6 flex flex-col md:flex-row justify-between' >
                             <div className='' >
                             <button onClick={resultHandler} className={`rounded-l-lg  h-12 w-32 border border-cyan-500 ${which == 1 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Result</button>
                             <button  onClick={behaviourHandler} className={`h-12 w-32 border border-cyan-500 ${which == 2 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Behavious</button>
@@ -71,7 +71,7 @@ export default function StudentDetail({setStudentdetailmodal, student}) {
                                 <button  onClick={threeController} className={`rounded-r-lg  h-6 w-10 border border-cyan-500 ${whichtwo == 3 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >3</button>
                             </div>
                         </div>
-                        <div className='mt-10' >
+                        <div className='mt-16 md:mt-10' >
                         {which==1 ?
                             <div>
                                 <div className='p-4 min-h-full'>

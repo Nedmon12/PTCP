@@ -39,17 +39,21 @@ import ChildStatus from "./pages/parentsPage/childperformance/performance"
 import AdminPage from './components/adminMain'
 import AdminDashboard from './components/admin/Dashboard'
 import SchoolsPage from './components/admin/UserListPage'
-
+import Forgetpassword from './pages/loginpage/forgetpassword'
+import Resetpassword from './pages/loginpage/reset'
 function App() {
   const { user } = useContext(AuthContext);
   console.log(user);
   return (
       <Routes>
-        <Route path="/tregister" element={user ? <Navigate to="/classroom" /> : <Tregister />}
-        >
-          {" "}
-        </Route>
+        <Route path="/forgetpassword" element={user ? <Navigate to="/classroom" /> : <Forgetpassword/>} />
+        <Route path="/resetpassword" element={user ? <Navigate to="/classroom" /> : <Resetpassword/>} />
+        
+        <Route path="/tregister" element={user ? <Navigate to="/classroom" /> : <Tregister />} />
+
         <Route path="/thome" element={<Home />} />{" "}
+        <Route path="/tlogin" element={user ? <Home /> : <TLogin/> } />{" "}
+        
         <Route path="/classroom" element={user ? <Classroom/> : <TLogin/> }/>{" "}
         <Route path="/message" element={<Message />} />{" "}
         <Route path="/login" element={<Login />} />{" "}

@@ -20,7 +20,6 @@ const EventSchema = new mongoose.Schema(
     },
     enddate: {
       type: Array,
-     
     },
     startingtime: {
       type: String,

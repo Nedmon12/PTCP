@@ -49,11 +49,11 @@ export default function Dateview({student, tday}) {
   console.log(value)
   return (
     <div>
-        <button onClick={handledateattendance} className=' h-[50vh]' >
+        <button onClick={handledateattendance} className='h-[25vh] md:h-[50vh]' >
                <div className='h-[5vh] ' >
                 <span>{todaydate}</span>
                 </div>
-                <div className='bg-slate-100 h-[40vh] w-[19vh]' >
+                <div className='bg-slate-100 h-[10vh] md:h-[40vh]  w-[15vh]' >
                   <span>{display}</span>
                   <hr></hr>
                   <span>{value}</span>

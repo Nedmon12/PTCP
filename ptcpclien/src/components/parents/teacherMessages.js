@@ -16,8 +16,11 @@ export default function ParentsMessages({teacher}) {
                                   : PF + "profile/noAvatar.png"
                               } alt=""/>
         </div>
-        <div className='Desc basis-3/4 ' >
-            <div><span className="shareOptionText text-black text-sm">{teacher.firstname} {teacher.lastname}</span></div>
+        <div className='Desc basis-3/4 invisible md:visible ' >
+            <div className='' >
+              <span className="shareOptionText text-black text-sm">{teacher.firstname} {teacher.lastname}</span>
+              <span className="shareOptionText text-gray-700 text-sm">{teacher.email}</span>
+              </div>
         
         </div>
 

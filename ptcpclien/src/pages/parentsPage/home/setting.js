@@ -33,8 +33,8 @@ export default function Home() {
         <Navbar/>
         </div>
         <div className='postandeventcontainer flex flex-row bg-slate-100'>    
-            <div className='sidebar basis-3/12' ></div>
-            <div className='middle basis bg-white 6/12 w-full h-[100vh] border border-slate-50 mt-4  flex flex-col' >
+            <div className='sidebar basis-0 md:basis-3/12' ></div>
+            <div className='middle basis-12/12 md:basis-6/12 bg-white  w-full h-[100vh] border border-slate-50 mt-4  flex flex-col' >
                   <div className='header h-16 w-full border-b border-slate-50 shadow-blue-50 shadow-sm py-4 px-5' >
                       <span className='text-lg font-bold text-gray-600' >Account Settings</span>
                   </div>
@@ -148,22 +148,17 @@ export default function Home() {
                   </div>
 
                       <div className='p-4 h-20' >
-                      <div className='flex flex-row justify justify-between py-5 ' >
-                          <button className=" rounded-sm w-[18vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
+                      <div className='flex mx-auto flex-row justify justify-between py-5 md:shrink-0 ' >
+                          <button className=" rounded-sm w-[24vw] md:w-[16vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
                               <span>Delete Account</span>
                           </button>
-                          <div className='-mt-4' >
-                            <button className=' rounded-xl w-[6vw] SendButton px-2 text-cyan-500  h-10 '  >
-                                    Cancel
-                            </button>
-                            <button className=" rounded-xl w-[6vw] SendButton  px-2  text-white bg-cyan-500  h-10 " type="submit ">
+                            <button className=" rounded-xl w-[12vw] md:w-[10vw] SendButton  px-2  text-white bg-cyan-500  h-10 " type="submit ">
                                 Save
                             </button>
-                          </div>
                       </div>
                   </div> 
               </div>
-            <div className='leftbar basis-3/12'></div>
+            <div className='leftbar basis-0 md:basis-3/12'></div>
         </div>    
     </div>
   )

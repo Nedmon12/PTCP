@@ -24,7 +24,7 @@ export default function Connected() {
     
 
   return (
-    <div className='eventwrapper mt-4 ml-4 border bg-white w-52 border-slate-200 rounded-md h-40'  >
+    <div className='eventwrapper mt-4 ml-4 border bg-white md:w-52 w:full border-slate-200 rounded-md h-40'  >
         <div className='allevent p-3 '>
             <div className="eventTop">
                 <a>

@@ -19,7 +19,7 @@ export default function Attendanceview({student}) {
     return (
     <div>
         <span>Attendance of {student.firstname} {student.lastname} </span>
-        <div className='grid grid-cols-8 gap-2 py-3' >
+        <div className='grid grid-cols-4 gap-2 py-3 md:grid-cols-8 ' >
            <Dateview student={student} tday={tday7}/>
            <Dateview student={student} tday={tday6}  />
            <Dateview student={student} tday={tday5}/>

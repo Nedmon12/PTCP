@@ -36,21 +36,22 @@ export default function Home() {
         <Header/>
         <Navbar/>
         </div>
-        <div className='postandeventcontainer flex flex-row bg-slate-50'>    
-            <div className='sidebar basis-2/12' ></div>
-            <div className='containeroffeeds basis-8/12 flex flex-row'>
-                 <Event  className='basis-3/12 mr-20 bg-white'/>
-                 <div className='basis-6/12 ml-10 '> 
+        <div className='postandeventcontainer flex flex-row bg-white mx-auto md:flex'>    
+            <div className='sidebar basis-0 md:basis-2/12' ></div>
+            <div className='containeroffeeds basis-12/12 md:basis-8/12 flex flex-col md:basis-12/12 md:flex sm:flex-row '>
+                 <div className='basis-3/12 mr-0 md:mr-20 bg-white' ><Event/></div>
+                 <div className='basis-6/12 shrink-0 md:w-96 w-full '> 
                     {posts.map((p)=>(
                         <Post key={p._id} post={p} teacher={setTeacher}/>
                     )
                     )}
                 </div>
-                <Connected   className='basis-3/12 mr-20 bg-white'/>
+                <div className='p-3 basis-3/12 mr-0 md:mr-20 bg-white'> <Connected/> </div>
+                
 
                
             </div>
-            <div className='leftbar basis-2/12'></div>
+            <div className='leftbar basis-0 md:basis-2/12'></div>
         </div>
         
     </div>

@@ -9,11 +9,7 @@ const InvitedUser= require('../models/Inviteduser')
 
 exports.register = async (req, res, next) => {
     const { firstname, lastname, username, email, password  } = req.body;
-    try{
-      const checkuser = await InvitedUser.findOne({ email });
-      if (!checkuser) {
-        return next(new ErrorResponse("not invited to the system", 401));
-      }      
+    try{ 
       const user = await User.create({
         firstname,
         lastname,
@@ -97,7 +93,7 @@ exports.register = async (req, res, next) => {
 exports.forgetpassword= async (req,res, next)=>{
   // Send Email to email provided but first check if user exists
   const { email } = req.body;
-
+  console.log("here")
   try {
     const user = await User.findOne({ email });
 
@@ -108,9 +104,9 @@ exports.forgetpassword= async (req,res, next)=>{
        // Reset Token Gen and add to database hashed (private) version of token
     const resetToken = user.getResetPasswordToken();
     await user.save();
-     console.log(user)
+     console.log(resetToken)
        // Create reset url to email to provided email
-       const resetUrl = `http://localhost:3000/passwordreset/${resetToken}`;
+       const resetUrl = `http://localhost:3000/resetpassword/:${resetToken}`;
 
        // HTML Message
        const message = `
