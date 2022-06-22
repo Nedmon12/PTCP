@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const {register ,inviteuser, pregister ,login, plogin, forgetpassword, resetPassword}= require('../controllers/userController');
+const {register ,inviteuser, pregister ,login, plogin, forgetpassword, resetPassword, logout}= require('../controllers/userController');
 
 
 router.route("/register").post(register);
@@ -17,6 +17,8 @@ router.route("/forgetpassword").post(forgetpassword);
 router.route("/inviteuser").post(inviteuser);
 
 router.route("/resetpassword/:resetToken").put(resetPassword);
+
+router.route("/logout").get(logout)
 
 module.exports = router;
 

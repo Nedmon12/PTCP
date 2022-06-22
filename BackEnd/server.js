@@ -25,6 +25,7 @@ const path = require("path");
 const messageRoute = require('./routes/message')
 const parentRoute = require('./routes/parents')
 const cors = require('cors')
+const verifyToken = require('./middlewares/auth')
 
 dotenv.config();
 
@@ -74,14 +75,14 @@ app.use("/api/school", schoolRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/private", privateRoute);
-app.use('/admin', adminRoute)
+app.use('/admin',verifyToken.protect, adminRoute)
 app.use('/api/messages', messageRoute)
 app.use('/api/conversations', conversationRoute)
 app.use('/api/parents', parentRoute)
 app.use(cors())
 app.use(errorHandler);
 app.use("/api/conversations", conversationRoute);
-app.use("/api/messages", messageRoute);
+app.use("/api/messages",verifyToken.protect, messageRoute);
 //app.use('/api/sauth', sauthRoute);
 app.use('/api/user', userRoute);
 app.use('/api/v1', docsRoute);

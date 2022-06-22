@@ -5,6 +5,7 @@ const ErrorResponse = require("../utils/errorresponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
 const InvitedUser= require('../models/Inviteduser')
+const sendToken = require('../utils/jwttocookie')
 
 
 exports.register = async (req, res, next) => {
@@ -25,6 +26,7 @@ exports.register = async (req, res, next) => {
       res.status(201).json({
         success: true,
         user
+        //send the token instead of the user
     });
       //sendToken(user, 201, res)
     }catch (error){
@@ -52,9 +54,12 @@ exports.register = async (req, res, next) => {
           if (!isMatch) {
             return next(new ErrorResponse("Invalid credentials", 401));
           }
-          res.status(201).json({
-            user
-          })
+          //const token = user.getSignedJwtToken()
+          // res.status(201).json({
+          //   success: true,
+          //   token
+          // })
+          sendToken(user,200,res)
         }catch(error){
           res.status(500).json({
             success: false,
@@ -219,12 +224,24 @@ exports.inviteuser= async (req,res, next)=>{
           next(error);
       }
     };
+
+    exports.logout = async (req,res, next) => {
+      res.cookie('token',null,{
+        expires: new Date(Date.now()),
+        httpOnly: true
+      })
+
+      res.status(200).json({
+        success: true,
+        message: "Logged out"
+      })
+    }
   
 
 
-const sendToken = (user, statusCode, res) => {
-  const token = user.getSignedJwtToken();
-  const id = token.split(".")[0];
-  console.log(id)
-  res.status(statusCode).json({ user, token });
-};
+// const sendToken = (user, statusCode, res) => {
+//   const token = user.getSignedJwtToken();
+//   const id = token.split(".")[0];
+//   console.log(id)
+//   res.status(statusCode).json({ user, token });
+// };
