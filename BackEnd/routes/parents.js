@@ -17,5 +17,17 @@ router.get('/', async (req,res) => {
 
 })
 
+router.post('/', async (req,res)=>{
+  const newParent = new userParents(req.body)
+  console.log(newParent)
+  try {
+    const savedParent = await newParent.save()
+    res.status(200).json(savedParent)
+  }
+  catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 module.exports = router
 

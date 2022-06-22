@@ -8,6 +8,7 @@ import useFetch from '../../../hook/useFetch'
 import axios from "axios";
 export default function Home() {
     const {user}= useContext(AuthContext)
+    
     const [posts, setPosts] = useState([]);
 
    

@@ -1,7 +1,7 @@
 import React , {Component} from "react"
-import Dashboard from './admin/dashboard'
+import Dashboard from './admin/dashboards'
 import Sidebar from './admin/Sidebar'
-import SchoolList from "./admin/SchoolList"
+
 import SchoolEditable from "./admin/SchoolEditable"
 //import '../css/adminHome.css'
 

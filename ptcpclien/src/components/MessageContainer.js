@@ -11,7 +11,7 @@ import Conversation from './messaging/conversation'
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import ImageIcon from '@mui/icons-material/Image';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import * as io from "socket.io-client";
+import io from "socket.io-client";
 
 export default function MessageContainer() {
   const [conversations, setConversations] = useState([]);
@@ -21,7 +21,9 @@ export default function MessageContainer() {
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
+  
   const { user } = useContext(AuthContext);
+  console.log("okay noww "+user.user._id)
   const scrollRef = useRef();
 
   useEffect(() => {
@@ -42,19 +44,19 @@ export default function MessageContainer() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("addUser", user._id);
+    socket.current.emit("addUser", user.user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(
-        user.followings.filter((f) => users.some((u) => u.userId === f))
+       // user.followings.filter((f) => users.some((u) => u.userId === f))
       );
     });
-  }, [user]);
+  }, [user.user]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
         // api/conversations implemented???
-        const res = await axios.get("api/conversations/"+ user._id);
+        const res = await axios.get("api/conversations/"+user.user._id);
         console.log(res.data)
         setConversations(res.data);
       } catch (err) {
@@ -62,14 +64,14 @@ export default function MessageContainer() {
       }
     };
     getConversations();
-  }, [user._id]);
+  }, [user.user._id]);
 
   useEffect(() => {
     const getMessages = async () => {
       //api/messges implemented???
       try {
         console.log("do we get to api/messages")
-        const res = await axios.get("api/messages/"+currentChat?._id);
+        const res = await axios.get("api/messages/"+currentChat._id);
         console.log(currentChat)
         console.log(res)
         setMessages(res.data);
@@ -83,17 +85,17 @@ export default function MessageContainer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = {
-      sender: user._id,
+      sender: user.user._id,
       text: newMessage,
       conversationId: currentChat._id,
     };
 
     const receiverId = currentChat.members.find(
-      (member) => member !== user._id
+      (member) => member !== user.user._id
     );
 
     socket.current.emit("sendMessage", {
-      senderId: user._id,
+      senderId: user.user._id,
       receiverId,
       text: newMessage,
     });
@@ -130,7 +132,7 @@ export default function MessageContainer() {
                     <div><span className="">
                         {conversations.map((c) => (
                         <div onClick={() => setCurrentChat(c)}>
-                        <Conversation conversation={c} currentUser={user} />
+                        <Conversation conversation={c} currentUser={user.user} />
                         </div>
                         ))}
                         </span>
@@ -150,7 +152,7 @@ export default function MessageContainer() {
                 <div className='p-2 pt-3' >
                 {messages.map((m) => (
                     <div ref={scrollRef}>
-                      <MessageView message={m} own={m.sender === user._id} />
+                      <MessageView message={m} own={m.sender === user.user._id} />
                     </div>
                   ))}
                 </div>
@@ -169,7 +171,8 @@ export default function MessageContainer() {
             </div>
         </div>
         <div className='basis-8/12' >
-            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border"/>
+            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
+                    value={newMessage}/>
         </div>
         <div className='basis-2/12' >
             <button className=" w-full SendButton p-3 text-white bg-cyan-500 " onClick={handleSubmit}>

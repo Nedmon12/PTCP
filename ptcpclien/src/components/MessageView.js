@@ -2,7 +2,7 @@ import React from 'react'
 import {format} from 'timeago.js'
 export default function MessageView({message, own}) {
   return (
-    <div className={own ? "message own mt-3 ml-96 ":"message mt-3" }>
+    <div className={own ? "message own mt-3 flex flex-row-reverse ":"message mt-3" }>
         <div>
             <div className='MessageContent '>
                 <span className={own ? 'bg-cyan-500 rounded-md p-2 text-white max-w-md':'bg-cyan-50 rounded-md p-2 text-black max-w-md'} >{message.text}</span>

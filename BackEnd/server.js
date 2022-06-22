@@ -77,11 +77,12 @@ app.use("/api/private", privateRoute);
 app.use('/admin', adminRoute)
 app.use('/api/messages', messageRoute)
 app.use('/api/conversations', conversationRoute)
-app.use('/parents', parentRoute)
+app.use('/api/parents', parentRoute)
 app.use(cors())
 app.use(errorHandler);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
+//app.use('/api/sauth', sauthRoute);
 app.use('/api/user', userRoute);
 app.use('/api/v1', docsRoute);
 app.use('/api/post', spostRoute);
