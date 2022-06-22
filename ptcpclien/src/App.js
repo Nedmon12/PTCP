@@ -44,17 +44,12 @@ function App() {
   console.log(user);
   return (
       <Routes>
-        <Route path="/tlogin" element={user ? <Navigate to="/classroom" /> : <TLogin />}>
-          {" "}
-        </Route>{" "}
-        <Route
-          path="/tregister"
-          element={user ? <Navigate to="/classroom" /> : <Tregister />}
+        <Route path="/tregister" element={user ? <Navigate to="/classroom" /> : <Tregister />}
         >
           {" "}
         </Route>
         <Route path="/thome" element={<Home />} />{" "}
-        <Route path="/classroom" element={<Classroom />} />{" "}
+        <Route path="/classroom" element={user ? <Classroom/> : <TLogin/> }/>{" "}
         <Route path="/message" element={<Message />} />{" "}
         <Route path="/login" element={<Login />} />{" "}
         <Route path="/tvideo" element={<TVideoConf />} />{" "}
