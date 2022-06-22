@@ -37,7 +37,8 @@ import Landing from './pages/landingpage/land'
 import Subscribe from './pages/landingpage/subscribe'
 import ChildStatus from "./pages/parentsPage/childperformance/performance"
 import AdminPage from './components/adminMain'
-
+import AdminDashboard from './components/admin/Dashboard'
+import SchoolsPage from './components/admin/UserListPage'
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -63,8 +64,8 @@ function App() {
         <Route path="/tresult" element={<TResult />} />{" "}
         <Route path="/tstatus" element={<TStatus />} />{" "}
         <Route path="/tsetting" element={<Setting/>} />{" "}
-        <Route path="/eventhome" element={<Event/>} />{" "}
-        <Route path="/adminDashboard" element={<AdminPage />} />
+        <Route path="/eventhome" element={<Event/>} /> {" "}
+        <Route path="/adminDashboard" element={<AdminDashboard />} />
 
        <Route path='/' element={<Landing/>}> </Route>
     <Route path='/Subscribe' element={ <Subscribe/>}> </Route>
@@ -89,6 +90,7 @@ function App() {
         <Route path="/tlogin" element={user ? <Navigate to="/" /> : <TLogin />}>
           {" "}
         </Route>
+        <Route path='adminDashboard/schools' element={<SchoolsPage/>}></Route>
       </Routes>
   )
 };

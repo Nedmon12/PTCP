@@ -1,10 +1,8 @@
 const io = require("socket.io")(8900, {
     cors: {
       origin: "http://localhost:3000",
-      methods: ["GET", "POST"],
-      transports: ['websocket', 'polling'],
-      credentials : true
     },
+   
   });
   
   let users = [];
@@ -24,7 +22,7 @@ const io = require("socket.io")(8900, {
   
   io.on("connection", (socket) => {
     //when ceonnect
-    console.log("a user connected.");
+    console.log("user"+socket.id+"connected!");
   
     //take userId and socketId from user
     socket.on("addUser", (userId) => {
@@ -35,6 +33,7 @@ const io = require("socket.io")(8900, {
     //send and get message
     socket.on("sendMessage", ({ senderId, receiverId, text }) => {
       const user = getUser(receiverId);
+      console.log(user)
       io.to(user.socketId).emit("getMessage", {
         senderId,
         text,
@@ -43,7 +42,7 @@ const io = require("socket.io")(8900, {
   
     //when disconnect
     socket.on("disconnect", () => {
-      console.log("a user disconnected!");
+      console.log("user"+socket.id+"disconnected!");
       removeUser(socket.id);
       io.emit("getUsers", users);
     });
