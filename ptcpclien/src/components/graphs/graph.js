@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "chart.js";
+import { AuthContext } from '../../context/AuthContext';
 
 export default function CardLineChart() {
   React.useEffect(() => {

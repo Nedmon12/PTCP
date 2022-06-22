@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, {useRef, useState, useContext, useEffect } from 'react'
 import Navbar from "../../../components/NavbarforTeacher"
 import Post from "../../../components/Post"
 import Event from "../../../components/events"
@@ -9,7 +9,17 @@ import axios from "axios";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
+import { useNavigate } from "react-router";
+
 export default function EventContainer() {
+    const navigate = useNavigate();
+    const title = useRef();
+    const date = useRef();
+
+    const checked = useRef();
+    const description = useRef();
+    const timestart = useRef();
+    const timeend = useRef();
     const {user}= useContext(AuthContext)
     const [posts, setPosts] = useState([]);
     const [state, setState] = useState([
@@ -19,6 +29,24 @@ export default function EventContainer() {
           key: 'selection'
         }
       ]);
+      const Create = async (e) => {
+          console.log("hey")
+        e.preventDefault();
+        if (title.current.value !== null){ 
+         const event = {
+            title: title.current.value,
+            date: date.current.value,
+          
+          };
+          try {
+            await axios.post("api/auth/register", event);
+            //navigate("/tlogin");
+          } catch (err) {
+            console.log(err);
+          }
+        }
+    };
+        //console.log(ranges)
   return (
     <div className='totalcontainer'>
         <div  className='sticky top-0 '>
@@ -33,7 +61,7 @@ export default function EventContainer() {
                 <div className='w-full h-[85vh] border-b-2' >
                     <div className='flex flex-row h-16 p-1' >
                             <span class="block tracking-wide text-black text-lg  p-6 ">Title</span>
-                            <input type="text" id="large-input" class="mx-4 my-2 block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input ref={title} type="text" id="large-input" class="mx-4 my-2 block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                     </div>
                     <div className='flex flex-row h-[45vh]' >
@@ -47,7 +75,7 @@ export default function EventContainer() {
                             ranges={state}
                         />
                         </div>
-                        <input type="text" id="large-input" placeholder='8:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input ref={date} type="text" id="large-input" placeholder='8:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                         <span class="block tracking-wide text-black text-lg  p-6 ">To</span>
                         <input type="text" id="large-input" placeholder='12:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -55,14 +83,14 @@ export default function EventContainer() {
                     </div>
                     <div className='flex flex-row h-16 p-1' >
                             <span class="block tracking-wide text-black text-lg  p-6 ">Description</span>
-                            <input type="text" id="large-input" class="mx-4 my-6 block w-full h-[15vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input ref={description} type="text" id="large-input" class="mx-4 my-6 block w-full h-[15vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                     </div>
                  </div>
                  <div className='w-full h-[35vh] border-b-2 ' >
                     <div className='flex flex-row h-16' >
                         <span class="block tracking-wide text-black text-lg  p-6 ">Reminder</span>
-                        <div className='flex flex-col p-4 text-lg' >
+                        <div ref={checked} className='use flex flex-col p-4 text-lg' >
                         <div class="form-check p-2">
                             <input class="form-check-input appearance-none h-6 w-6 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault" checked>
                             </input>
@@ -85,16 +113,13 @@ export default function EventContainer() {
                             </label>
                         </div>
                         <div class="form-check p-2">
-                            <input class="form-check-input appearance-none h-6 w-6 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
+                            <input  class="form-check-input appearance-none h-6 w-6 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
                             </input>
                             <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
                             1 hour before
                             </label>
                         </div>
-                       
-
-                            <span class="block tracking-wide text-gray-500 text-sm  p-6 ">Choose when reminders get sent to parents for this event
-</span>
+                            <span class="block tracking-wide text-gray-500 text-sm  p-6 ">Choose when reminders get sent to parents for this event</span>
                         </div>
                     </div>
                     
@@ -102,8 +127,7 @@ export default function EventContainer() {
                  <div className='w-full h-[15vh] border-b-2' >
                     <div className='flex flex-row-reverse p-4' >
                         
-                        <button className='m-5  w-[6vw] SendButton  text-white bg-cyan-500  h-10 rounded-md shadow-lg'  >Create</button>
-                        <button className='m-5 rounded-md w-[6vw] SendButton text-white bg-cyan-500  h-10 shadow-lg ' >Cancel</button>
+                        <button onClick={Create} className='m-5 rounded-md w-[6vw] SendButton text-white bg-cyan-500  h-10 shadow-lg ' >Save</button>
                     </div>
                  </div>
             </div>

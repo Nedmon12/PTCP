@@ -23,22 +23,7 @@ const {user} = useContext(AuthContext);
   
   }
 
-const handleClick = async (e) => {
-  e.preventDefault();
-    const inviteparent = {
-      teacherid: user._id,
-      studentid: student._id,
-      usertype: "parent",
-      email: email.current.value,
-    };
-    try {
-      await axios.post("api/auth/inviteuser", inviteparent);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  
-};
+
   return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
     <div className='flex h-screen justify-center items-center ' >

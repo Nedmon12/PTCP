@@ -51,57 +51,59 @@ export default function Home() {
         <div  className='sticky top-0 '>
         <Navbar/>
         </div>
-        <div className='postandeventcontainer flex flex-row bg-slate-50'>    
-            <div className='sidebar basis-1/6' ></div>
-            <div className='containerofsetting border-2 border-slate-100 mt-2 h-[100vh] w-full basis-4/6 flex flex-col bg-white'>
-                <div className=''>
-                        <div>
-                            <span className=' text-lg text-gray-800' >Edit ClassRoom 4A</span>
-                            </div>
-                        <div className='skillnavbar flex flex-row border-b border-slate-100 mt-3 ' >
-            
-                        <button onClick={ExamHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 1? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Students
-                          </button>
-                        <button onClick={TestHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 2 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Invite Parents
-                          </button>
-                          <button onClick={AssignmentHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 3 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Add Skill
-                          </button>
-                        <button onClick={otherHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 4 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Add Subject
-                          </button>
-                          <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Results
-                          </button>
-                          <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Average
-                          </button>
-                          <button onClick={rankHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 7 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                            Rank
-                          </button>
-                            
+        <div className='bg-zinc-rgba fixed inset-0 z-50' >
+    <div className='flex h-screen p-5 justify-center items-center ' >
+        <div className='bg-white   border-gray-500 rounded-2xl flex flex-col h-[45vw] w-[65vw] opacity-100' >
+              <div className='postandeventcontainer flex flex-row bg-white p-2 '>    
+                  <div className='containerofsetting border-2 border-slate-100 mt-2 h-[100vh] w-full flex flex-col bg-white'>
+                      <div className=''>
+                              <div>
+                                  <span className=' text-lg text-gray-800' >Edit ClassRoom 4A</span>
+                                  </div>
+                              <div className='skillnavbar flex flex-row border-b border-slate-100 mt-3 ' >
+                  
+                              <button onClick={ExamHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 1? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Students
+                                </button>
+                              <button onClick={TestHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 2 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Invite Parents
+                                </button>
+                                <button onClick={AssignmentHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 3 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Add Skill
+                                </button>
+                              <button onClick={otherHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 4 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Add Subject
+                                </button>
+                                <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Results
+                                </button>
+                                <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Average
+                                </button>
+                                <button onClick={rankHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 7 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                  Rank
+                                </button>
+                                  
+                              </div>
+                              <div className=' h-[36vw] overflow-y-auto '>
+                        {ispostive==1 ?
+                            <EditClass ispostive={1}/>
+                            :ispostive==2 ?
+                            <InviteAllParent ispostive={2}/>
+                            :ispostive==3 ?
+                            <AddSkill ispostive={3}/>
+                            :ispostive==4 ?
+                            <AddSubject ispostive={4}/>
+                        
+                        :
+                          <EditClass ispostive={7}/>
+                        }
                         </div>
-                        <div className=' h-[36vw] overflow-y-auto '>
-                  {ispostive==1 ?
-                      <EditClass ispostive={1}/>
-                      :ispostive==2 ?
-                      <InviteAllParent ispostive={2}/>
-                      :ispostive==3 ?
-                      <AddSkill ispostive={3}/>
-                      :ispostive==4 ?
-                      <AddSubject ispostive={4}/>
-                   
-                   :
-                    <EditClass ispostive={7}/>
-                  }
                   </div>
-            </div>
-            <div className='leftbar basis-1/6'></div>
-        </div>
-    
-    
+              </div>
+              </div>
+              </div>
+              </div>      
     </div>
     </div>
   )

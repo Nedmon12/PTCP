@@ -214,25 +214,12 @@ const Navbar = () => {
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Edit ClassRoom
+                  ClassRoom Setting
                 </a>
                </NavLink>
 
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Edit Students
-                </a>
-              )}
-            </Menu.Item>
           </div>
           <div className="py-1">
             <Menu.Item>
@@ -244,48 +231,7 @@ const Navbar = () => {
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  View Report
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                 View Attendance
-                </a>
-              )}
-            </Menu.Item>
-          </div>
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  manage student Result 
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                 Manage Skill
+                  Account Setting 
                 </a>
               )}
             </Menu.Item>

@@ -26,7 +26,9 @@ try{
         next(error);
     }
 };
+//edit student
 
+//delete student
 exports.fetchStudents=async(req,res,next)=>{
         try {
           const student = await Student.find({teacherid: req.params.teacherid});
