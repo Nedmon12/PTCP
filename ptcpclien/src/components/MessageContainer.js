@@ -146,7 +146,7 @@ export default function MessageContainer() {
         </div>
         <div className='basis-9/12 flex flex-col'>
             <div className='basis-1/12 border-b'>
-                <span className='text-xl pt-8 pl-6'>Abel Dejene's Parent</span>
+                {/* <span className='text-xl pt-8 pl-6'>Abel Dejene's Parent</span> */}
             </div>
             <div className='messagesview basis-11/12 border-b overflow-y-auto '>
                 <div className='p-2 pt-3' >

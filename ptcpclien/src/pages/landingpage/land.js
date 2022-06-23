@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SchoolIcon from '@mui/icons-material/School';
+import SchoolIcon from "@mui/icons-material/School";
 // components
 
 import Navbar from "./component/AuthNavbar";
-import Footer from "./component/Footer";
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import Footer from "../../components/parents/Footerparents";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
 
 export default function Landing() {
   return (
@@ -213,7 +213,7 @@ export default function Landing() {
                   </h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                     Instantly share photos, videos, and announcements on Class
-                    Story, or privately message with any parent 
+                    Story, or privately message with any parent
                   </p>
                 </div>
               </div>
@@ -289,9 +289,9 @@ export default function Landing() {
                       </h3>
                       <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                         A direct line of communication through video
-                        conferencing that looks
-                        forward to establishing a healthy academic relationship
-                        between parents, teachers, and students.
+                        conferencing that looks forward to establishing a
+                        healthy academic relationship between parents, teachers,
+                        and students.
                       </p>
                     </div>
 
@@ -328,6 +328,10 @@ export default function Landing() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full lg:w-6/12 px-4">
+                <p>
+                  Education is a commitment to excellence in Teaching and
+                  Learning
+                </p>
                 <p className="text-lg leading-relaxed m-4 text-blueGray-500">
                   Never miss a moment! Stay engaged in your child’s growth, no
                   matter how busy you are.
@@ -365,9 +369,7 @@ export default function Landing() {
                   Build something
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
-                  Put the potentially record low maximum sea ice extent tihs
-                  year down to low ice. According to the National Oceanic and
-                  Atmospheric Administration, Ted, Scambos.
+                  why schools choose BearePTCP
                 </p>
               </div>
             </div>
@@ -377,11 +379,11 @@ export default function Landing() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  One app
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  One place for all class and school communication. Plus,
+                  optional classroom management.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -389,11 +391,11 @@ export default function Landing() {
                   <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  Family engagement
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Communication that gets even the hardest-to-reach families
+                  involved.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -401,81 +403,12 @@ export default function Landing() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
+                  Teachers love us
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Teachers love how easy it is to communicate and build
+                  relationships with Parents.
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-              <div className="w-full lg:w-6/12 px-4">
-                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
-                  <div className="flex-auto p-5 lg:p-10">
-                    <h4 className="text-2xl font-semibold">
-                      Want to work with us?
-                    </h4>
-                    <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                      Complete this form and we will get back to you in 24
-                      hours.
-                    </p>
-                    <div className="relative w-full mb-3 mt-8">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="full-name"
-                      >
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Full Name"
-                      />
-                    </div>
-
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="email"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Email"
-                      />
-                    </div>
-
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="message"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        rows="4"
-                        cols="80"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                        placeholder="Type a message..."
-                      />
-                    </div>
-                    <div className="text-center mt-6">
-                      <button
-                        className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                      >
-                        Send Message
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

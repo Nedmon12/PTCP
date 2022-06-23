@@ -1,5 +1,5 @@
 const io = require("socket.io")(8900, {
-    nocors: {
+    cors: {
       origin: "http://localhost:3000",
     },
     
