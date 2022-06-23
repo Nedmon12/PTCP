@@ -280,3 +280,15 @@ exports.fetchStudents=async(req,res,next)=>{
           }
         }
         };
+
+        exports.deleteStudent = async (req,res) => {
+          try {
+            console.log(req.params.studentId)
+            const deleted = await Student.findById(req.params.studentId)
+            deleted.remove().then(()=> res.json({success: true}))
+            // res.status(200).json(deleted)
+          }
+          catch(err) {
+            res.status(500).json(err)
+          }
+        }
