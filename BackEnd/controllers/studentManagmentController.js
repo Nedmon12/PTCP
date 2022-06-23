@@ -6,6 +6,8 @@ const Behaviour = require('../models/Behaviour');
 const Result= require('../models/result')
 const TotalResult= require('../models/TotalResult')
 const Average= require('../models/Average')
+const BehaviourAnalysis= require('../models/BehaviourAnalysis')
+
 
 //const Behaviour= require('../models/behaviour')
 exports.addStudent= async(req,res,next) => {
@@ -147,6 +149,32 @@ exports.fetchStudents=async(req,res,next)=>{
                     next(error);
       }
         }};
+        exports.addbehaviour=async(req,res,next)=>{
+          const { studentid, behaviourpoint, teacherid, reason } = req.body;
+          try{
+            const behaviour= await BehaviourAnalysis.create({
+                studentid,
+                behaviourpoint,
+                teacherid,
+                reason
+            });
+            res.status(201).json({
+                success: true,
+                behaviour
+            });
+            }catch(error){
+                next(error);
+  }   
+        }
+        exports.behaviourallfetch=async(req,res,next)=>{
+          try{  
+            const exist = await BehaviourAnalysis.findOne({studentid: req.params.studentid , reason: req.params.reason })      
+            console.log(exist)
+            res.status(200).json(exist);
+          } catch (error) {
+            next(error);
+          }
+          };
         exports.behaviourfetch=async(req,res,next)=>{
         try{  
           const exist = await Behaviour.findOne({studentid: req.params.studentid})      

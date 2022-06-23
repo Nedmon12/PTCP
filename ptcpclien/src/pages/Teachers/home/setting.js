@@ -75,17 +75,12 @@ export default function Home() {
                                   Invite Parents
                                 </button>
                                 <button onClick={AssignmentHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 3 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Add Skill
+                                  Manage Skill
                                 </button>
                               <button onClick={otherHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 4 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Add Subject
+                                  Manage Subject
                                 </button>
-                                <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Results
-                                </button>
-                                <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Average
-                                </button>
+                               
                                   
                               </div>
                               <div className=' h-[36vw] overflow-y-auto '>

@@ -9,7 +9,7 @@ export default function ParentsMessages({teacher}) {
   return (
     <div className='RecentparenrtMessages w-full h-20 text-cyan-400 hover:bg-cyan-100 cursor-pointer flex flex-row'>
         <div className='profileplace basis-1/4 ' >
-           <img className="postProfileImg h-10 w-10 m-2 rounded-full border border-cyan-400 object-cover" 
+           <img className="postProfileImg h-12 w-12 m-2 rounded-full border border-cyan-400 object-cover" 
                             src={
                                 teacher.profilePicture
                                   ? PF + teacher.profilePicture

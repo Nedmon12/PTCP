@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
 import Footerlog from '../../components/Footer'
+import { Navigate, useNavigate } from 'react-router-dom'
 export default function Parentslogin() {
+  const navigate = useNavigate();
   return (
           <div className='bg-slate-100	 min-w-screen'>
         <div className="container mx-auto max-w-xl min-h-fit pt-8" >
@@ -37,9 +39,11 @@ export default function Parentslogin() {
                     <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                       Sign In
                     </button>
-                    <a class="inline-block align-baseline font-bold text-sm text-cyan-500 hover:text-cyan-800" href="#">
+                    <button onClick={()=>{
+                        navigate("/forgetpassword")
+                    }} class="inline-block align-baseline font-bold text-sm text-cyan-500 hover:text-cyan-800" href="#">
                       Forgot Password?
-                    </a>
+                    </button>
                   </div>
                </form>
         </div>

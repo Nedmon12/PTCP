@@ -5,6 +5,7 @@ const ErrorResponse = require("../utils/errorresponse");
 const sendEmail = require("../utils/sendemail");
 const crypto = require("crypto");
 const InvitedUser= require('../models/Inviteduser')
+const { Console } = require('console');
 
 
 exports.register = async (req, res, next) => {
@@ -139,6 +140,7 @@ exports.forgetpassword= async (req,res, next)=>{
     next(err);
   }
 };
+
 exports.resetPassword = async (req, res, next) => {
   // Compare token in URL params to hashed token
   const resetPasswordToken = crypto

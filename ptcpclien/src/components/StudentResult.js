@@ -17,6 +17,7 @@ function Student({student}) {
    // setStudentspec(student);
     
   }
+  console.log(clicked)
   let total=0;
   let outoftotal=0;
   useEffect(() => {
@@ -32,21 +33,6 @@ function Student({student}) {
     outoftotal=outoftotal+result.outof;
 })
 let finaltotal= total;
-  useEffect(()=>{
-    const addAverage = async()=>{
-      const Average = {
-        teacherid: user.user._id,
-        studentid: student._id,
-        Averagepoint: total,
-        reason: "Average",
-      };
-      try {
-        await axios.post("/api/studentManagmentRoutes/addAverage", Average);
-      } catch (err) {
-        console.log(err);
-      }
-    }; addAverage()
-  },[student._id]);
   //console.log(studentspec)
   return (
     <div>

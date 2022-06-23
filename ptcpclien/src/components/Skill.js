@@ -5,6 +5,8 @@ import { AuthContext } from '../context/AuthContext';
 export default function Skill({skill, ispostive,studentid}) {
   const {user} = useContext(AuthContext);
   const [currentpoint, setCurrentPoint] = useState(skill.SkillPoint);
+  const [reason, setreason] = useState(skill.SkillName);
+
   const handleClick = async (e) => {
     e.preventDefault();
    
@@ -13,9 +15,17 @@ export default function Skill({skill, ispostive,studentid}) {
         teacherid: user.user._id,
         studentid: studentid,
         behaviourpoint: currentpoint,
+        };
+      const pointanalysis = {
+        teacherid: user.user._id,
+        studentid: studentid,
+        behaviourpoint: currentpoint,
+        pointreason: reason
       };
       try {
         await axios.put("/api/studentManagmentRoutes/addbehaviour/"+studentid, point);
+        await axios.post("/api/studentManagmentRoutes/addnewbehaviour/", pointanalysis);
+        
         window.location.reload();
        
       } catch (err) {

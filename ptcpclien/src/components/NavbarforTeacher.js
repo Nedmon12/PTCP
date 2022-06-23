@@ -229,7 +229,10 @@ const Navbar = () => {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <button
+                  onClick={()=>{
+                    navigate("/tpsetting")
+                  }}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -237,7 +240,7 @@ const Navbar = () => {
                   )}
                 >
                   Account Setting 
-                </a>
+                </button>
               )}
             </Menu.Item>
           </div>

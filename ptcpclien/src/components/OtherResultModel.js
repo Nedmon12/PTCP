@@ -8,6 +8,8 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     const handleCancelClick = () => {
         setExamResultModal(false)    
     }
+  
+
     const outoff =useRef()
     const {user} =useContext(AuthContext);
     const mainresultt=useRef()
@@ -15,11 +17,12 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     console.log(user._id);
     const handleClick = async (e) => {
       e.preventDefault();
-      console.log(outoff.current.value)
-      console.log(reasonn.current.value)
-      console.log(mainresultt.current.value)
-
-        const result = {
+      
+      if (mainresultt.current.value > outoff.current.value) {
+        document.getElementById('message').innerText=`Please Set A number Less That the maximum`
+      }
+      else{
+      const result = {
           teacherid: user.user._id,
           studentid: student._id,
           subjectid: subject._id,
@@ -36,7 +39,7 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
         } catch (err) {
           console.log(err);
         }
-      
+      }
     };
     const [outof, setoutof] = useState(40);
     console.log(student.firstname)
@@ -77,7 +80,11 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
                 <button onClick={handleClick} className=" mt-4 ml-96 rounded-sm w-[6vw] SendButton p-2 text-white bg-cyan-500  h-10 " type="submit ">
                     save
                 </button>
+                <p id='message' className='text-red-500' >
+
+                </p>
             </div>
+            
             </div>
         </div>
         </div>

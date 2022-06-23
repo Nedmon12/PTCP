@@ -13,7 +13,6 @@ export default function Forgetpassword() {
             const sendemail={
                 email: email.current.value
             }
-            console.log("fuck")
             try {
             await axios.post("api/auth/forgetpassword", sendemail);
             //navigate("/tlogin");

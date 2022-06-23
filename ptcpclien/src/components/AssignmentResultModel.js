@@ -13,6 +13,11 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     console.log(user._id);
     const handleClick = async (e) => {
       e.preventDefault();
+      if (mainresultt.current.value > outoff.current.value) {
+        document.getElementById('message').innerText=`Please Set A number Less That the Maximum}`
+
+      }
+      else{
         const result = {
           teacherid: user.user._id,
           studentid: student._id,
@@ -29,7 +34,7 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
         } catch (err) {
           console.log(err);
         }
-      
+      } 
     };
     return (
     <div className='bg-zinc-rgba fixed inset-0 z-50' >
@@ -58,8 +63,12 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
                 <button onClick={handleClick} className=" mt-4 ml-96 rounded-sm w-[6vw] SendButton p-2 text-white bg-cyan-500  h-10 " type="submit ">
                     save
                 </button>
-            </div>
+                <p id='message' className='text-red-500' >
 
+</p>
+
+            </div>
+          
         
         </div>
         </div>
