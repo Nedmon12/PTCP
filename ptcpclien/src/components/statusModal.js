@@ -130,19 +130,9 @@ const attendanceHandler=()=>{
                                               <div className='h-20 border-b border-slate-100 p-6 flex flex-row justify-between' >
                                                   <span className='text-black text-lg ' >Whole class {user.user.resposibleclass} Students</span>
                                                   <div className='' >
-                                                      <button onClick={resultHandler} className={`rounded-l-lg  h-12 w-32 border border-cyan-500 ${whichtwo == 1 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Result</button>
-                                                      <button  onClick={behaviourHandler} className={`h-12 w-32 border border-cyan-500 ${whichtwo == 2 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Behavious</button>
-                                                      <button  onClick={attendanceHandler} className={`rounded-r-lg  h-12 w-32 border border-cyan-500 ${whichtwo == 3 ?"bg-cyan-500 text-white":"bg-white text-cyan-500"}`} >Attendance</button>
-                                                  </div>
+                                                    </div>
                                               </div>
-                                              {whichtwo==1 ?
-                                                  <div>
-                                                     <div className='p-4 min-h-full'>
-                                                        <Resulttable/> 
-                                                        <Donat/>
-                                                     </div>    
-                                                  </div> 
-                                              : whichtwo==2 ?
+                                              { whichtwo==2 ?
                                               <div>
                                                  <Bar/> 
                                                  <Graph/> 
@@ -151,7 +141,7 @@ const attendanceHandler=()=>{
                                               </div> 
                                               :
                                               <div>
-                                                hey
+                                                
                                               </div>
                                               }                                                                                        
                                            </div>

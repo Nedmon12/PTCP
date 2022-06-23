@@ -22,6 +22,16 @@ const {user} = useContext(AuthContext);
     setInviteStudentParent(true);
   
   }
+  const handleDelete = async (e) => {
+    e.preventDefault();
+      try {
+        await axios.get("api/studentmanagmentRoutes/deletestudent/"+ student._id);
+        window.location.reload();
+      } catch (err) {
+        console.log(err);
+      }
+    
+  };
 
 
   return (
@@ -90,7 +100,7 @@ const {user} = useContext(AuthContext);
                           </div>   
                   </div>
                   <div className='basis-1/12 flex flex-row justify justify-between mt-10 p-2' >
-                      <button className=" rounded-sm w-[18vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
+                      <button onClick={handleDelete} className=" rounded-sm w-[18vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
                             <span>Remove Student From ClassRoom</span>
                         </button>
                         <div className='-mt-4' >

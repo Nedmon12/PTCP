@@ -62,7 +62,8 @@ export default function ResultStatus({subject, student, setExamResultModal})
           outoftotal=outoftotal+result.outof;
       });   
   return(
-     <TableContainer component={Paper}>
+  
+                                <TableContainer component={Paper}>
                                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                                   <TableHead>
                                     <TableRow>
@@ -87,7 +88,6 @@ export default function ResultStatus({subject, student, setExamResultModal})
                                     ))}
                                   </TableBody>
                                 </Table>
-            </TableContainer>
-                               
+                              </TableContainer>
   );
 }
