@@ -16,7 +16,8 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
     const handleClick = async (e) => {
       e.preventDefault();
       if (mainresultt.current.value > outoff) {
-        mainresultt.current.setCustomValidity("Result cant be greater that"+outoff);
+        document.getElementById('message').innerText=`Please Set A number Less That${(outoff)}`
+
       }
       else{
         const result = {
@@ -68,7 +69,7 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
             </button> 
         </div>
         <div className='basis-5/6' >
-            <div className='flex flex-row border-b-2 bg-gray-500 border-slate-100' >
+            <div className='flex flex-row border-b-2 bg-cyan-500 border-slate-100' >
                           <button onClick={thirtyHandler} type="button" class={`px-10 py-2 inline-flex items-center p-4  text-white text-base rounded-lg ${outoff == 30 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
                             30
                           </button>
@@ -91,6 +92,9 @@ export default function ExamResultModel({student,setExamResultModal, subject}) {
                     save
                 </button>
             </div>
+            <p id='message' className='text-red-500' >
+
+                </p>
         </div>
         </div>
         </div>

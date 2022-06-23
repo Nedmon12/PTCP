@@ -9,15 +9,18 @@ export default function ParentsMessages({teacher}) {
   return (
     <div className='RecentparenrtMessages w-full h-20 text-cyan-400 hover:bg-cyan-100 cursor-pointer flex flex-row'>
         <div className='profileplace basis-1/4 ' >
-           <img className="postProfileImg h-10 w-10 m-2 rounded-full border border-cyan-400 object-cover" 
+           <img className="postProfileImg h-12 w-12 m-2 rounded-full border border-cyan-400 object-cover" 
                             src={
                                 teacher.profilePicture
                                   ? PF + teacher.profilePicture
                                   : PF + "profile/noAvatar.png"
                               } alt=""/>
         </div>
-        <div className='Desc basis-3/4 ' >
-            <div><span className="shareOptionText text-black text-sm">{teacher.firstname} {teacher.lastname}</span></div>
+        <div className='Desc basis-3/4 invisible md:visible ' >
+            <div className='' >
+              <span className="shareOptionText text-black text-sm">{teacher.firstname} {teacher.lastname}</span>
+              <span className="shareOptionText text-gray-700 text-sm">{teacher.email}</span>
+              </div>
         
         </div>
 

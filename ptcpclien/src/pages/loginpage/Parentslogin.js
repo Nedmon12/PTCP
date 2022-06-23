@@ -16,6 +16,9 @@ export default function Parentslogin() {
     e.preventDefault();
     ploginCall({email:email.current.value, password:password.current.value},
       dispatch);
+      
+      document.getElementById('message').innerHTML="Incorrect email Or Password"
+
   };
   return (
     <div className='bg-white min-h-screen min-w-screen flex flex-col'>
@@ -51,6 +54,10 @@ export default function Parentslogin() {
                     <input minLength="6" required ref={password} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
                     <p className="text-red-500 text-xs italic"></p>
                   </div>
+                  <p id='message' className='text-red-500 py-2' >
+                     
+                     </p>
+   
                   <div className="flex items-center justify-between">
                     <button disabled={isFetching} type="submit" className="login_button bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     {isFetching ? "loading":"Log in"}

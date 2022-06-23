@@ -3,7 +3,7 @@ import { AuthContext } from '../../context/AuthContext';
 import axios from "axios";
 export default function events() {
   return (
-    <div className='ventwrapper mt-4 ml-4 border bg-white w-52 border-slate-200 rounded-md h-48'  >
+    <div className='ventwrapper mt-4 ml-4 border bg-white md:w-52 w-full border-slate-200 rounded-md h-48'  >
         <div className='allevent p-3 '>
             <div className="eventTop">
                 <a>

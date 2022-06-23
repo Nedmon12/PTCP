@@ -3,8 +3,19 @@ const Post = require("../models/posts");
 const User = require("../models/UserTeachers");
 const {check, validationResult} = require('express-validator/check')
 const auth = require('../middlewares/auth')
+const Event  = require('../models/Event')
+//create a event
 
 
+router.post("/newevent", async (req, res) => {
+  const evnet = new Event(req.body);
+  try {
+    const savedPost = await newPost.save();
+    res.status(200).json(savedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //create a post
 
 router.post("/newpost", async (req, res) => {

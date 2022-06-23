@@ -14,6 +14,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Logoutcall }from '../apicalls';
 import {Link ,useNavigate} from 'react-router-dom'
 import SettingModal from './settingmodal'
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
@@ -79,43 +80,47 @@ const Navbar = () => {
                 <div className="py-1">
                     <Menu.Item>
                     {({ active }) => (
-                        <a
-                        href="#"
+                        <button
+                        onClick={()=>{
+                          navigate('/thome')
+                        }}
                         className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
+                            active ? 'bg-gray-100 w-full text-gray-900' : 'text-gray-700',
+                            'block px-4 py-2 text-sm w-full'
                         )}
                         >
                         Create post
-                        </a>
+                        </button>
                     )}
                     </Menu.Item>
 
                     <Menu.Item>
                     {({ active }) => (
                         <NavLink to="/eventhome">
-                            <a
+                            <button
                         className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                        )}
+                          active ? 'bg-gray-100 w-full text-gray-900' : 'text-gray-700',
+                          'block px-4 py-2 text-sm w-full'
+                      )}
                         >
                         Create an Event
-                        </a>
+                        </button>
                         </NavLink>
                     )}
                     </Menu.Item>
                     <Menu.Item>
                     {({ active }) => (
-                        <a
-                        href="#"
+                        <button
+                        onClick={()=>{
+                          navigate("/tvideo")
+                        }}
                         className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                        )}
+                          active ? 'bg-gray-100 w-full text-gray-900' : 'text-gray-700',
+                          'block px-4 py-2 text-sm w-full'
+                      )}
                         >
                         video conferece
-                        </a>
+                        </button>
                     )}
                     </Menu.Item>
                     
@@ -224,7 +229,10 @@ const Navbar = () => {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <button
+                  onClick={()=>{
+                    navigate("/tpsetting")
+                  }}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -232,7 +240,7 @@ const Navbar = () => {
                   )}
                 >
                   Account Setting 
-                </a>
+                </button>
               )}
             </Menu.Item>
           </div>

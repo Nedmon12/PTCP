@@ -123,29 +123,29 @@ export default function MessageContainer({}) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
       return (
         <>
-        <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2' >
-            <div className='basis-1/5 border-r flex flex-col'>
-            <div className='basis-1/12 border-b'>
-                <span className='text-xl justify-center pl-6' >Messages</span>
-            </div>
-            <div className='Conversations basis-11/12 flex flex-col overflow-y-scroll'>
-                <div>
-                <span className="">
-                        {conversations.map((c) => (
-                        <div onClick={() => setCurrentChat(c)}>
-                      <TeacherMessages teacher={teacher}/>
-                        </div>
-                        ))}
-                        </span>
+        <div className='shadow-lg border rounded-lg h-full lg:mx-44 mx-0 bg-white flex flex-row mt-2' >
+            <div className='basis-3/12 border-r flex flex-col w-16 md:w-full'>
+                    <div className='basis-1/12 border-b'>
+                        <span className='text-xl justify-center pl-6' >Messages</span>
+                    </div>
+                    <div className='Conversations basis-11/12 flex flex-col overflow-y-scroll'>
+                        <div>
+                        <span className="">
+                                {conversations.map((c) => (
+                                <div onClick={() => setCurrentChat(c)}>
+                              <TeacherMessages teacher={teacher}/>
+                                </div>
+                                ))}
+                                </span>
 
-                                    </div>
+                                            </div>
+                    </div>
             </div>
-        </div>
-        <div className='basis-4/5 flex flex-col'>
+        <div className='basis-9/12 flex flex-col'>
             <div className='basis-1/12 border-b'>
-                <span className='text-xl pt-8 pl-6'>Abel Dejene's Parent</span>
+                <span className='text-xl pt-8 pl-6'>Open the text</span>
             </div>
-            <div className='messagesview basis-10/12 border-b overflow-y-auto '>
+            <div className='messagesview basis-11/12 border-b overflow-y-auto shrink md:shrink-0'>
                 <div className='p-2 pt-3' >
                 {messages.map((m) => (
                     <div ref={scrollRef}>
@@ -155,32 +155,20 @@ export default function MessageContainer({}) {
                 </div>
             </div>
             <div className='messagesinput basis-1/12 '>
-            <div className='textinput flex flex-row' >
-        <div className='basis-2/12 border flex flex-row' >
-            <div className="shareOption p-3 text-cyan-400">
-                <AttachFileIcon fill="currentColor" className="Attactfile" />
-            </div>
-            <div className="shareOption p-3 text-cyan-400">
-                <ImageIcon fill="currentColor" className="AttactImage" />
-            </div>
-            <div className="shareOption p-3 text-cyan-400">
-                <EmojiEmotionsIcon fill="currentColor" className="AttactEmojies" />
-            </div>
-        </div>
-        <div className='basis-8/12' >
-            <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
-                    value={newMessage}/>
-        </div>
-        <div className='basis-2/12' >
-            <button className=" w-full SendButton p-3 text-white bg-cyan-500 " onClick={handleSubmit}>
-                            Send
-            </button>
-        </div>
-        
-    </div>
+              <div className='textinput flex flex-row' >
+                  <div className='basis-10/12' >
+                      <input placeholder="Type Message"className="PostInput pl-3 w-full placeholder-cyan-500 h-full border" onChange={(e) => setNewMessage(e.target.value)}
+                              value={newMessage}/>
+                  </div>
+                  <div className='basis-2/12' >
+                      <button className=" w-full SendButton p-3 text-white bg-cyan-500 " onClick={handleSubmit}>
+                                      Send
+                      </button>
+               </div>
+              </div>
             </div>
            </div>        
-    </div>
+        </div>
     </>
   )
 }

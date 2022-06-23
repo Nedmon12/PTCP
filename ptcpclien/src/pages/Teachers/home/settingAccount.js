@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import Navbar from "../../../components/parents/parentsnavbar"
+import Navbar from "../../../components/NavbarforTeacher"
 import Header from "../../../components/parents/parentsheader"
 import { AuthContext } from '../../../context/AuthContext'
 import useFetch from '../../../hook/useFetch'
@@ -12,13 +12,6 @@ export default function Home() {
         setchange(!change);
     } 
     const [Student, setStudent]= useState([]);
-    useEffect(() => {
-      const fetchmykid = async () => {
-        const res = await axios.get("/api/studentManagmentRoutes/fetchmykid/"+ user.user.studentid);
-        setStudent(res.data);
-      };
-      fetchmykid();
-    }, [user.user._id]);
     
   const png=".png";
   const image=Student.pokemanUrl;
@@ -29,7 +22,6 @@ export default function Home() {
   return (
     <div className='totalcontainer'>
         <div  className='sticky top-0'>
-        <Header/>
         <Navbar/>
         </div>
         <div className='postandeventcontainer flex flex-row bg-slate-100'>    
@@ -137,13 +129,7 @@ export default function Home() {
                       <div className='p-4' >
                         <span className='text-lg font-semibold text-gray-500' >Your Kids</span>
                       </div>
-                      <div className='p-4  flex flex-row' >
-                        <img className='pokeman w-10 h-10 mx-4 '  src={PFavater + imageurl} alt="k" />
-                        <div className='w-26 h-16 rounded-lg'>
-                              <span className='StudentName font-sans font-medium text-gray-600 p-2 py-2 '>{Student.firstname}</span>
-                              <span className='StudentName font-sans font-medium text-gray-600 p-2 py-2 '>{Student.lastname}</span>
-                        </div>
-                      </div>
+                 
                    
                   </div>
 

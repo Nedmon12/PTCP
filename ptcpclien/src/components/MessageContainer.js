@@ -116,7 +116,7 @@ export default function MessageContainer() {
   return (
       <>
         <div className='border rounded-lg h-full mx-44 bg-white flex flex-row mt-2 shadow-lg' >
-            <div className='basis-1/5 border-r flex flex-col'>
+            <div className='basis-3/12 border-r flex flex-col'>
             <div className='basis-1/12 border-b'>
                 <span className='text-xl justify-center pl-6' >Messages</span>
             </div>
@@ -144,11 +144,11 @@ export default function MessageContainer() {
                 </div>
             </div>
         </div>
-        <div className='basis-4/5 flex flex-col'>
+        <div className='basis-9/12 flex flex-col'>
             <div className='basis-1/12 border-b'>
                 <span className='text-xl pt-8 pl-6'>Abel Dejene's Parent</span>
             </div>
-            <div className='messagesview basis-10/12 border-b overflow-y-auto '>
+            <div className='messagesview basis-11/12 border-b overflow-y-auto '>
                 <div className='p-2 pt-3' >
                 {messages.map((m) => (
                     <div ref={scrollRef}>

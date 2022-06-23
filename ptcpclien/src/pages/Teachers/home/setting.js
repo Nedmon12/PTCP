@@ -11,9 +11,12 @@ import InviteParentModal from '../../../components/inviteParentModal'
 import InviteAllParent from '../home/components/inviteallparents'
 import AddSkill from '../home/components/addskill'
 import AddSubject from '../home/components/addsubject'
+import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
     const {user}= useContext(AuthContext)
+    const navigate= useNavigate()
     const [ispostive, setpostive] = useState(1);
     const ExamHandler = () => {
         if(ispostive!==1)
@@ -38,9 +41,8 @@ export default function Home() {
         if(ispostive!==6)
         setpostive(6);
       };  
-      const rankHandler = () => {
-        if(ispostive!==1)
-        setpostive(7);
+      const closehandler = () => {
+        navigate('/thome')
       };  
       
  
@@ -57,8 +59,12 @@ export default function Home() {
               <div className='postandeventcontainer flex flex-row bg-white p-2 '>    
                   <div className='containerofsetting border-2 border-slate-100 mt-2 h-[100vh] w-full flex flex-col bg-white'>
                       <div className=''>
-                              <div>
+                              <div className='flex flex-row justify-between'>
                                   <span className=' text-lg text-gray-800' >Edit ClassRoom 4A</span>
+                                  <button onClick={closehandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 7 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
+                                      <CloseIcon/>
+                                </button>
+                                
                                   </div>
                               <div className='skillnavbar flex flex-row border-b border-slate-100 mt-3 ' >
                   
@@ -69,20 +75,12 @@ export default function Home() {
                                   Invite Parents
                                 </button>
                                 <button onClick={AssignmentHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 3 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Add Skill
+                                  Manage Skill
                                 </button>
                               <button onClick={otherHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 4 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Add Subject
+                                  Manage Subject
                                 </button>
-                                <button onClick={totalHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 5 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Results
-                                </button>
-                                <button onClick={AverageHandler} type="button" class={`px-10 py-2 inline-flex items-center  text-gray-700 text-base rounded-lg ${ispostive == 6 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Average
-                                </button>
-                                <button onClick={rankHandler} type="button" class={`px-10 py-2 inline-flex items-center   text-gray-700 text-base rounded-lg ${ispostive == 7 ? "text-cyan-500 bg-cyan-100 underline underline-offset-8"  : "text-gray-500  hover:bg-gray-300 "}`}>   
-                                  Rank
-                                </button>
+                               
                                   
                               </div>
                               <div className=' h-[36vw] overflow-y-auto '>

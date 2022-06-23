@@ -14,12 +14,10 @@ import { useNavigate } from "react-router";
 export default function EventContainer() {
     const navigate = useNavigate();
     const title = useRef();
-    const date = useRef();
-
+    const startingtime =useRef();
+    const endtime =useRef();
     const checked = useRef();
     const description = useRef();
-    const timestart = useRef();
-    const timeend = useRef();
     const {user}= useContext(AuthContext)
     const [posts, setPosts] = useState([]);
     const [state, setState] = useState([
@@ -28,18 +26,25 @@ export default function EventContainer() {
           endDate: null,
           key: 'selection'
         }
-      ]);
+        
+    ]);
+
       const Create = async (e) => {
-          console.log("hey")
+          
+          console.log(state[0].key)
         e.preventDefault();
         if (title.current.value !== null){ 
          const event = {
+            teacherid: user.user.id,
             title: title.current.value,
-            date: date.current.value,
-          
+            desc: description.current.value,
+            startingdate: state[0].startDate,
+            enddate: state[0].startDate,
+            startingtime: state[0].startDate,
+            endtime: state[0].startDate
           };
           try {
-            await axios.post("api/auth/register", event);
+            await axios.post("api/post/newevent", event);
             //navigate("/tlogin");
           } catch (err) {
             console.log(err);
@@ -75,15 +80,15 @@ export default function EventContainer() {
                             ranges={state}
                         />
                         </div>
-                        <input ref={date} type="text" id="large-input" placeholder='8:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input ref={startingtime} type="text" id="large-input" placeholder='8:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                         <span class="block tracking-wide text-black text-lg  p-6 ">To</span>
-                        <input type="text" id="large-input" placeholder='12:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input ref={startingtime} type="text" id="large-input" placeholder='12:00 am' class="mx-4 my-6 block w-[10vh] h-[8vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                     </div>
                     <div className='flex flex-row h-16 p-1' >
                             <span class="block tracking-wide text-black text-lg  p-6 ">Description</span>
-                            <input ref={description} type="text" id="large-input" class="mx-4 my-6 block w-full h-[15vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <input ref={endtime} type="text" id="large-input" class="mx-4 my-6 block w-full h-[15vh] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </input>
                     </div>
                  </div>

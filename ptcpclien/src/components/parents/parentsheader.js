@@ -24,7 +24,7 @@ const Navbar = () => {
     console.log(location.pathname);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
-        <nav className='teachersidenavbarcontainer bg-cyan-500 border-blue-100 h-14 mx-auto flex flex-row justify-around '>
+        <nav className='w-full  md:w-[] mx-auto teachersidenavbarcontainer bg-cyan-500 border-blue-100 h-14 flex flex-row justify-around '>
            <div  className='text-white px-4 py-4' >
                 <span className='text-white' >Home</span>   
             </div>

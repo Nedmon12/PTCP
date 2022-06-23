@@ -11,8 +11,11 @@ import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 export default function Landing() {
   return (
     <>
-      <script src="https://kit.fontawesome.com/32e7cf2af1.js" crossorigin="anonymous"></script>
-      <Navbar/>
+      <script
+        src="https://kit.fontawesome.com/32e7cf2af1.js"
+        crossorigin="anonymous"
+      ></script>
+      <Navbar />
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-[80vh]">
           <div
@@ -22,21 +25,22 @@ export default function Landing() {
                 "url('https://www.pbisrewards.com/wp-content/uploads/parent-teacher-communication.gif')",
             }}
           >
-          <span
-            id="blackOverlay"
-            className="w-full h-full absolute opacity-20 bg-cyan-500"
-          ></span>
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-20 bg-cyan-500"
+            ></span>
           </div>
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12 ">
                   <h1 className="text-white font-semibold text-5xl mt-12">
-                  Bring every family into your classroom.
+                    Bring every family into your classroom.
                   </h1>
                   <p className="mt-4 text-lg text-white">
-                  BearePTCP connects teachers with students and parents to build amazing classroom communities
-                    </p>
+                    BearePTCP connects teachers with students and parents to
+                    build amazing classroom communities
+                  </p>
                 </div>
               </div>
             </div>
@@ -69,13 +73,14 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                    <FamilyRestroomIcon/>
+                      <FamilyRestroomIcon />
                     </div>
-                    <h6 className="text-xl font-semibold">Give Parent a voice</h6>
+                    <h6 className="text-xl font-semibold">
+                      Give Parent a voice
+                    </h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                        Get parents engaged by Sharing 
-                        photos and videos of wonderful 
-                            classroom moments.
+                      Get parents engaged by Sharing photos and videos of
+                      wonderful classroom moments.
                     </p>
                   </div>
                 </div>
@@ -85,11 +90,15 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-cyan-500 w-full mb-8 shadow-lg shadow-cyan-300 rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-red-400 bg-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
-                      <SchoolIcon/>
+                      <SchoolIcon />
                     </div>
-                    <h6 className="text-xl text-white font-semibold">Create a positive School culture</h6>
+                    <h6 className="text-xl text-white font-semibold">
+                      Create a positive School culture
+                    </h6>
                     <p className="mt-2 mb-4 text-white">
-                    Teachers can encourage students for any skill or value whether it's working hard, being kind, helping others or Even Sending Their Result To Their Parents
+                      Teachers can encourage students for any skill or value
+                      whether it's working hard, being kind, helping others or
+                      Even Sending Their Result To Their Parents
                     </p>
                   </div>
                 </div>
@@ -99,11 +108,14 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                      <HistoryEduIcon/>
+                      <HistoryEduIcon />
                     </div>
-                    <h6 className="text-xl font-semibold">Amazing tools For Teachers</h6>
+                    <h6 className="text-xl font-semibold">
+                      Amazing tools For Teachers
+                    </h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                    Five to one student grouping, Attendance Monitoring ,Behaviour Monitoring and Result Monitoring  .
+                      Five to one student grouping, Attendance Monitoring
+                      ,Behaviour Monitoring and Result Monitoring .
                     </p>
                   </div>
                 </div>
@@ -116,12 +128,13 @@ export default function Landing() {
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                      Confident and connected families
+                  Confident and connected families
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Keep your families informed of important updates, 
-                and easily involve them in what's happening within your centre, and for their child. 
-                Families can respond and share stories of learning at home, creating meaningful two-way communication.
+                  Keep your families informed of important updates, and easily
+                  involve them in what's happening within your centre, and for
+                  their child. Families can respond and share stories of
+                  learning at home, creating meaningful two-way communication.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
                   The kit comes with three pre-built pages to help you get
@@ -130,7 +143,7 @@ export default function Landing() {
                   JavaScript.
                 </p>
                 <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Subbscribe To BearePTCP
+                  Subscribe To BearePTCP
                 </Link>
               </div>
 
@@ -187,7 +200,7 @@ export default function Landing() {
                 <img
                   alt="..."
                   className="max-w-full rounded-lg shadow-lg"
-                  src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  src="/img/wwww.jpg"
                 />
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
@@ -195,56 +208,116 @@ export default function Landing() {
                   <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">
+                    Share the story of your classroom with families
+                  </h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                    Instantly share photos, videos, and announcements on Class
+                    Story, or privately message with any parent 
                   </p>
-                  <ul className="list-none mt-6">
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
-                            <i className="fas fa-fingerprint"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blueGray-500">
-                            Carefully crafted components
-                          </h4>
-                        </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center mt-32">
+                <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+                  <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                    <i className="fas fa-user-friends text-xl"></i>
+                  </div>
+                  <h3 className="text-3xl mb-2 font-semibold leading-normal">
+                    Private and Secure
+                  </h3>
+                  <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+                    The BearePTCP lets you exchange information securely with
+                    the knowledge that your data is private and secure. We only
+                    collect the necessary information to build out your school
+                    network and will never share your information.
+                  </p>
+                </div>
+
+                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                  <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
+                    <img
+                      alt="..."
+                      src="/img/data.jpg"
+                      className="w-full align-middle rounded-t-lg"
+                    />
+                    <blockquote className="relative p-8 mb-4">
+                      <svg
+                        preserveAspectRatio="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 583 95"
+                        className="absolute left-0 w-full block h-95-px -top-94-px"
+                      >
+                        <polygon
+                          points="-30,95 583,95 583,65"
+                          className="text-lightBlue-500 fill-current"
+                        ></polygon>
+                      </svg>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+              <div className="container mx-auto px-4">
+                <div className="items-center flex flex-wrap">
+                  <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+                    <img
+                      alt="..."
+                      className="max-w-full rounded-lg shadow-lg"
+                      src="/img/instant.jpg"
+                    />
+                  </div>
+                  <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+                    <div className="md:pr-12">
+                      <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
+                        <i className="fas fa-rocket text-xl"></i>
                       </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
-                            <i className="fab fa-html5"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blueGray-500">
-                            Amazing page examples
-                          </h4>
-                        </div>
+                      <h3 className="text-3xl font-semibold">
+                        Instant and Direct Messaging
+                      </h3>
+                      <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                        Real time two-way messaging between parents and
+                        teachers.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center mt-32">
+                    <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
+                      <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                        <i className="fas fa-user-friends text-xl"></i>
                       </div>
-                    </li>
-                    <li className="py-2">
-                      <div className="flex items-center">
-                        <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
-                            <i className="far fa-paper-plane"></i>
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="text-blueGray-500">
-                            Dynamic components
-                          </h4>
-                        </div>
+                      <h3 className="text-3xl mb-2 font-semibold leading-normal">
+                        Video conference
+                      </h3>
+                      <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+                        A direct line of communication through video
+                        conferencing that looks
+                        forward to establishing a healthy academic relationship
+                        between parents, teachers, and students.
+                      </p>
+                    </div>
+
+                    <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
+                        <img
+                          alt="..."
+                          src="/img/videocon.jpg"
+                          className="w-full align-middle rounded-t-lg"
+                        />
+                        <blockquote className="relative p-8 mb-4">
+                          <svg
+                            preserveAspectRatio="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 583 95"
+                            className="absolute left-0 w-full block h-95-px -top-94-px"
+                          >
+                            <polygon
+                              points="-30,95 583,95 583,65"
+                              className="text-lightBlue-500 fill-current"
+                            ></polygon>
+                          </svg>
+                        </blockquote>
                       </div>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -255,154 +328,10 @@ export default function Landing() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold">Here are our heroes</h2>
                 <p className="text-lg leading-relaxed m-4 text-blueGray-500">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
+                  Never miss a moment! Stay engaged in your child’s growth, no
+                  matter how busy you are.
                 </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("./assets/img/team-1-800x800.jpg").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Ryan Tompson</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Web Developer
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-dribbble"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("./assets/img/team-2-800x800.jpg").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Romina Hadid</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Marketing Specialist
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("./assets/img/team-3-800x800.jpg").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Alexa Smith</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      UI/UX Designer
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-instagram"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("./assets/img/team-4-470x470.png").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Jenna Kardi</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Founder and CEO
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-dribbble"></i>
-                      </button>
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-instagram"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

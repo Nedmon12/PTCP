@@ -5,7 +5,7 @@ import { AuthContext } from '../../../context/AuthContext'
 import Navbar from "../../../components/parents/parentsnavbar"
 import Header from "../../../components/parents/parentsheader"
 import MessageContainer  from "../../../components/parents/MessageContainerParents"
-import Footer from "../../../components/parents/Footerparents"
+import Footer from "../../../components/Footer"
 export default function  () {
   const {user}= useContext(AuthContext)
      
@@ -15,7 +15,7 @@ export default function  () {
         <Header/>
         <Navbar/>
       </div>
-      <div className='maincontainer h-5/6 min-w-full'>
+      <div className='maincontainer h-5/6 min-w-full '>
         <MessageContainer/>
       </div>
       <div className='mt-2'>

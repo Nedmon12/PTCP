@@ -14,6 +14,11 @@ export default function TestResultModel({student,setExamResultModal, subject}) {
     const mainresultt= useRef()
     const handleClick = async (e) => {
       e.preventDefault();
+      if (mainresultt.current.value > outoff) {
+        document.getElementById('message').innerText=`Please Set A number Less That${(outoff)}`
+
+      }
+      else{
         const result = {
           teacherid: user.user._id,
           studentid: student._id,
@@ -30,7 +35,7 @@ export default function TestResultModel({student,setExamResultModal, subject}) {
         } catch (err) {
           console.log(err);
         }
-    }
+      }}
     const fiveHandler = () => {
         if(outoff!==5)
         setoutoff(5);
@@ -86,6 +91,9 @@ export default function TestResultModel({student,setExamResultModal, subject}) {
                     save
                 </button>
             </div>
+            <p id='message' className='text-red-500' >
+
+                </p>
         </div>
         </div>
         </div>
