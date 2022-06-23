@@ -10,7 +10,18 @@ export default function AddSubjectmodal({seteditSubjectmodal, subject}) {
     console.log(subject.SubjectName)
     const newsubject =useRef()
     const {user} =useContext(AuthContext);
-    
+
+    const handleDelete = async (e) => {
+      e.preventDefault();
+        try {
+          await axios.get("api/class/deleteSubject/"+ subject._id);
+          window.location.reload();
+        } catch (err) {
+          console.log(err);
+        }
+      
+    };
+  
     const handleClick = async (e) => {
       e.preventDefault();
         const subjectsent = {
@@ -40,7 +51,7 @@ export default function AddSubjectmodal({seteditSubjectmodal, subject}) {
                 
             </div>
             <div className='basis-1/6 flex flex-row justify justify-between mt-10 p-2' >
-                      <button onClick={handleClick} className=" rounded-sm w-[18vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
+                      <button onClick={handleDelete} className=" rounded-sm w-[18vw] SendButton px-2 -mt-4 text-red-500  h-10 " type="submit ">
                             <span>Remove Subject</span>
                         </button>
                         <div className='-mt-4' >

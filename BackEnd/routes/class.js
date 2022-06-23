@@ -13,7 +13,7 @@ router.route("/fetchnegativeskill/:TeacherId").get(fetchNegativeSkill);
 
 router.route("/addsubject").post(addSubject);
 router.route("/fetchallsubject/:TeacherId").get(fetchSubject);
-router.route("/deleteSubject/subjectId").get(deleteSubject)
+router.route("/deleteSubject/:subjectId").get(deleteSubject)
 //router.route("/fetchstudent/:teacherid").get(fetchSkill);
 
 module.exports = router;
