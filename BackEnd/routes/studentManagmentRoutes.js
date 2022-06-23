@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+<<<<<<< HEAD
 const {addStudent,editStudent,fetchStudents,addbehaviour,addResult,fetchattendance,behaviourfetch,addAverage,addTotalResult,fetchmykid,fetchresult,fetchresultt ,fetchmykidteacher,fetchmystudentparent,attendance,behaviourupdate,behaviourallfetch}=require("../controllers/studentManagmentController")
+=======
+const {addStudent,editStudent,fetchStudents,addResult,fetchattendance,behaviourfetch,addAverage,addTotalResult,fetchmykid,fetchresult,fetchresultt ,fetchmykidteacher,fetchmystudentparent,attendance,behaviourupdate,behaviourallfetch, deleteStudent}=require("../controllers/studentManagmentController")
+>>>>>>> rank
 //addbehaviour,fetchBehaviour,
 router.route("/addstudent").post(addStudent);
 
@@ -36,4 +40,5 @@ router.route("/fetchmykidteacher/:_id").get(fetchmykidteacher);
 
 router.route("/fetchmystudentparent/:studentid").get(fetchmystudentparent);
 
+router.route('/deletestudent/:studentId').get(deleteStudent)
 module.exports = router;

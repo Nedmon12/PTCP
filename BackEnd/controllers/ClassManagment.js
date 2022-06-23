@@ -1,6 +1,7 @@
 const Skill= require('../models/Skill')
 const Subject= require('../models/Subject')
-const Result= require('../models/result')
+const Result= require('../models/result');
+const Student = require('../models/Student');
 
 exports.addSkill= async(req,res,next) => {
     const { TeacherId, SkillName, SkillPoint,SkillType, } = req.body;
@@ -61,4 +62,15 @@ exports.fetchSubject=async(req,res,next)=>{
       next(error);
     }
   };
+  exports.deleteSubject = async (req,res,next) => {
+    try {
+      // console.log(req.params.studentId)
+      const deleted = await Subject.findById(req.params.subjectId)
+      deleted.remove().then(()=> res.json({success: true}))
+      // res.status(200).json(deleted)
+    }
+    catch(err) {
+      res.status(500).json(err)
+    }
+  }
  
