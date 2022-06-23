@@ -76,6 +76,7 @@ export default function StudentDetail({setStudentdetailmodal, student}) {
                             <div>
                                 <div className='p-4 min-h-full'>
                                     Result
+                                    <Resulttable/>
                                 </div>    
                             </div> 
                         : which==2 ?

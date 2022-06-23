@@ -79,11 +79,11 @@ export default function ResultStatus({subject, student, setExamResultModal})
                                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                                   <TableHead>
                                     <TableRow>
-                                      <StyledTableCell>Full Name </StyledTableCell>
-                                      <StyledTableCell align="right">No of Subject</StyledTableCell>
-                                      <StyledTableCell align="right">Total</StyledTableCell>
-                                      <StyledTableCell align="right">Average</StyledTableCell>
-                                      <StyledTableCell align="right">Rank</StyledTableCell>
+                                      <StyledTableCell>Subject </StyledTableCell>
+                                      <StyledTableCell align="right">type</StyledTableCell>
+                                      <StyledTableCell align="right">Out of</StyledTableCell>
+                                      <StyledTableCell align="right">total</StyledTableCell>
+                                      <StyledTableCell align="right">Date</StyledTableCell>
                                     </TableRow>
                                   </TableHead>
                                   <TableBody>
